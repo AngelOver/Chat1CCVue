@@ -18,7 +18,7 @@ export async function getCacheConfig(): Promise<Config> {
   const loadedConfig = await getOriginConfig()
 
   cachedConfig = loadedConfig
-  cacheExpiration = now + 10 * 60 * 1000
+  cacheExpiration = now + 1 * 60 * 1000
 
   return Promise.resolve(cachedConfig)
 }

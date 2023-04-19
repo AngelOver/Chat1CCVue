@@ -80,11 +80,33 @@ watch(
         <div class="flex-1 min-h-0 pb-4 overflow-hidden">
           <List />
         </div>
-        <div class="p-4">
-          <NButton block @click="show = true">
-            {{ $t('store.siderButton') }}
-          </NButton>
-        </div>
+				<div class="p-4 " style="padding-top: 0">
+					<dev class="flex items-center justify-between  ">
+						<div class="flex-1 flex-shrink-0 overflow-hidden">
+							<p>
+								ChatGPT交流群：
+							</p>
+							<p>
+								v群:----------->
+							</p>
+							<p>
+								q群:791303042
+							</p>
+						</div>
+						<div class="flex-1 flex-shrink-0 overflow-hidden">
+							<img  style="" src="https://qiniuchat.a3r.cn/other/chatgpt_wx.jpg">
+						</div>
+					</dev>
+					<h6>
+						注：私服、gpt账号等私聊群主
+					</h6>
+					<h6 style="color: #c18401">
+						永久域名：<a href="https://1chat.cc"> https://1chat.cc</a> 请收藏
+					</h6>
+					<h6 style="color: #c18401">
+						其他域名会逐渐废弃
+					</h6>
+				</div>
       </main>
       <Footer />
     </div>
