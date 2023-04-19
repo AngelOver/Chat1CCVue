@@ -101,11 +101,15 @@ watch(
 						注：私服、gpt账号等私聊群主
 					</h6>
 					<h6 style="color: #c18401">
-						永久域名：<a href="https://1chat.cc"> https://1chat.cc</a> 请收藏
+						永久域名：<a href="https://1chat.cc"> https://1chat.cc</a>
 					</h6>
 					<h6 style="color: #c18401">
-						其他域名会逐渐废弃
+						其他域名会逐渐废弃 ↑↑↑↑↑ 请收藏
 					</h6>
+					<NButton block @click="show = true">
+						{{ $t('store.siderButton') }}
+					</NButton>
+
 				</div>
       </main>
       <Footer />

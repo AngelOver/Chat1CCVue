@@ -42,8 +42,6 @@ let errorapikeys = {}
 let availableKeys = {}
 
 function cleanErrorApiKeys() {
-	console.log("清理过期key")
-	console.log(errorapikeys)
 	const now = Date.now()
 	for (const key in errorapikeys) {
 			const timestamp = errorapikeys[key]
@@ -51,12 +49,9 @@ function cleanErrorApiKeys() {
 				continue
 			}
 			if ((now - timestamp) > (1 * 30 * 1000) ) {
-				console.log("过期key移除"+key)
 				delete errorapikeys[key]
 			}
 	}
-	console.log(errorapikeys)
-	console.log("清理过期keyok")
 }
 
 // 为提高性能，预先计算好能预先计算好的
@@ -199,8 +194,6 @@ async function chatReplyProcess(options: RequestOptions) {
 
 		let index = 0
 
-		console.log(apikeys)
-		console.log(errorapikeys)
 		cleanErrorApiKeys()
 
 		availableKeys = apikeys.filter(key => !Object.keys(errorapikeys).includes(key))
@@ -209,20 +202,13 @@ async function chatReplyProcess(options: RequestOptions) {
 			index++
       nextKey()
 			console.log("总"+maxRetry+"开始尝试"+index+api.apiKey)
-			console.log(errorapikeys)
       response = await api.sendMessage(message, options).catch((error: any) => {
 
-				console.log("失败了"+index)
-				console.log(error)
 				if(!error.message.includes("please check your plan and billing details")){
 					errorapikeys[api.apiKey] = Date.now();
-					console.log("添加错误key"+index)
-					console.log(errorapikeys)
 				}else {
 					errorapikeys[api.apiKey] = -1;
 				}
-				console.log("添加错误key"+index)
-				console.log(errorapikeys)
         // 429 Too Many Requests
         //
         //   throw error
@@ -236,7 +222,11 @@ async function chatReplyProcess(options: RequestOptions) {
     }
 		console.log("返回成功，本次key"+index+api.apiKey)
 		if(!response){
-			response = "访问过于频繁，请休息一会"
+			response = {
+				data:null,
+				message:"请求过于频繁，等待10秒再试...",
+				status:"Fail"
+			}
 		}
     return sendResponse({ type: 'Success', data: response })
   }
@@ -283,13 +273,13 @@ async function fetchBalance() {
   const endDate = new Date(now + 24 * 60 * 60 * 1000)
 
   const config = await getCacheConfig()
-  if (apikeys.length > 1)
-    return '-'
-  const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+  // if (apikeys.length > 1)
+  //   return '-'
+  const OPENAI_API_KEY = api.apiKey
   const OPENAI_API_BASE_URL = process.env.OPENAI_API_BASE_URL
 
-  if (!isNotEmptyString(OPENAI_API_KEY))
-    return Promise.resolve('-')
+  // if (!isNotEmptyString(OPENAI_API_KEY))
+  //   return Promise.resolve('-')
 
   const API_BASE_URL = isNotEmptyString(OPENAI_API_BASE_URL)
     ? OPENAI_API_BASE_URL

@@ -204,8 +204,12 @@ async function handleResetPassword() {
       <div class="space-y-4">
         <header class="space-y-2">
           <h2 class="text-2xl font-bold text-center text-slate-800 dark:text-neutral-200">
-            {{ $t('common.notLoggedIn') }}
+						登录/注册
           </h2>
+					<h4 class="text-base text-center text-slate-500 dark:text-slate-500">
+						{{ $t('common.unauthorizedTips') }}
+					</h4>
+					<Icon403 class="w-[200px] m-auto" />
         </header>
 
         <!-- Add Tabs -->
