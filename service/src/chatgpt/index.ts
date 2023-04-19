@@ -9,10 +9,11 @@ import type { AuditConfig } from 'src/storage/model'
 import type { TextAuditService } from '../utils/textAudit'
 import { textAuditServices } from '../utils/textAudit'
 import { getCacheConfig, getOriginConfig } from '../storage/config'
-import { sendResponse } from '../utils'
+import { loadBalancer, parseKeys, sendResponse, sleep } from '../utils'
 import { isNotEmptyString } from '../utils/is'
 import type { ApiModel, ChatContext, ChatGPTUnofficialProxyAPIOptions, ModelConfig } from '../types'
 import type { RequestOptions } from './types'
+import * as console from "console";
 
 const { HttpsProxyAgent } = httpsProxyAgent
 
@@ -30,6 +31,88 @@ const ErrorCodeMessage: Record<string, string> = {
 let apiModel: ApiModel
 let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
 let auditService: TextAuditService
+
+if (!isNotEmptyString(process.env.OPENAI_API_KEY) && !isNotEmptyString(process.env.OPENAI_ACCESS_TOKEN))
+  throw new Error('Missing OPENAI_API_KEY or OPENAI_ACCESS_TOKEN environment variable')
+
+let apikeys = parseKeys(process.env.OPENAI_API_KEY)
+const accessTokens = parseKeys(process.env.OPENAI_ACCESS_TOKEN)
+
+let errorapikeys = {}
+let availableKeys = {}
+
+function cleanErrorApiKeys() {
+	console.log("清理过期key")
+	console.log(errorapikeys)
+	const now = Date.now()
+	for (const key in errorapikeys) {
+			const timestamp = errorapikeys[key]
+			if(timestamp == -1){
+				continue
+			}
+			if ((now - timestamp) > (1 * 30 * 1000) ) {
+				console.log("过期key移除"+key)
+				delete errorapikeys[key]
+			}
+	}
+	console.log(errorapikeys)
+	console.log("清理过期keyok")
+}
+
+// 为提高性能，预先计算好能预先计算好的
+// 该实现不支持中途切换 API 模型
+
+
+
+//
+// const nextKey = (() => {
+// 	const availableKeys = apikeys.filter(key => !Object.keys(errorapikeys).includes(key))
+// 	console.log("可用key")
+// 	console.log(availableKeys)
+// 	if (availableKeys.length) {
+//     const next = loadBalancer(availableKeys)
+//     return () => (api as ChatGPTAPI).apiKey = next()
+//   }
+//   else {
+//     const next = loadBalancer(accessTokens)
+//     return () => (api as ChatGPTUnofficialProxyAPI).accessToken = next()
+//   }
+// })()
+
+
+// function nextKeyE() {
+// 	availableKeys = apikeys.filter(key => !Object.keys(errorapikeys).includes(key));
+// 	(api as ChatGPTAPI).apiKey = loadBalancer(availableKeys)
+// }
+
+const nextKey = (() => {
+	availableKeys = {}
+	availableKeys = apikeys.filter(key => !Object.keys(errorapikeys).includes(key))
+	const getNextKey = () => {
+		availableKeys = apikeys.filter(key => !Object.keys(errorapikeys).includes(key))
+		console.log("可用key")
+		console.log(availableKeys)
+		if (availableKeys.length) {
+			const next = loadBalancer(availableKeys)
+			return () => (api as ChatGPTAPI).apiKey = next()
+		} else {
+			const next = loadBalancer(accessTokens)
+			return () => (api as ChatGPTUnofficialProxyAPI).accessToken = next()
+		}
+	}
+
+	return () => {
+		const setNextKey = getNextKey()
+		setNextKey()
+	}
+})()
+
+
+
+let maxRetry: number = !isNaN(+process.env.MAX_RETRY) ? +process.env.MAX_RETRY : Math.max(apikeys.length, accessTokens.length)
+const retryIntervalMs = !isNaN(+process.env.RETRY_INTERVAL_MS) ? +process.env.RETRY_INTERVAL_MS : 1000
+
+
 
 export async function initApi() {
   // More Info: https://github.com/transitive-bullshit/chatgpt-api
@@ -75,7 +158,7 @@ export async function initApi() {
       accessToken: config.accessToken,
       apiReverseProxyUrl: isNotEmptyString(config.reverseProxy) ? config.reverseProxy : 'https://bypass.churchless.tech/api/conversation',
       model,
-      debug: !config.apiDisableDebug,
+      debug: true,
     }
 
     await setupProxy(options)
@@ -87,6 +170,7 @@ export async function initApi() {
 
 async function chatReplyProcess(options: RequestOptions) {
   const config = await getCacheConfig()
+	apikeys = parseKeys(config.apiKey)
   const model = isNotEmptyString(config.apiModel) ? config.apiModel : 'gpt-3.5-turbo'
   const { message, lastContext, process, systemMessage, temperature, top_p } = options
 
@@ -107,13 +191,53 @@ async function chatReplyProcess(options: RequestOptions) {
         options = { ...lastContext }
     }
 
-    const response = await api.sendMessage(message, {
-      ...options,
-      onProgress: (partialResponse) => {
-        process?.(partialResponse)
-      },
-    })
+    if (process)
+      options.onProgress = process
 
+    let retryCount = 0
+    let response: ChatMessage | void
+
+		let index = 0
+
+		console.log(apikeys)
+		console.log(errorapikeys)
+		cleanErrorApiKeys()
+
+		availableKeys = apikeys.filter(key => !Object.keys(errorapikeys).includes(key))
+		maxRetry = availableKeys.length
+    while (!response && retryCount++ < maxRetry) {
+			index++
+      nextKey()
+			console.log("总"+maxRetry+"开始尝试"+index+api.apiKey)
+			console.log(errorapikeys)
+      response = await api.sendMessage(message, options).catch((error: any) => {
+
+				console.log("失败了"+index)
+				console.log(error)
+				if(!error.message.includes("please check your plan and billing details")){
+					errorapikeys[api.apiKey] = Date.now();
+					console.log("添加错误key"+index)
+					console.log(errorapikeys)
+				}else {
+					errorapikeys[api.apiKey] = -1;
+				}
+				console.log("添加错误key"+index)
+				console.log(errorapikeys)
+        // 429 Too Many Requests
+        //
+        //   throw error
+				// if (error.statusCode == 429)
+				// 	throw error
+				if(retryCount == maxRetry){
+					throw error
+				}
+      })
+      await sleep(retryIntervalMs)
+    }
+		console.log("返回成功，本次key"+index+api.apiKey)
+		if(!response){
+			response = "访问过于频繁，请休息一会"
+		}
     return sendResponse({ type: 'Success', data: response })
   }
   catch (error: any) {
@@ -159,8 +283,10 @@ async function fetchBalance() {
   const endDate = new Date(now + 24 * 60 * 60 * 1000)
 
   const config = await getCacheConfig()
-  const OPENAI_API_KEY = config.apiKey
-  const OPENAI_API_BASE_URL = config.apiBaseUrl
+  if (apikeys.length > 1)
+    return '-'
+  const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+  const OPENAI_API_BASE_URL = process.env.OPENAI_API_BASE_URL
 
   if (!isNotEmptyString(OPENAI_API_KEY))
     return Promise.resolve('-')
