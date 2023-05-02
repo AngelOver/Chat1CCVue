@@ -2,16 +2,16 @@
 import { computed, onMounted, ref } from 'vue'
 import { NInput, NPopconfirm, NScrollbar, NSpin } from 'naive-ui'
 import { SvgIcon } from '@/components/common'
-import { useAppStore, useChatStore } from '@/store'
+ import { useAppStore, useChatStore } from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
-import { useAuthStoreWithout } from '@/store/modules/auth'
+// import { useAuthStoreWithout } from '@/store/modules/auth'
 import { debounce } from '@/utils/functions/debounce'
 
 const { isMobile } = useBasicLayout()
 
 const appStore = useAppStore()
 const chatStore = useChatStore()
-const authStore = useAuthStoreWithout()
+// const authStore = useAuthStoreWithout()
 
 const loadingRoom = ref(false)
 

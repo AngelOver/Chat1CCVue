@@ -1,5 +1,5 @@
 # build front-end
-FROM node:lts-alpine AS frontend
+FROM node:16.19.1-alpine AS frontend
 
 RUN npm install pnpm -g
 
@@ -13,10 +13,10 @@ RUN pnpm install
 
 COPY . /app
 
-RUN pnpm run build
+RUN pnpm run build-only
 
 # build backend
-FROM node:lts-alpine as backend
+FROM node:16.19.1-alpine as backend
 
 RUN npm install pnpm -g
 
@@ -33,7 +33,7 @@ COPY /service /app
 RUN pnpm build
 
 # service
-FROM node:lts-alpine
+FROM node:16.19.1-alpine
 
 RUN npm install pnpm -g
 
@@ -47,10 +47,6 @@ RUN pnpm install --production && rm -rf /root/.npm /root/.pnpm-store /usr/local/
 
 COPY /service /app
 
-COPY --from=frontend /app/replace-title.sh /app
-
-RUN chmod +x /app/replace-title.sh
-
 COPY --from=frontend /app/dist /app/public
 
 COPY --from=backend /app/build /app/build
@@ -59,4 +55,4 @@ COPY --from=backend /app/src/utils/templates /app/build/templates
 
 EXPOSE 3002
 
-CMD ["sh", "-c", "./replace-title.sh && pnpm run prod"]
+CMD ["sh", "-c", "pnpm run prod"]
