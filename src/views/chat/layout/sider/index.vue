@@ -15,6 +15,8 @@ const chatStore = useChatStore()
 const { isMobile } = useBasicLayout()
 const show = ref(false)
 
+let imageUrl = 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t=' + Date.now()
+
 const collapsed = computed(() => appStore.siderCollapsed)
 
 async function handleAdd() {
@@ -59,6 +61,7 @@ watch(
 </script>
 
 <template>
+
   <NLayoutSider
     :collapsed="collapsed"
     :collapsed-width="0"
@@ -73,7 +76,7 @@ watch(
     <div class="flex flex-col h-full" :style="mobileSafeArea">
       <main class="flex flex-col flex-1 min-h-0">
         <div class="p-4">
-          <NButton dashed block :disabled="authStore.token === undefined" @click="handleAdd">
+          <NButton dashed block  @click="handleAdd">
             {{ $t('chat.newChatButton') }}
           </NButton>
         </div>
@@ -94,17 +97,16 @@ watch(
 							</p>
 						</div>
 						<div class="flex-1 flex-shrink-0 overflow-hidden">
-							<img  style="" src="https://qiniuchat.a3r.cn/other/chatgpt_wx.jpg">
+<!--							<img   :src=" 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">-->
+							<img :src="imageUrl" />
 						</div>
 					</dev>
-					<h6>
-						注：私服、gpt账号等私聊群主
+
+					<h6 style="color: #c18401">
+						永久域名：<a href="https://1chat.cc"> https://1chat.cc </a>
 					</h6>
 					<h6 style="color: #c18401">
-						永久域名：<a href="https://1chat.cc"> https://1chat.cc</a>
-					</h6>
-					<h6 style="color: #c18401">
-						其他域名会逐渐废弃 ↑↑↑↑↑ 请收藏
+						<a href="https://fk.a3r.cn" target="_blank"> 外链：ChatGPT成品账号9.9元 </a>
 					</h6>
 					<NButton block @click="show = true">
 						{{ $t('store.siderButton') }}

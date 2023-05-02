@@ -39,7 +39,7 @@ const userInfo = computed(() => userStore.userInfo)
       </h2>
       <NButton
         v-else tag="a" text
-        @click="needPermission = true"
+        @click="needPermission = !needPermission"
       >
         <span class="text-xl text-[#ff69b4] dark:text-white">
           {{ $t('common.notLoggedIn') }}

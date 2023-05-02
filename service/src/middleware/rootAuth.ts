@@ -8,7 +8,7 @@ dotenv.config()
 
 const rootAuth = async (req, res, next) => {
   const config = await getCacheConfig()
-  if (config.siteConfig.loginEnabled) {
+  if (config.siteConfig.loginEnabled||true) {
     try {
       const token = req.header('Authorization').replace('Bearer ', '')
       const info = jwt.verify(token, config.siteConfig.loginSalt.trim())

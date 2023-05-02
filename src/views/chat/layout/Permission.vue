@@ -3,7 +3,9 @@ import { computed, onMounted, ref } from 'vue'
 import { NButton, NInput, NModal, NTabPane, NTabs, useMessage } from 'naive-ui'
 import { useRoute, useRouter } from 'vue-router'
 import { fetchLogin, fetchRegister, fetchResetPassword, fetchSendResetMail, fetchVerify, fetchVerifyAdmin } from '@/api'
-import { useAuthStore } from '@/store'
+import { useAuthStore, useChatStore } from '@/store'
+
+
 
 interface Props {
   visible: boolean
@@ -12,7 +14,7 @@ interface Props {
 const props = defineProps<Props>()
 
 const emit = defineEmits<Emit>()
-
+const chatStore = useChatStore()
 interface Emit {
   (e: 'update:visible', visible: boolean): void
 }
@@ -120,6 +122,8 @@ async function handleLogin() {
     loading.value = true
     const result = await fetchLogin(name, pwd)
     await authStore.setToken(result.data.token)
+		console.log(result.data.token)
+		await chatStore.syncHistory(() => {})
     ms.success('success')
     router.go(0)
   }
@@ -201,6 +205,10 @@ async function handleResetPassword() {
 <template>
   <NModal :show="visible" style="width: 90%; max-width: 440px">
     <div class="p-10 bg-white rounded dark:bg-slate-800">
+			<div class="flex justify-end items-center mb-2">
+<!--				<NButton size="small" icon="close" @click="visible = false" circle>关闭</NButton>-->
+				<SvgIcon class="text-lg text-gray-500 cursor-pointer" icon="ri:close-fill" @click="visible = false" >跳过</SvgIcon>
+			</div>
       <div class="space-y-4">
         <header class="space-y-2">
           <h2 class="text-2xl font-bold text-center text-slate-800 dark:text-neutral-200">

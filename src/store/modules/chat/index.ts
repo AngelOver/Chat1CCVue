@@ -25,7 +25,7 @@ export const useChatStore = defineStore('chat-store', {
 
   actions: {
     async syncHistory(callback: () => void) {
-      const rooms = (await fetchGetChatRooms()).data
+      let rooms = (await fetchGetChatRooms()).data
       let uuid = this.active
       this.history = []
       this.chat = []
@@ -38,6 +38,7 @@ export const useChatStore = defineStore('chat-store', {
           uuid = r.uuid
         this.chat.unshift({ uuid: r.uuid, data: [] })
       }
+			//给当前登录用户常见一个房间
       if (uuid == null) {
         await this.addHistory({ title: 'New Chat', uuid: Date.now(), isEdit: false })
       }

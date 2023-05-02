@@ -73,7 +73,6 @@ onMounted(() => {
           <div class="flex-1">
             <NSwitch
               :round="false"
-              :disabled="config && config.loginEnabled"
               :value="config && config.loginEnabled"
               @update:value="(val) => { if (config) config.loginEnabled = val }"
             />
