@@ -3,6 +3,10 @@ import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { setupPageGuard } from './permission'
 import { ChatLayout } from '@/views/chat/layout'
+import { useBaiduAnalytics } from '../baidu-analytics';
+const baiduAnalytics = useBaiduAnalytics();
+
+
 
 const routes: RouteRecordRaw[] = [
   {
@@ -47,6 +51,9 @@ export const router = createRouter({
 setupPageGuard(router)
 
 export async function setupRouter(app: App) {
+	router.afterEach((to) => {
+		baiduAnalytics.push(['_trackPageview', to.fullPath]);
+	});
   app.use(router)
   await router.isReady()
 }
