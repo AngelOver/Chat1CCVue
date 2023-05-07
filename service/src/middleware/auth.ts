@@ -21,12 +21,12 @@ const auth = async (req, res, next) => {
 			console.log(error)
 			res.send({ status: 'Unauthorized', message: error.message ?? 'Please authenticate.', data: null })
 		}
-	}
-	else {
+	}else {
 		// fake userid
 		// req.headers.userId = '6406d8c50aedd633885fa16f'
 		//未登录情况下是否放行
 		if(!config.siteConfig.loginEnabled){
+		//	console.log("t1")
 			next()
 		}else {
 			res.send({ status: 'Unauthorized', message: '登录账号，开启ChatGPT之旅！', data: null })

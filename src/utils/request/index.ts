@@ -23,13 +23,14 @@ function http<T = any>(
   { url, data, method, headers, onDownloadProgress, signal, beforeRequest, afterRequest }: HttpOption,
 ) {
   const successHandler = (res: AxiosResponse<Response<T>>) => {
-    const authStore = useAuthStore()
-
-    if (res.data.status === 'Success' || typeof res.data === 'string')
-      return res.data
-
-    if (res.data.status === 'Unauthorized')
-      //authStore.removeToken()
+		const authStore = useAuthStore()
+		if (res.data.status === 'Success' || typeof res.data === 'string') {
+			return res.data
+		}
+		if (res.data.status === 'Unauthorized'){
+		console.log("Unauthorized");
+		}
+		//authStore.removeToken()
 
     return Promise.reject(res.data)
   }

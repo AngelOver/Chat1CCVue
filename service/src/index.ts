@@ -37,6 +37,7 @@ import { isEmail, isNotEmptyString } from './utils/is'
 import { sendNoticeMail, sendResetPasswordMail, sendTestMail, sendVerifyMail, sendVerifyMailAdmin } from './utils/mail'
 import { checkUserResetPassword, checkUserVerify, checkUserVerifyAdmin, getUserResetPasswordUrl, getUserVerifyUrl, getUserVerifyUrlAdmin, md5 } from './utils/security'
 import { rootAuth } from './middleware/rootAuth'
+import * as console from "console";
 
 dotenv.config()
 
@@ -303,9 +304,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
   try {
     const config = await getCacheConfig()
     if (config.auditConfig.enabled || config.auditConfig.customizeEnabled) {
-      const userId = req.headers.userId.toString()
-      const user = await getUserById(userId)
-      if (user.email.toLowerCase() !== process.env.ROOT_USER && await containsSensitiveWords(config.auditConfig, prompt)) {
+      if (await containsSensitiveWords(config.auditConfig, prompt)) {
         res.send({ status: 'Fail', message: '含有敏感词 | Contains sensitive words', data: null })
         return
       }
