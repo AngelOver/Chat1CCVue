@@ -33,7 +33,7 @@ const authStore = useAuthStore()
 const chatStore = useChatStore()
 
 useCopyCode()
-
+let imageUrl_wxzs = 'https://qiniuchat.1chat.cc/other/wx/wxzs.jpg?t=' + Date.now()
 const { isMobile } = useBasicLayout()
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
 const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom, scrollTo } = useScroll()
@@ -565,9 +565,31 @@ onUnmounted(() => {
             <template v-if="!dataSources.length">
               <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-                <span>1Chat.cc 免登陆，免注册的ChatGPT。最方便体验最快最好的网站，永久域名<span style="color: #c18401">1Chat.cc</span></span>
+                <span>1Chat.cc 免登陆，免注册的ChatAI。最方便体验最快最好的网站，永久域名<span style="color: #c18401">1Chat.cc</span></span>
 
+
+
+<!--								永久免费用于学习和测试,底下输入框输入就能直接用～，点左下角地球图标可关闭搜索模式，关闭后可极速响应-->
+<!--								收藏当前页面即可永不迷路，点击左下角捐赠按钮可一直看到最新存活 国内备案不封链接：https://chat.jinshutuan.com/（稳定但有严格内容审查，若要分享到国内或微信分享请用此链接）-->
+<!--								最新网站存活（无审查且不稳定勿分享）: https://chat2.aichatos.xyz/-->
+<!--								禁止发布、传播任何违法、违规内容，使用本网站，视您接受并同意《免责声明》-->
+<!--								服务器昂贵,接口昂贵,但网站免费！！如果你觉得做的好，可以给我买一瓶冰阔落-->
+<!--								每人每月捐个三元、服务就能永久免费下去！！-->
               </div>
+							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+								服务器昂贵，接口昂贵，但网站免费！！！ (说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)
+							</div>
+							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+								如果你觉得做的好，可以给我买一瓶冰阔落
+							</div>
+							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+								每人每月捐个三元、服务就能永久免费下去！！
+							</div>
+							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+								<img style="max-width: 15rem" :src="imageUrl_wxzs" />
+							</div>
+
+
             </template>
             <template v-else>
               <div>
@@ -647,5 +669,6 @@ onUnmounted(() => {
       </div>
     </footer>
     <Prompt v-if="showPrompt" v-model:roomId="uuid" v-model:visible="showPrompt" />
-  </div>
+
+	</div>
 </template>

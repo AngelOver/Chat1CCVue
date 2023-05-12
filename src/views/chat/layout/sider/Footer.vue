@@ -14,7 +14,7 @@ async function handleLogout() {
 </script>
 
 <template>
-  <footer class="flex items-center justify-between min-w-0 p-4 overflow-hidden border-t dark:border-neutral-800">
+  <footer style="padding-bottom: 0" class="flex items-center justify-between min-w-0 p-4 overflow-hidden border-t dark:border-neutral-800">
     <div class="flex-1 flex-shrink-0 overflow-hidden">
       <UserAvatar />
     </div>
@@ -30,5 +30,9 @@ async function handleLogout() {
       </span>
     </HoverButton>
     <Setting v-if="show" v-model:visible="show" />
+
   </footer>
+	<div style="text-align: center;color: #6e7681;font-size: xx-small" >
+		<a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备18137197号-2 </a>
+</div>
 </template>
