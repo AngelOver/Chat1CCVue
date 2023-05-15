@@ -565,7 +565,7 @@ onUnmounted(() => {
             <template v-if="!dataSources.length">
               <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-                <span>1Chat.cc 免登陆，免注册的ChatAI。最方便体验最快最好的网站，永久域名<span style="color: #c18401">1Chat.cc</span></span>
+                <span>1Chat.cc 免费、无限制、免登录最快 的ChatAI。最方便体验最快最好的网站，永久域名<span style="color: #c18401">1Chat.cc</span></span>
 
 
 
