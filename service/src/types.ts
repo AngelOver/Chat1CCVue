@@ -4,6 +4,7 @@ export interface RequestProps {
   roomId: number
   uuid: number
   regenerate: boolean
+	draw: boolean
   prompt: string
   options?: ChatContext
   systemMessage: string

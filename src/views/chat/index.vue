@@ -50,6 +50,8 @@ const loading = ref<boolean>(false)
 const inputRef = ref<Ref | null>(null)
 const showPrompt = ref(false)
 
+let showDraw =  ref<boolean>(false)
+
 let loadingms: MessageReactive
 let allmsg: MessageReactive
 let prevScrollTop: number
@@ -72,6 +74,7 @@ function handleSubmit() {
 
 async function onConversation() {
   let message = prompt.value
+	let draw = showDraw.value
 
   if (loading.value)
     return
@@ -127,6 +130,7 @@ async function onConversation() {
         roomId: +uuid,
         uuid: chatUuid,
         prompt: message,
+				draw: draw,
         options,
         signal: controller.signal,
         onDownloadProgress: ({ event }) => {
@@ -241,6 +245,7 @@ async function onRegenerate(index: number) {
   const { requestOptions } = dataSources.value[index]
 
   let message = requestOptions?.prompt ?? ''
+	let draw = showDraw.value
 
   let options: Chat.ConversationRequest = {}
 
@@ -271,6 +276,7 @@ async function onRegenerate(index: number) {
         uuid: chatUuid || Date.now(),
         regenerate: true,
         prompt: message,
+				draw: draw,
         options,
         signal: controller.signal,
         onDownloadProgress: ({ event }) => {
@@ -353,6 +359,16 @@ async function onRegenerate(index: number) {
   finally {
     loading.value = false
   }
+}
+
+function toggleDraw() {
+	showDraw.value = !showDraw.value
+	if (showDraw.value)
+		ms.success("开启绘画模式")
+	else
+		ms.warning("关闭绘画模式")
+
+	console.log(showDraw.value)
 }
 
 function handleExport() {
@@ -582,14 +598,21 @@ onUnmounted(() => {
 <!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--							</div>-->
+<!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--															服务器昂贵，接口昂贵，但网站免费！！！ 如果你觉得做的好，可以给我买一瓶冰阔落-->
+<!--							</div>-->
 <!--							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
-<!--								每人每月捐个三元、服务就能永久免费下去！！		-->
+<!--								每人每月捐个三元、服务就能永久免费下去！！-->
 <!--							</div>-->
 <!--									<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
-<!--															每人每月捐个三元、服务就能永久免费下去！！			<a style="" :href="imageUrl_wxzs" target="_blank">点击->赞助 </a>-->
-<!--														</div>-->
+<!--											每人每月捐个三元、服务就能永久免费下去！！		<a style="" :href="imageUrl_wxzs" target="_blank">点击->赞助 </a>-->
+<!--									</div>-->
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
-<!--								<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->
+<!--								<img  style="max-width: 15rem" :src="imageUrl_wxzs" />	<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->
+<!--							</div>-->
+
+<!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--								<img  style="max-width: 10rem" :src="imageUrl_wxzs" />	<img style="max-width: 10rem" :src="imageUrl_wxzs" />-->
 <!--							</div>-->
 
 
@@ -630,11 +653,11 @@ onUnmounted(() => {
               <SvgIcon icon="ri:delete-bin-line" />
             </span>
           </HoverButton>
-          <HoverButton v-if="!isMobile" @click="handleExport">
-            <span class="text-xl text-[#4f555e] dark:text-white">
-              <SvgIcon icon="ri:download-2-line" />
-            </span>
-          </HoverButton>
+<!--          <HoverButton v-if="!isMobile" @click="handleExport">-->
+<!--            <span class="text-xl text-[#4f555e] dark:text-white">-->
+<!--              <SvgIcon icon="ri:download-2-line" />-->
+<!--            </span>-->
+<!--          </HoverButton>-->
           <HoverButton v-if="!isMobile" @click="showPrompt = true">
             <span class="text-xl text-[#4f555e] dark:text-white">
               <IconPrompt class="w-[20px] m-auto" />
@@ -642,9 +665,16 @@ onUnmounted(() => {
           </HoverButton>
           <HoverButton v-if="!isMobile" @click="toggleUsingContext">
             <span class="text-xl" :class="{ 'text-[#4b9e5f]': usingContext, 'text-[#a8071a]': !usingContext }">
-              <SvgIcon icon="ri:chat-history-line" />
+							<SvgIcon icon="ri:chat-history-line" />
             </span>
+
           </HoverButton>
+					<HoverButton v-if="!isMobile" @click="toggleDraw">
+            <span class="text-xl" :class="{ 'text-[#4b9e5f]': showDraw, 'text-[#a8071a]': !showDraw }">
+							画
+            </span>
+
+					</HoverButton>
           <NAutoComplete v-model:value="prompt" :options="searchOptions" :render-label="renderOption">
             <template #default="{ handleInput, handleBlur, handleFocus }">
               <NInput

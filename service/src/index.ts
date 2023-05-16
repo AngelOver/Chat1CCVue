@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import * as dotenv from 'dotenv'
 import type { RequestProps } from './types'
 import type { ChatContext, ChatMessage } from './chatgpt'
-import { chatConfig, chatReplyProcess, containsSensitiveWords, currentModel, initApi, initAuditService } from './chatgpt'
+import { chatConfig, chatReplyProcess,chatReplyProcess2, containsSensitiveWords, currentModel, initApi, initAuditService } from './chatgpt'
 import { auth } from './middleware/auth'
 import { clearConfigCache, getCacheConfig, getOriginConfig } from './storage/config'
 import type { AuditConfig, ChatInfo, ChatOptions, Config, MailConfig, SiteConfig, UsageResponse, UserInfo } from './storage/model'
@@ -292,7 +292,7 @@ router.post('/chat', auth, async (req, res) => {
 router.post('/chat-process', [auth, limiter], async (req, res) => {
   res.setHeader('Content-type', 'application/octet-stream')
 
-  let { roomId, uuid, regenerate, prompt, options = {}, systemMessage, temperature, top_p } = req.body as RequestProps
+  let { roomId, uuid, regenerate, prompt,draw, options = {}, systemMessage, temperature, top_p } = req.body as RequestProps
   const userId = req.headers.userId as string
   const room = await getChatRoom(userId, roomId)
   if (room != null && isNotEmptyString(room.prompt))
@@ -314,33 +314,69 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       ? await getChat(roomId, uuid)
       : await insertChat(uuid, prompt, roomId, options as ChatOptions)
     let firstChunk = true
-    result = await chatReplyProcess({
-      message: prompt,
-      lastContext: options,
-      process: (chat: ChatMessage) => {
-        lastResponse = chat
-        const chuck = {
-          id: chat.id,
-          conversationId: chat.conversationId,
-          text: chat.text,
-          detail: {
-            choices: [
-              {
-                finish_reason: undefined,
-              },
-            ],
-          },
-        }
-        if (chat.detail && chat.detail.choices.length > 0)
-          chuck.detail.choices[0].finish_reason = chat.detail.choices[0].finish_reason
 
-        res.write(firstChunk ? JSON.stringify(chuck) : `\n${JSON.stringify(chuck)}`)
-        firstChunk = false
-      },
-      systemMessage,
-      temperature,
-      top_p,
-    })
+		if(draw||prompt.startsWith("画")){
+
+			result = await chatReplyProcess2({
+				message: prompt,
+				lastContext: options,
+				process: (chat: ChatMessage) => {
+					lastResponse = chat
+					const chuck = {
+						id: chat.id,
+						conversationId: chat.conversationId,
+						text: chat.text,
+						detail: {
+							choices: [
+								{
+									finish_reason: undefined,
+								},
+							],
+						},
+					}
+					if (chat.detail && chat.detail.choices.length > 0)
+						chuck.detail.choices[0].finish_reason = chat.detail.choices[0].finish_reason
+
+					res.write(firstChunk ? JSON.stringify(chuck) : `\n${JSON.stringify(chuck)}`)
+					firstChunk = false
+				},
+				systemMessage,
+				temperature,
+				top_p,
+			})
+
+		}else {
+			result = await chatReplyProcess({
+				message: prompt,
+				lastContext: options,
+				process: (chat: ChatMessage) => {
+					lastResponse = chat
+					const chuck = {
+						id: chat.id,
+						conversationId: chat.conversationId,
+						text: chat.text,
+						detail: {
+							choices: [
+								{
+									finish_reason: undefined,
+								},
+							],
+						},
+					}
+					if (chat.detail && chat.detail.choices.length > 0)
+						chuck.detail.choices[0].finish_reason = chat.detail.choices[0].finish_reason
+
+					res.write(firstChunk ? JSON.stringify(chuck) : `\n${JSON.stringify(chuck)}`)
+					firstChunk = false
+				},
+				systemMessage,
+				temperature,
+				top_p,
+			})
+
+		}
+
+
     // return the whole response including usage
     res.write(`\n${JSON.stringify(result.data)}`)
   }

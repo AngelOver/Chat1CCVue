@@ -26,6 +26,7 @@ export function fetchChatAPIProcess<T = any>(
     roomId: number
     uuid: number
     regenerate?: boolean
+    draw?: boolean
     prompt: string
     options?: { conversationId?: string; parentMessageId?: string }
     signal?: GenericAbortSignal
@@ -37,6 +38,7 @@ export function fetchChatAPIProcess<T = any>(
   let data: Record<string, any> = {
     roomId: params.roomId,
     uuid: params.uuid,
+		draw: params.draw || false,
     regenerate: params.regenerate || false,
     prompt: params.prompt,
     options: params.options,
