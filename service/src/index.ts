@@ -316,6 +316,9 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     let firstChunk = true
 
 		if(draw||prompt.startsWith("画")){
+			if(prompt.startsWith("画")){
+				prompt = prompt.substring(1)
+			}
 
 			result = await chatReplyProcess2({
 				message: prompt,

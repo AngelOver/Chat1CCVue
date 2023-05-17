@@ -7,12 +7,15 @@ import IconPrompt from '@/icons/Prompt.vue'
 interface Props {
   usingContext: boolean
   showPrompt: boolean
+
+	showDraw: boolean
 }
 
 interface Emit {
   (ev: 'export'): void
   (ev: 'toggleUsingContext'): void
   (ev: 'toggleShowPrompt'): void
+
 }
 
 defineProps<Props>()
@@ -80,8 +83,8 @@ function handleShowPrompt() {
           </span>
         </HoverButton>
         <HoverButton @click="handleExport">
-          <span class="text-xl text-[#4f555e] dark:text-white">
-            <SvgIcon icon="ri:download-2-line" />
+          <span class="text-xl" :class="{ 'text-[#4b9e5f]': showDraw, 'text-[#a8071a]': !showDraw  }">
+            画
           </span>
         </HoverButton>
       </div>

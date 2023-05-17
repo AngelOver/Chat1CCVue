@@ -364,9 +364,9 @@ async function onRegenerate(index: number) {
 function toggleDraw() {
 	showDraw.value = !showDraw.value
 	if (showDraw.value)
-		ms.success("开启绘画模式")
+		ms.success("开启AI绘画模式")
 	else
-		ms.warning("关闭绘画模式")
+		ms.warning("关闭AI绘画模式 ，普通模式以“画” 这个字开头 即 输出图片")
 
 	console.log(showDraw.value)
 }
@@ -567,7 +567,8 @@ onUnmounted(() => {
       v-if="isMobile"
       :using-context="usingContext"
       :show-prompt="showPrompt"
-      @export="handleExport" @toggle-using-context="toggleUsingContext"
+			:show-draw="showDraw"
+      @export="toggleDraw" @toggle-using-context="toggleUsingContext"
       @toggle-show-prompt="showPrompt = true"
     />
     <main class="flex-1 overflow-hidden">
@@ -601,12 +602,16 @@ onUnmounted(() => {
 <!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--															服务器昂贵，接口昂贵，但网站免费！！！ 如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--							</div>-->
-<!--							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
-<!--								每人每月捐个三元、服务就能永久免费下去！！-->
-<!--							</div>-->
+							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+								每人每月捐个三元、服务就能永久免费下去！！ 如果你觉得做的好，可以给我买一瓶冰阔落
+							</div>
 <!--									<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--											每人每月捐个三元、服务就能永久免费下去！！		<a style="" :href="imageUrl_wxzs" target="_blank">点击->赞助 </a>-->
 <!--									</div>-->
+
+							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+																<img  style="max-width: 12rem" :src="imageUrl_wxzs" />
+															</div>
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 15rem" :src="imageUrl_wxzs" />	<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->
 <!--							</div>-->

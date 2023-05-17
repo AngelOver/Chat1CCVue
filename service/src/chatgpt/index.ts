@@ -85,8 +85,6 @@ const nextKey = (() => {
 	availableKeys = apikeys.filter(key => !Object.keys(errorapikeys).includes(key))
 	const getNextKey = () => {
 		availableKeys = apikeys.filter(key => !Object.keys(errorapikeys).includes(key))
-		console.log("可用key")
-		console.log(availableKeys)
 		if (availableKeys.length) {
 			const next = loadBalancer(availableKeys)
 			return () => (api as ChatGPTAPI).apiKey = next()
@@ -203,7 +201,6 @@ async function chatReplyProcess(options: RequestOptions) {
       nextKey()
 			console.log("总"+maxRetry+"开始尝试"+index+api.apiKey)
       response = await api.sendMessage(message, options).catch((error: any) => {
-
 				if(!error.message.includes("please check your plan and billing details")){
 					errorapikeys[api.apiKey] = Date.now();
 				}else {
@@ -228,8 +225,6 @@ async function chatReplyProcess(options: RequestOptions) {
 				status:"Fail"
 			}
 		}
-		console.log("返回")
-		console.log(response)
     return sendResponse({ type: 'Success', data: response })
   }
   catch (error: any) {
@@ -251,7 +246,6 @@ async function chatReplyProcess2(options: RequestOptions) {
 	const urlSubscription = `${OPENAI_API_BASE_URL}/v1/images/generations`
 	const config = await getCacheConfig()
 	apikeys = parseKeys(config.apiKey)
-	console.log(urlSubscription);
 	try {
 		const timeoutMs = (await getCacheConfig()).timeoutMs
 		let options: SendMessageOptions = { timeoutMs }
@@ -281,7 +275,9 @@ async function chatReplyProcess2(options: RequestOptions) {
 
 		availableKeys = apikeys.filter(key => !Object.keys(errorapikeys).includes(key))
 		maxRetry = availableKeys.length
-		maxRetry = 5
+		if(maxRetry > 5){
+			maxRetry = 5
+		}
 		while (!response && retryCount++ < maxRetry) {
 			index++
 			nextKey()
@@ -296,10 +292,10 @@ async function chatReplyProcess2(options: RequestOptions) {
 				"prompt": message,
 				"n": 4,
 				"response_format":"url",
-				"size": "256x256"
+				"size": "512x512"
 			}
 
-			response = await fetch(urlSubscription, {
+			let imgRes = await fetch(urlSubscription, {
 				method: 'POST',
 				body: JSON.stringify(requestBody),
 				headers
@@ -316,37 +312,30 @@ async function chatReplyProcess2(options: RequestOptions) {
 					throw error
 				}
 			})
-			const imgData = await response.json()
-			console.log(imgData);
+			const imgData = await imgRes.json()
+			//console.log(imgData)
+			if(!!imgData.error){
+				if(imgData.error.message.includes("Your prompt may contain text that is not allowed by our safety system")){
+					throw imgData.error
+				}
+				if(!imgData.error.message.includes("please check your plan and billing details")){
+					errorapikeys[api.apiKey] = Date.now();
+				}else {
+					errorapikeys[api.apiKey] = -1;
+				}
+				if(retryCount == maxRetry){
+					throw imgData.error
+				}
+				await sleep(retryIntervalMs)
+				continue;
+			}
+
 			if(imgData.data){
-				// let	imgMsg= "AI绘画由OpenAI提供，模型为 DALL-E2，效果有待完善，以下是图片  \n" +
-				// 	"\t![image 1]("+ +")\n" +
-				// 	"\t![image 2](imgUrl2)\n" +
-				// 	"\t![image 3](imgUrl3)\n" +
-				// 	"\t![image 4](imgUrl4)"
-				// 	+"<img src='"+imgData.data[0].url+"'//> \n"
-				// 	+"<img src='"+imgData.data[1].url+"'//> \n"
-				// 	+"<img src='"+imgData.data[2].url+"'//> \n"
-				// 	+"<img src='"+imgData.data[3].url+"'//> \n"AI绘画由OpenAI提供，模型为 DALL-E2，效果有待完善，以下是图片
-				//
-				// ![image 1](imgUrl1)
-				// ![image 2](imgUrl2)
-				// ![image 3](imgUrl3)
-				// ![image 4](imgUrl4)
-				// let imgMsg= "AI绘画由OpenAI提供，模型为 DALL-E2，效果有待完善，以下是图片\n\n"
-				// imgMsg += "![]( " + imgData.data[0].url + ")\t";
-				// imgMsg += "![]( " + imgData.data[1].url + ")\n";
-				// imgMsg += "![]( " + imgData.data[2].url + ")\t";
-				// imgMsg += "![]( " + imgData.data[3].url + ")\n";
-				// for(let i = 0; i < imgData.data.length; i++){
-				// 	imgMsg += "![]( " + imgData.data[i].url + ")\n";
-				// }
-
-
 				 let imgMsg= "" +
-				 "图片生成成功，正在加载图片链接中，请耐心等候10秒左右。。。。。(快慢取决于你自己的网络)\n" +
-				 "注：AI绘画由OpenAI提供，模型为 DALL-E2，效果有待完善，以下是图片\n"+
-				 "建议关键词写丰富点，例如: 少女，眼影，光影，校园，质量最好，甜美，樱花，薰衣草色眼镜，黑色长发，光效，电影效果，插画\n"
+				 "图片生成成功，正在加载图片链接中，请耐心等候10秒左右。。。(快慢取决于你自己的网络)\n" +
+					"注：AI绘画由OpenAI提供，模型为 DALL-E2，效果有待完善，以下是图片\n"+
+					 "建议关键词写丰富点，例如：画少女，眼影，光影，校园，质量最好，甜美，樱花，薰衣草色眼镜，黑色长发。\n"
+				 // "例2: A highly detailed matte painting of Garden of Eden,studio ghibli, volumetric lighting, high contract, octane render, masterpiece, intricate, epic wide shot, sharp focus,by Makoto Shinkai, artgerm, wlop, greg rutkowski"
 				// 	"<table>\n" +
 				// 	"    <tr>\n" +
 				// 	"        <td ><center><img src='"+ imgData.data[0].url+"' \></center></td>\n" +
@@ -377,10 +366,8 @@ async function chatReplyProcess2(options: RequestOptions) {
 						status:"Fail"
 					}
 			}
-			console.log(response);
 			await sleep(retryIntervalMs)
 		}
-		console.log(response);
 		console.log("返回成功，本次key"+index+api.apiKey)
 		if(!response){
 			response = {
@@ -389,7 +376,6 @@ async function chatReplyProcess2(options: RequestOptions) {
 				status:"Fail"
 			}
 		}
-		console.log(response);
 		return sendResponse({ type: 'Success', data: response })
 	}
 	catch (error: any) {

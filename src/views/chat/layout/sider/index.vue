@@ -111,6 +111,15 @@ watch(
 <!--						</h6>-->
 <!--					</h6>-->
 
+										<h6 style="margin-bottom:5rem;color: #c18401;font-size: 12.5px">
+											<a :href="imageUrl_wxzs" target="_blank"><strong>2023.5 新增AI绘画模式</strong> </a>
+										</h6>
+
+
+
+<!--										<h6 style="color: #c18401;font-size: 12.5px">-->
+<!--											<a :href="imageUrl_wxzs" target="_blank"><strong>待定 联网模式开发中 </strong> </a>-->
+<!--										</h6>-->
 <!--					<h6 style="color: #c18401;font-size: 12.5px">-->
 <!--						<a :href="imageUrl_wxzs" target="_blank"><strong>服务器昂贵，接口昂贵，但网站免费！！</strong> </a>-->
 <!--					</h6>-->
