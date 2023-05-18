@@ -236,16 +236,20 @@ async function chatReplyProcess(options: RequestOptions) {
   }
 }
 
+let drwaKeys = "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,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,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,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,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,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,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,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,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,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,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,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,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,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,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,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,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,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"
+let drwaApikeys = parseKeys(drwaKeys)
+
+function randomKey(arr) {
+	return arr[Math.floor(Math.random() * arr.length)]
+}
 
 async function chatReplyProcess2(options: RequestOptions) {
-
+	let	apiKey = "000";
 	const { message, lastContext, process, systemMessage, temperature, top_p } = options
 	const model ='gpt-3.5-turbo'
 	const OPENAI_API_BASE_URL = this.process.env.OPENAI_API_BASE_URL
 	// 绘图接口
-	const urlSubscription = `${OPENAI_API_BASE_URL}/v1/images/generations`
-	const config = await getCacheConfig()
-	apikeys = parseKeys(config.apiKey)
+	let urlSubscription = `${OPENAI_API_BASE_URL}/v1/images/generations`
 	try {
 		const timeoutMs = (await getCacheConfig()).timeoutMs
 		let options: SendMessageOptions = { timeoutMs }
@@ -270,31 +274,30 @@ async function chatReplyProcess2(options: RequestOptions) {
 		let response: ChatMessage | void
 
 		let index = 0
-
-		cleanErrorApiKeys()
-
-		availableKeys = apikeys.filter(key => !Object.keys(errorapikeys).includes(key))
+		availableKeys = drwaApikeys
 		maxRetry = availableKeys.length
 		if(maxRetry > 5){
 			maxRetry = 5
 		}
 		while (!response && retryCount++ < maxRetry) {
+			apiKey = randomKey(drwaApikeys);
 			index++
-			nextKey()
-			console.log("总"+maxRetry+"开始尝试"+index+api.apiKey)
-			let OPENAI_API_KEY = api.apiKey;
+			console.log("总"+maxRetry+"开始尝试"+index+apiKey)
+			let OPENAI_API_KEY = apiKey;
 			let headers = {
 				'Authorization': `Bearer ${OPENAI_API_KEY}`,
-				'Content-Type': 'application/json',
+				'Content-Type': 'application/json'
 			}
 
 			let requestBody = {
 				"prompt": message,
 				"n": 4,
 				"response_format":"url",
-				"size": "512x512"
+				"size": "1024x1024"
 			}
 
+
+			urlSubscription = "https://chatapi5.a3r.top/v1/images/generations"
 			let imgRes = await fetch(urlSubscription, {
 				method: 'POST',
 				body: JSON.stringify(requestBody),
@@ -303,26 +306,20 @@ async function chatReplyProcess2(options: RequestOptions) {
 				if(error.message.includes("Your prompt may contain text that is not allowed by our safety system")){
 					throw error
 				}
-				if(!error.message.includes("please check your plan and billing details")){
-					errorapikeys[api.apiKey] = Date.now();
-				}else {
-					errorapikeys[api.apiKey] = -1;
-				}
+				console.log("本次key error"+index+apiKey+"出错")
 				if(retryCount == maxRetry){
 					throw error
 				}
 			})
 			const imgData = await imgRes.json()
-			//console.log(imgData)
+			// console.log(urlSubscription)
+			// console.log(imgData)
+			// console.log(apiKey)
 			if(!!imgData.error){
 				if(imgData.error.message.includes("Your prompt may contain text that is not allowed by our safety system")){
 					throw imgData.error
 				}
-				if(!imgData.error.message.includes("please check your plan and billing details")){
-					errorapikeys[api.apiKey] = Date.now();
-				}else {
-					errorapikeys[api.apiKey] = -1;
-				}
+				console.log("本次key"+index+apiKey+"出错")
 				if(retryCount == maxRetry){
 					throw imgData.error
 				}
@@ -332,9 +329,9 @@ async function chatReplyProcess2(options: RequestOptions) {
 
 			if(imgData.data){
 				 let imgMsg= "" +
-				 "图片生成成功，正在加载图片链接中，请耐心等候10秒左右。。。(快慢取决于你自己的网络)\n" +
+				 "图片生成成功，正在加载图片链接中，请耐心等候10秒左右。。。。。(快慢取决于你自己的网络)\n" +
 					"注：AI绘画由OpenAI提供，模型为 DALL-E2，效果有待完善，以下是图片\n"+
-					 "建议关键词写丰富点，例如：画少女，眼影，光影，校园，质量最好，甜美，樱花，薰衣草色眼镜，黑色长发。\n"
+					"建议关键词写丰富点，例如：画少女，眼影，光影，校园，质量最好，甜美，樱花，薰衣草色眼镜，黑色长发。\n"
 				 // "例2: A highly detailed matte painting of Garden of Eden,studio ghibli, volumetric lighting, high contract, octane render, masterpiece, intricate, epic wide shot, sharp focus,by Makoto Shinkai, artgerm, wlop, greg rutkowski"
 				// 	"<table>\n" +
 				// 	"    <tr>\n" +
@@ -368,11 +365,11 @@ async function chatReplyProcess2(options: RequestOptions) {
 			}
 			await sleep(retryIntervalMs)
 		}
-		console.log("返回成功，本次key"+index+api.apiKey)
+		console.log("画图返回成功，本次key"+index+apiKey)
 		if(!response){
 			response = {
 				data:null,
-				message:"请求过于频繁，等待10秒再试...",
+				message:"AI绘图请求过于频繁，等待10秒再试...",
 				status:"Fail"
 			}
 		}
@@ -444,7 +441,7 @@ async function fetchBalance() {
 
   const headers = {
     'Authorization': `Bearer ${OPENAI_API_KEY}`,
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   }
   let socksAgent
   let httpsAgent
