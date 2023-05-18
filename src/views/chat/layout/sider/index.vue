@@ -117,6 +117,7 @@ watch(
 
 
 
+
 <!--										<h6 style="color: #c18401;font-size: 12.5px">-->
 <!--											<a :href="imageUrl_wxzs" target="_blank"><strong>待定 联网模式开发中 </strong> </a>-->
 <!--										</h6>-->
@@ -185,6 +186,10 @@ watch(
 					<!-- 	<h6 style="font-size: 12px">
 						<a style="color: #c18401;opacity: 0.5;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>
 					</h6> -->
+									<h6 >
+												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>
+										</h6>
+
 					<h6 style="color: rgb(50 197 157);">
 						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT成品独享账号 9.9元  </a>
 					</h6>

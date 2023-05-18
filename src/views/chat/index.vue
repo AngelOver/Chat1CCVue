@@ -614,7 +614,7 @@ onUnmounted(() => {
 <!--									</div>-->
 
 							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-																<img  style="max-width: 12rem" :src="imageUrl_wxzs" />
+																<img  style="max-width: 15rem" :src="imageUrl_wxzs" />
 															</div>
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 15rem" :src="imageUrl_wxzs" />	<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->
