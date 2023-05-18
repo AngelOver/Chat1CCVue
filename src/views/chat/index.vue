@@ -56,6 +56,10 @@ let loadingms: MessageReactive
 let allmsg: MessageReactive
 let prevScrollTop: number
 
+if(usingContext.value){
+	chatStore.setUsingContext(!usingContext.value)
+}
+
 // 添加PromptStore
 const promptStore = usePromptStore()
 
