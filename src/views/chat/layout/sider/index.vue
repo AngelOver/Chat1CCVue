@@ -114,12 +114,15 @@ watch(
 										<h6 style="margin-bottom:5rem;color: #c18401;font-size: 12.5px">
 											<a :href="imageUrl_wxzs" target="_blank"><strong>2023.5 新增AI绘画模式</strong> </a>
 										</h6>
+<!--						<h6 style="margin-bottom:5rem;color: #c18401;font-size: 12.5px">-->
+<!--							<a :href="imageUrl_wxzs" target="_blank"><strong>2023.5 新增AI绘画模式</strong> </a>-->
+<!--						</h6>-->
 
 
 
 
-<!--										<h6 style="color: #c18401;font-size: 12.5px">-->
-<!--											<a :href="imageUrl_wxzs" target="_blank"><strong>待定 联网模式开发中 </strong> </a>-->
+<!--										<h6 style="margin-bottom:5rem;color: #c18401;font-size: 12.5px">-->
+<!--											<a :href="imageUrl_wxzs" target="_blank"><strong>&#45;&#45; 待开发 Midjourney 绘画接入中 </strong> </a>-->
 <!--										</h6>-->
 <!--					<h6 style="color: #c18401;font-size: 12.5px">-->
 <!--						<a :href="imageUrl_wxzs" target="_blank"><strong>服务器昂贵，接口昂贵，但网站免费！！</strong> </a>-->
@@ -154,8 +157,8 @@ watch(
 				<div class="p-4 " style="padding-top: 0;">
 					<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >
 						<div class="flex-1 flex-shrink-0 overflow-hidden">
-							<p style="" >
-								很多网站不在了
+							<p style="font-size: 12.5px;color: rgb(99 165 237)" >
+								<a href="https://1chat.cc" target="_blank">永久域名：1Chat.cc </a>
 							</p>
 							<p style="color: #c18401" >
 								加群：--> 防走丢
@@ -186,9 +189,12 @@ watch(
 					<!-- 	<h6 style="font-size: 12px">
 						<a style="color: #c18401;opacity: 0.5;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>
 					</h6> -->
-									<h6 >
-												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>
-										</h6>
+					<h6 >
+						<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9MTA%3D" target="_blank">外链：美区 AppStore账号 点击购买   </a>
+					</h6>
+<!--									<h6 >-->
+<!--												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>-->
+<!--										</h6>-->
 
 					<h6 style="color: rgb(50 197 157);">
 						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT成品独享账号 9.9元  </a>
