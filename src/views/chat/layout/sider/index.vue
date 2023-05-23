@@ -15,12 +15,12 @@ const chatStore = useChatStore()
 const { isMobile } = useBasicLayout()
 const show = ref(false)
 
-let imageUrl_dy = 'https://qiniuchat.1chat.cc/other/dy.jpg?t=' + Date.now()
-let imageUrl = 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t=' + Date.now()
-let imageUrl_wxzs = 'https://qiniuchat.1chat.cc/other/wxzs.jpg?t=' + Date.now()
+let imageUrl_dy = 'https://qiniuchat.littlewheat.com/other/dy.jpg?t=' + Date.now()
+let imageUrl = 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t=' + Date.now()
+let imageUrl_wxzs = 'https://qiniuchat.littlewheat.com/other/wxzs.jpg?t=' + Date.now()
 
-let downUrl_1chat = 'https://qiniuchat.1chat.cc/other/app/android/1chat.apk?t=' + Date.now()
-let downUrl_chatcn = 'https://qiniuchat.1chat.cc/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
+let downUrl_1chat = 'https://qiniuchat.littlewheat.com/other/app/android/1chat.apk?t=' + Date.now()
+let downUrl_chatcn = 'https://qiniuchat.littlewheat.com/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
 
 const collapsed = computed(() => appStore.siderCollapsed)
 
@@ -114,15 +114,28 @@ watch(
 <!--							<img style="max-width: 50% " :src="imageUrl_wxzs" />-->
 <!--						</h6>-->
 <!--					</h6>-->
-										<h6 style=";color: #c18401;font-size: 12.5px">
-											<a :href="imageUrl_wxzs" target="_blank"><strong>2023.5 新增AI绘画模式</strong> </a>
-										</h6>
-										<h6 style=";color: #c18401;font-size: 12.5px">
-											<a :href="downUrl_1chat" target="_blank"><strong> 新增App端（仅安卓）点击下载</strong> </a>
-										</h6>
-										<h6 style="margin-bottom:2.5rem;color: #c18401;font-size: 12.5px">
-											<a :href="downUrl_chatcn" target="_blank"><strong> 新增OpenAI国内破解版APP，点击下载</strong> </a>
-										</h6>
+<!--										<h6 style=";color: #c18401;font-size: 12.5px">-->
+<!--											<a :href="imageUrl_wxzs" target="_blank"><strong>2023.5 新增AI绘画模式</strong> </a>-->
+<!--										</h6>-->
+<!--										<h6 style=";color: #c18401;font-size: 12.5px">-->
+<!--											<a :href="downUrl_1chat" target="_blank"><strong> 新增App端（仅安卓）点击下载</strong> </a>-->
+<!--										</h6>-->
+<!--										<h6 style="margin-bottom:2.5rem;color: #c18401;font-size: 12.5px">-->
+<!--											<a :href="downUrl_chatcn" target="_blank"><strong> 新增OpenAI国内破解版APP，点击下载</strong> </a>-->
+<!--										</h6>-->
+
+					<h6 style="margin-bottom: 0px;color: #c18401;">
+						1Chat被DNS攻击，域名即将失效
+						<a style="color: #f2cc60;" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
+							 target="_blank">
+							新域名见飞书文档，点击查看
+						</a>
+					</h6>
+					<h6 style="margin-bottom: 0px;color: #c18401;">
+						临时域名：<a href=" https://chat.littlewheat.com" target="_blank">
+						https://chat.littlewheat.com
+					</a>
+					</h6>
 
 
 <!--						<h6 style="margin-bottom:5rem;color: #c18401;font-size: 12.5px">-->
@@ -182,7 +195,7 @@ watch(
 <!--							</p>-->
 <!--						</div>-->
 <!--						<div class="flex-1 flex-shrink-0 overflow-hidden " >-->
-<!--&lt;!&ndash;							<img   :src=" 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">&ndash;&gt;-->
+<!--&lt;!&ndash;							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">&ndash;&gt;-->
 <!--							<img  style="max-width: 95%; margin-left: 5%;" :src="imageUrl" />-->
 <!--						</div>-->
 <!--					</dev>-->
@@ -204,7 +217,7 @@ watch(
 <!--											</p>-->
 <!--										</div>-->
 <!--										<div class="flex-1 flex-shrink-0 overflow-hidden " >-->
-<!--				&lt;!&ndash;							<img   :src=" 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">&ndash;&gt;-->
+<!--				&lt;!&ndash;							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">&ndash;&gt;-->
 <!--											<img  style="max-width: 100%; margin-left: 0;" :src="imageUrl_dy" />-->
 <!--										</div>-->
 <!--									</dev>-->
@@ -213,12 +226,12 @@ watch(
 
 									<h6 style="color:rgb(99 165 237);">
 										<div class="flex-1 flex-shrink-0 overflow-hidden " >
-											<!--							<img   :src=" 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">-->
-											<img  style="max-width: 70%; margin-left: 15%;" :src="imageUrl_dy" />
+											<!--							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">-->
+											<img  style="max-width: 80%; margin-left: 5%;" :src="imageUrl" />
 										</div>
 									</h6>
 									<h6 style="color:#c18401;">
-										抖音号 见上方。<a style="" :href="imageUrl" target="_blank">v群：点击跳二维码  </a>
+										v群 见上方。<a style="" :href="imageUrl" target="_blank">v群：点击跳二维码  </a>
 									</h6>
 <!--				<h6 style="">-->
 <!--					<a  style="color:rgb(99 165 237);" href="https://fk.a3e.top?code=YT0xJmI9NQ%3D%3D" target="_blank"> 批发请点击-> 5刀、120刀账号下单 </a>-->

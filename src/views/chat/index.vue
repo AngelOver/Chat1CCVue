@@ -33,9 +33,9 @@ const authStore = useAuthStore()
 const chatStore = useChatStore()
 
 useCopyCode()
-let imageUrl_wxzs = 'https://qiniuchat.1chat.cc/other/wx/wxzs.jpg?t=' + Date.now()
-let downUrl_1chat = 'https://qiniuchat.1chat.cc/other/app/android/1chat.apk?t=' + Date.now()
-let downUrl_chatcn = 'https://qiniuchat.1chat.cc/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
+let imageUrl_wxzs = 'https://qiniuchat.littlewheat.com/other/wx/wxzs.jpg?t=' + Date.now()
+let downUrl_1chat = 'https://qiniuchat.littlewheat.com/other/app/android/1chat.apk?t=' + Date.now()
+let downUrl_chatcn = 'https://qiniuchat.littlewheat.com/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
 
 const { isMobile } = useBasicLayout()
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
@@ -596,7 +596,7 @@ onUnmounted(() => {
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
                 <span>1Chat.cc 免费、无限制、免登录、最快、体验最好 的ChatAI。永久域名<span style="color: #c18401">1Chat.cc</span></span>
 
-
+							</div>
 
 <!--								永久免费用于学习和测试,底下输入框输入就能直接用～，点左下角地球图标可关闭搜索模式，关闭后可极速响应-->
 <!--								收藏当前页面即可永不迷路，点击左下角捐赠按钮可一直看到最新存活 国内备案不封链接：https://chat.jinshutuan.com/（稳定但有严格内容审查，若要分享到国内或微信分享请用此链接）-->
@@ -604,26 +604,43 @@ onUnmounted(() => {
 <!--								禁止发布、传播任何违法、违规内容，使用本网站，视您接受并同意《免责声明》-->
 <!--								服务器昂贵,接口昂贵,但网站免费！！如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--								每人每月捐个三元、服务就能永久免费下去！！-->
-              </div>
-							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-						<span>
-						 App端：新增安卓客户端，<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载</strong> </a> ; 其他：已破解OpenAI海外IOS客户端<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载OpenAI国内版</strong> </a>
-						</span></div>
+<!--              </div>-->
+<!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--						<span>-->
+<!--						 App端：新增安卓客户端，<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载</strong> </a> ; 其他：已破解OpenAI海外IOS客户端<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载OpenAI国内版</strong> </a>-->
+<!--						</span></div>-->
 
 
 <!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
 <!--							</div>-->
 							<!--                                服务器昂贵，接口昂贵，但网站免费！！！ (说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
-							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-									关注下抖音，网站动态与最新地址 会放抖音，见左侧
-							</div>
+<!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--									关注下抖音，网站动态与最新地址 会放抖音，见左侧-->
+<!--							</div>-->
 <!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--															服务器昂贵，接口昂贵，但网站免费！！！ 如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--							</div>-->
-							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								服务器昂贵，接口昂贵，但网站免费！！！如果有帮助到您，可以给我买一瓶冰阔落！！！ 每人每月捐个三元、服务就能永久免费下去！！
+<!--							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--								服务器昂贵，接口昂贵，但网站免费！！！如果有帮助到您，可以给我买一瓶冰阔落！！！ 每人每月捐个三元、服务就能永久免费下去！！-->
+<!--							</div>-->
+
+							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+								<span>  1Chat受到DNS攻击，2日内即将无法访问，dns污染污染进度 64%，</span>
 							</div>
+							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+								<span> <a style="" href="http://chat.littlewheat.com" target="_blank">请转移至 新域名 https://chat.littlewheat.com </a> </span>
+							</div>
+							<div style="color: #c18401" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+								<span>   情况说明与域名情况见 【飞书文档】1Chat.cc 域名更换通知</span>
+							</div>
+							<div style="color: #c18401" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+								<span> <a style="" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f" target="_blank">https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f </a> </span>
+							</div>
+<!--							<div style="color: #c18401" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--								<img  style="max-width: 10rem" :src="imageUrl_wxzs" />-->
+<!--							</div>-->
+
 <!--							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								每人每月捐个三元、服务就能永久免费下去！！ 如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--							</div>-->
