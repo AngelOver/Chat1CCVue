@@ -34,6 +34,9 @@ const chatStore = useChatStore()
 
 useCopyCode()
 let imageUrl_wxzs = 'https://qiniuchat.1chat.cc/other/wx/wxzs.jpg?t=' + Date.now()
+let downUrl_1chat = 'https://qiniuchat.1chat.cc/other/app/android/1chat.apk?t=' + Date.now()
+let downUrl_chatcn = 'https://qiniuchat.1chat.cc/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
+
 const { isMobile } = useBasicLayout()
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
 const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom, scrollTo } = useScroll()
@@ -55,6 +58,7 @@ let showDraw =  ref<boolean>(false)
 let loadingms: MessageReactive
 let allmsg: MessageReactive
 let prevScrollTop: number
+let isFist =ref<boolean>(true)
 
 if(usingContext.value){
 	chatStore.setUsingContext(!usingContext.value)
@@ -73,6 +77,9 @@ dataSources.value.forEach((item, index) => {
 })
 
 function handleSubmit() {
+	if (isFist.value){
+		isFist.value = false
+	}
   onConversation()
 }
 
@@ -448,14 +455,15 @@ function handleClear() {
 }
 
 function handleEnter(event: KeyboardEvent) {
+
   if (!isMobile.value) {
-    if (event.key === 'Enter' && !event.shiftKey) {
+    if (event.code === 'Enter' && !event.shiftKey) {
       event.preventDefault()
       handleSubmit()
     }
   }
   else {
-    if (event.key === 'Enter' && event.ctrlKey) {
+    if (event.code === 'Enter' && event.ctrlKey) {
       event.preventDefault()
       handleSubmit()
     }
@@ -583,10 +591,10 @@ onUnmounted(() => {
           :class="[isMobile ? 'p-2' : 'p-4']"
         >
           <NSpin :show="firstLoading">
-            <template v-if="!dataSources.length">
+            <template v-if="!dataSources.length||isFist">
               <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-                <span>1Chat.cc 免费、无限制、免登录最快 的ChatAI。最方便体验最快最好的网站，永久域名<span style="color: #c18401">1Chat.cc</span></span>
+                <span>1Chat.cc 免费、无限制、免登录、最快、体验最好 的ChatAI。永久域名<span style="color: #c18401">1Chat.cc</span></span>
 
 
 
@@ -598,17 +606,23 @@ onUnmounted(() => {
 <!--								每人每月捐个三元、服务就能永久免费下去！！-->
               </div>
 							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)
-							</div>
+						<span>
+						 App端：新增安卓客户端，<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载</strong> </a> ; 其他：已破解OpenAI海外IOS客户端<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载OpenAI国内版</strong> </a>
+						</span></div>
+
+
+<!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
+<!--							</div>-->
 							<!--                                服务器昂贵，接口昂贵，但网站免费！！！ (说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
 							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								如果你觉得做的好，可以给我买一瓶冰阔落
+									关注下抖音，网站动态与最新地址 会放抖音，见左侧
 							</div>
 <!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--															服务器昂贵，接口昂贵，但网站免费！！！ 如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--							</div>-->
 							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								每人每月捐个三元、服务就能永久免费下去！！
+								服务器昂贵，接口昂贵，但网站免费！！！如果有帮助到您，可以给我买一瓶冰阔落！！！ 每人每月捐个三元、服务就能永久免费下去！！
 							</div>
 <!--							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								每人每月捐个三元、服务就能永久免费下去！！ 如果你觉得做的好，可以给我买一瓶冰阔落-->
@@ -676,6 +690,7 @@ onUnmounted(() => {
               <IconPrompt class="w-[20px] m-auto" />
             </span>
           </HoverButton>
+
           <HoverButton v-if="!isMobile" @click="toggleUsingContext">
             <span class="text-xl" :class="{ 'text-[#4b9e5f]': usingContext, 'text-[#a8071a]': !usingContext }">
 							<SvgIcon icon="ri:chat-history-line" />
@@ -683,11 +698,11 @@ onUnmounted(() => {
 
           </HoverButton>
 					<HoverButton v-if="!isMobile" @click="toggleDraw">
-            <span class="text-xl" :class="{ 'text-[#4b9e5f]': showDraw, 'text-[#a8071a]': !showDraw }">
+            <span class="text-xl" :class="{ 'text-[#4b9e5f]': showDraw, 'text-[#c9d1d9b8]': !showDraw }">
 							画
             </span>
-
 					</HoverButton>
+
           <NAutoComplete v-model:value="prompt" :options="searchOptions" :render-label="renderOption">
             <template #default="{ handleInput, handleBlur, handleFocus }">
               <NInput
@@ -715,6 +730,5 @@ onUnmounted(() => {
       </div>
     </footer>
     <Prompt v-if="showPrompt" v-model:roomId="uuid" v-model:visible="showPrompt" />
-
 	</div>
 </template>

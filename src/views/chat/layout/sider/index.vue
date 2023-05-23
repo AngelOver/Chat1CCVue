@@ -15,8 +15,12 @@ const chatStore = useChatStore()
 const { isMobile } = useBasicLayout()
 const show = ref(false)
 
+let imageUrl_dy = 'https://qiniuchat.1chat.cc/other/dy.jpg?t=' + Date.now()
 let imageUrl = 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t=' + Date.now()
-let imageUrl_wxzs = 'https://qiniuchat.1chat.cc/other/wx/wxzs.jpg?t=' + Date.now()
+let imageUrl_wxzs = 'https://qiniuchat.1chat.cc/other/wxzs.jpg?t=' + Date.now()
+
+let downUrl_1chat = 'https://qiniuchat.1chat.cc/other/app/android/1chat.apk?t=' + Date.now()
+let downUrl_chatcn = 'https://qiniuchat.1chat.cc/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
 
 const collapsed = computed(() => appStore.siderCollapsed)
 
@@ -110,10 +114,17 @@ watch(
 <!--							<img style="max-width: 50% " :src="imageUrl_wxzs" />-->
 <!--						</h6>-->
 <!--					</h6>-->
-
-										<h6 style="margin-bottom:5rem;color: #c18401;font-size: 12.5px">
+										<h6 style=";color: #c18401;font-size: 12.5px">
 											<a :href="imageUrl_wxzs" target="_blank"><strong>2023.5 新增AI绘画模式</strong> </a>
 										</h6>
+										<h6 style=";color: #c18401;font-size: 12.5px">
+											<a :href="downUrl_1chat" target="_blank"><strong> 新增App端（仅安卓）点击下载</strong> </a>
+										</h6>
+										<h6 style="margin-bottom:2.5rem;color: #c18401;font-size: 12.5px">
+											<a :href="downUrl_chatcn" target="_blank"><strong> 新增OpenAI国内破解版APP，点击下载</strong> </a>
+										</h6>
+
+
 <!--						<h6 style="margin-bottom:5rem;color: #c18401;font-size: 12.5px">-->
 <!--							<a :href="imageUrl_wxzs" target="_blank"><strong>2023.5 新增AI绘画模式</strong> </a>-->
 <!--						</h6>-->
@@ -154,28 +165,61 @@ watch(
 				<div class="p-4 " style="padding-top: 0">
 
 				</div>
-				<div class="p-4 " style="padding-top: 0;">
-					<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >
-						<div class="flex-1 flex-shrink-0 overflow-hidden">
-							<p style="font-size: 12.5px;color: rgb(99 165 237)" >
-								<a href="https://1chat.cc" target="_blank">永久域名：1Chat.cc </a>
-							</p>
-							<p style="color: #c18401" >
-								加群：--> 防走丢
-							</p>
-							<p>
-								v群：----------->
-							</p>
-							<p>
-								q群：791303042
-							</p>
-						</div>
-						<div class="flex-1 flex-shrink-0 overflow-hidden " >
-<!--							<img   :src=" 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">-->
-							<img  style="max-width: 95%; margin-left: 5%;" :src="imageUrl" />
-						</div>
-					</dev>
+<!--				<div class="p-4 " style="padding-top: 0;">-->
+<!--					<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >-->
+<!--						<div class="flex-1 flex-shrink-0 overflow-hidden">-->
+<!--							<p style="font-size: 12.5px;color: rgb(99 165 237)" >-->
+<!--								<a href="https://1chat.cc" target="_blank">永久域名：1Chat.cc </a>-->
+<!--							</p>-->
+<!--							<p style="color: #c18401" >-->
+<!--								加群：&ndash;&gt; 防走丢-->
+<!--							</p>-->
+<!--							<p>-->
+<!--								v群：-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--							</p>-->
+<!--							<p>-->
+<!--								q群：791303042-->
+<!--							</p>-->
+<!--						</div>-->
+<!--						<div class="flex-1 flex-shrink-0 overflow-hidden " >-->
+<!--&lt;!&ndash;							<img   :src=" 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">&ndash;&gt;-->
+<!--							<img  style="max-width: 95%; margin-left: 5%;" :src="imageUrl" />-->
+<!--						</div>-->
+<!--					</dev>-->
 
+								<div class="p-4 " style="padding-top: 0;">
+<!--									<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >-->
+<!--										<div class="flex-1 flex-shrink-0 overflow-hidden">-->
+<!--											<p style="font-size: 12.5px;color: rgb(99 165 237)" >-->
+<!--												<a href="https://1chat.cc" target="_blank">永久域名：1Chat.cc </a>-->
+<!--											</p>-->
+<!--											<p style="color: #c18401" >-->
+<!--												抖音：&#45;&#45;&ndash;&gt;-->
+<!--											</p>-->
+<!--											<p>-->
+<!--												<a :href="imageUrl_wxzs" target="_blank">v群：点击加群  </a>-->
+<!--											</p>-->
+<!--											<p>-->
+<!--												q群：791303042-->
+<!--											</p>-->
+<!--										</div>-->
+<!--										<div class="flex-1 flex-shrink-0 overflow-hidden " >-->
+<!--				&lt;!&ndash;							<img   :src=" 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">&ndash;&gt;-->
+<!--											<img  style="max-width: 100%; margin-left: 0;" :src="imageUrl_dy" />-->
+<!--										</div>-->
+<!--									</dev>-->
+
+
+
+									<h6 style="color:rgb(99 165 237);">
+										<div class="flex-1 flex-shrink-0 overflow-hidden " >
+											<!--							<img   :src=" 'https://qiniuchat.1chat.cc/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">-->
+											<img  style="max-width: 70%; margin-left: 15%;" :src="imageUrl_dy" />
+										</div>
+									</h6>
+									<h6 style="color:#c18401;">
+										抖音号 见上方。<a style="" :href="imageUrl" target="_blank">v群：点击跳二维码  </a>
+									</h6>
 <!--				<h6 style="">-->
 <!--					<a  style="color:rgb(99 165 237);" href="https://fk.a3e.top?code=YT0xJmI9NQ%3D%3D" target="_blank"> 批发请点击-> 5刀、120刀账号下单 </a>-->
 <!--					</h6>-->
@@ -196,9 +240,15 @@ watch(
 <!--												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>-->
 <!--										</h6>-->
 
-					<h6 style="color: rgb(50 197 157);">
-						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT成品独享账号 9.9元  </a>
+					<h6 style="color: rgb(50 197 157);font-size: 13.5px">
+						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT独享账号 3个起9.9元  </a>
 					</h6>
+<!--					<NButton block @click="show = true">-->
+<!--						OpenAI国内版下载-->
+<!--					</NButton>-->
+<!--					<NButton block @click="show = true">-->
+<!--						本站客户端下载-->
+<!--					</NButton>-->
 
 					<NButton block @click="show = true">
 						{{ $t('store.siderButton') }}

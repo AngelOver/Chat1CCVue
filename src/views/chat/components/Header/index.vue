@@ -83,7 +83,7 @@ function handleShowPrompt() {
           </span>
         </HoverButton>
         <HoverButton @click="handleExport">
-          <span class="text-xl" :class="{ 'text-[#4b9e5f]': showDraw, 'text-[#a8071a]': !showDraw  }">
+          <span class="text-xl" :class="{ 'text-[#4b9e5f]': showDraw, 'text-[#c9d1d9b8]': !showDraw  }">
             画
           </span>
         </HoverButton>
