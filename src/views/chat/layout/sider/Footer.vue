@@ -33,6 +33,6 @@ async function handleLogout() {
 
   </footer>
 	<div style="text-align: center;color: #6e7681;font-size: xx-small" >
-		<a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备18137197号-2 </a>
+		<a href="https://beian.miit.gov.cn/" target="_blank">&nbsp; </a>
 </div>
 </template>

@@ -125,16 +125,29 @@ watch(
 <!--										</h6>-->
 
 					<h6 style="margin-bottom: 0px;color: #c18401;">
-						1Chat被DNS攻击，域名即将失效
+						1Chat被DNS攻击，旧域名已失效
+					</h6>
+					<h6 style="margin-bottom: 0px;color: #c18401;font-size: 10px">
 						<a style="color: #f2cc60;" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
 							 target="_blank">
-							新域名见飞书文档，点击查看
+							新域名见飞书文档，点击查看（可收藏）
 						</a>
 					</h6>
 					<h6 style="margin-bottom: 0px;color: #c18401;">
-						临时域名：<a href=" https://chat.littlewheat.com" target="_blank">
-						https://chat.littlewheat.com
+						主站域名1：<a href=" https://	1.1ai.fun" target="_blank">1.1ai.fun
 					</a>
+					</h6>
+					<h6 style="margin-bottom: 0px;color: #c18401;">
+						主站域名2：<a href=" https://1.ai1.fun" target="_blank">1.ai1.fun
+					</a>
+					</h6>
+						<h6 style="margin-bottom: 0px;color: #c18401;">
+							业务域名（随时换）：<a href=" https://1chat.c3r.ink" target="_blank">1chat.c3r.ink
+						</a>
+					</h6>
+						<h6 style="margin-bottom: 0px;color: #c18401;">
+							临时域名：<a href=" https://chat.littlewheat.com" target="_blank">chat.littlewheat.com
+						</a>
 					</h6>
 
 
@@ -227,11 +240,11 @@ watch(
 									<h6 style="color:rgb(99 165 237);">
 										<div class="flex-1 flex-shrink-0 overflow-hidden " >
 											<!--							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">-->
-											<img  style="max-width: 80%; margin-left: 5%;" :src="imageUrl" />
+											<img  style="max-width: 70%; margin-left: 15%;" :src="imageUrl" />
 										</div>
 									</h6>
 									<h6 style="color:#c18401;">
-										v群 见上方。<a style="" :href="imageUrl" target="_blank">v群：点击跳二维码  </a>
+									<a style="" :href="imageUrl" target="_blank">v群 不加群的都走丢了 </a>
 									</h6>
 <!--				<h6 style="">-->
 <!--					<a  style="color:rgb(99 165 237);" href="https://fk.a3e.top?code=YT0xJmI9NQ%3D%3D" target="_blank"> 批发请点击-> 5刀、120刀账号下单 </a>-->
@@ -247,14 +260,14 @@ watch(
 						<a style="color: #c18401;opacity: 0.5;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>
 					</h6> -->
 					<h6 >
-						<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9MTA%3D" target="_blank">外链：美区 AppStore账号 点击购买   </a>
+						<a style="color:rgb(99 165 237);font-size: 12px" href="https://fk.a3e.top?code=YT0xJmI9MTA%3D" target="_blank">外链：OpenAI官方120刀账号 点击购买   </a>
 					</h6>
 <!--									<h6 >-->
 <!--												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>-->
 <!--										</h6>-->
 
 					<h6 style="color: rgb(50 197 157);font-size: 13.5px">
-						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT独享账号 3个起9.9元  </a>
+						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT独享账号含5刀 9.9元  </a>
 					</h6>
 <!--					<NButton block @click="show = true">-->
 <!--						OpenAI国内版下载-->
