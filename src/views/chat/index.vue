@@ -594,7 +594,10 @@ onUnmounted(() => {
             <template v-if="!dataSources.length||isFist">
               <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-                <span>1Chat 免费、无限制、免登录、最快、体验最好 的ChatAI。原域名 <span style="color: #c18401">1Chat.cc</span></span>
+                <span>1Chat 免费、无限制、免登录、最快 的ChatAI
+<!--									。-->
+<!--									原域名 <span style="color: #c18401">1Chat.cc</span>-->
+								</span>
 
 							</div>
 
@@ -626,7 +629,7 @@ onUnmounted(() => {
 <!--							</div>-->
 
 							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								<span>  1Chat受到DNS攻击旧域名已废，
+								<span>  1Chat受DNS攻击旧域已废
 									主域1: 	<a style="color: #c18401" href="https://1.1ai.fun" target="_blank">1.1ai.fun </a>
 									主域2：	<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun</a>
 									临域： <a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>
@@ -648,14 +651,17 @@ onUnmounted(() => {
 <!--								每人每月捐个三元、服务就能永久免费下去！！ 如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--							</div>-->
 
-							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								<span style="color: rgb(99 165 237)">
-								服务器昂贵，接口昂贵，但网站免费！！！
-								</span>
-							</div>
-							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								如果你觉得做的好，可以给我买一瓶冰阔落
-							</div>
+<!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--								<span style="color: rgb(99 165 237)">-->
+<!--								服务器昂贵，接口昂贵，但网站免费！！！-->
+<!--								</span>-->
+<!--							</div>-->
+<!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--								如果你觉得做的好，可以给我买一瓶冰阔落-->
+<!--							</div>-->
+														<div style=";margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+															服务器昂贵，接口昂贵，但网站免费！！！ 如果你觉得做的好，可以给我买一瓶冰阔落
+														</div>
 
 							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 								每人每月捐个三元、服务就能永久免费下去！！
@@ -665,7 +671,7 @@ onUnmounted(() => {
 <!--									</div>-->
 
 											<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-																<img  style="max-width: 14.5rem" :src="imageUrl_wxzs" />
+																<img  style="max-width: 14rem" :src="imageUrl_wxzs" />
 															</div>
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 15rem" :src="imageUrl_wxzs" />	<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->

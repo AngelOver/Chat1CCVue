@@ -127,28 +127,28 @@ watch(
 					<h6 style="margin-bottom: 0px;color: #c18401;">
 						1Chat被DNS攻击，旧域名已失效
 					</h6>
-					<h6 style="margin-bottom: 0px;color: #c18401;font-size: 10px">
+					<h6 style="margin-bottom: 3rem;color: #c18401;font-size: 10px">
 						<a style="color: #f2cc60;" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
 							 target="_blank">
 							新域名见飞书文档，点击查看（可收藏）
 						</a>
 					</h6>
-					<h6 style="margin-bottom: 0px;color: #c18401;">
-						主站域名1：<a href=" https://	1.1ai.fun" target="_blank">1.1ai.fun
-					</a>
-					</h6>
-					<h6 style="margin-bottom: 0px;color: #c18401;">
-						主站域名2：<a href=" https://1.ai1.fun" target="_blank">1.ai1.fun
-					</a>
-					</h6>
-						<h6 style="margin-bottom: 0px;color: #c18401;">
-							业务域名（随时换）：<a href=" https://1chat.c3r.ink" target="_blank">1chat.c3r.ink
-						</a>
-					</h6>
-						<h6 style="margin-bottom: 0px;color: #c18401;">
-							临时域名：<a href=" https://chat.littlewheat.com" target="_blank">chat.littlewheat.com
-						</a>
-					</h6>
+<!--					<h6 style="margin-bottom: 0px;color: #c18401;">-->
+<!--						主站域名1：<a href=" https://	1.1ai.fun" target="_blank">1.1ai.fun-->
+<!--					</a>-->
+<!--					</h6>-->
+<!--					<h6 style="margin-bottom: 0px;color: #c18401;">-->
+<!--						主站域名2：<a href=" https://1.ai1.fun" target="_blank">1.ai1.fun-->
+<!--					</a>-->
+<!--					</h6>-->
+<!--						<h6 style="margin-bottom: 0px;color: #c18401;">-->
+<!--							业务域名（随时换）：<a href=" https://1chat.c3r.ink" target="_blank">1chat.c3r.ink-->
+<!--						</a>-->
+<!--					</h6>-->
+<!--						<h6 style="margin-bottom: 0px;color: #c18401;">-->
+<!--							临时域名：<a href=" https://chat.littlewheat.com" target="_blank">chat.littlewheat.com-->
+<!--						</a>-->
+<!--					</h6>-->
 
 
 <!--						<h6 style="margin-bottom:5rem;color: #c18401;font-size: 12.5px">-->
@@ -191,29 +191,32 @@ watch(
 				<div class="p-4 " style="padding-top: 0">
 
 				</div>
-<!--				<div class="p-4 " style="padding-top: 0;">-->
-<!--					<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >-->
-<!--						<div class="flex-1 flex-shrink-0 overflow-hidden">-->
-<!--							<p style="font-size: 12.5px;color: rgb(99 165 237)" >-->
-<!--								<a href="https://1chat.cc" target="_blank">永久域名：1Chat.cc </a>-->
-<!--							</p>-->
-<!--							<p style="color: #c18401" >-->
-<!--								加群：&ndash;&gt; 防走丢-->
-<!--							</p>-->
-<!--							<p>-->
-<!--								v群：-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-<!--							</p>-->
-<!--							<p>-->
-<!--								q群：791303042-->
-<!--							</p>-->
-<!--						</div>-->
-<!--						<div class="flex-1 flex-shrink-0 overflow-hidden " >-->
-<!--&lt;!&ndash;							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">&ndash;&gt;-->
-<!--							<img  style="max-width: 95%; margin-left: 5%;" :src="imageUrl" />-->
-<!--						</div>-->
-<!--					</dev>-->
+				<div class="p-4 " style="padding-top: 0;">
+					<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >
+						<div class="flex-1 flex-shrink-0 overflow-hidden">
+							<p style="font-size: 12.5px;color: rgb(99 165 237)" >
+								<a href="https://1.1ai.fun" target="_blank">主域名：1.1ai.fun </a>
+							</p>
+							<p style="font-size: 12.5px;color: rgb(99 165 237)" >
+								<a href="https://1.ai1.fun" target="_blank">主域2：1.ai1.fun </a>
+							</p>
+							<p style="color: #c18401" >
+								不加群->已走丢
+							</p>
+							<p>
+								v群：---------->
+							</p>
+							<p>
+								q群：791303042
+							</p>
+						</div>
+						<div class="flex-1 flex-shrink-0 overflow-hidden " >
+<!--							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">-->
+							<img  style="max-width: 95%; margin-left: 5%;" :src="imageUrl" />
+						</div>
+					</dev>
 
-								<div class="p-4 " style="padding-top: 0;">
+<!--								<div class="p-4 " style="padding-top: 0;">-->
 <!--									<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >-->
 <!--										<div class="flex-1 flex-shrink-0 overflow-hidden">-->
 <!--											<p style="font-size: 12.5px;color: rgb(99 165 237)" >-->
@@ -237,15 +240,15 @@ watch(
 
 
 
-									<h6 style="color:rgb(99 165 237);">
-										<div class="flex-1 flex-shrink-0 overflow-hidden " >
-											<!--							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">-->
-											<img  style="max-width: 70%; margin-left: 15%;" :src="imageUrl" />
-										</div>
-									</h6>
-									<h6 style="color:#c18401;">
-									<a style="" :href="imageUrl" target="_blank">v群 不加群的都走丢了 </a>
-									</h6>
+<!--									<h6 style="color:rgb(99 165 237);">-->
+<!--										<div class="flex-1 flex-shrink-0 overflow-hidden " >-->
+<!--											&lt;!&ndash;							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">&ndash;&gt;-->
+<!--											<img  style="max-width: 70%; margin-left: 15%;" :src="imageUrl" />-->
+<!--										</div>-->
+<!--									</h6>-->
+<!--									<h6 style="color:#c18401;">-->
+<!--									<a style="" :href="imageUrl" target="_blank">v群 不加群的都走丢了 </a>-->
+<!--									</h6>-->
 <!--				<h6 style="">-->
 <!--					<a  style="color:rgb(99 165 237);" href="https://fk.a3e.top?code=YT0xJmI9NQ%3D%3D" target="_blank"> 批发请点击-> 5刀、120刀账号下单 </a>-->
 <!--					</h6>-->
