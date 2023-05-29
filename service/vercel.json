@@ -2,17 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "./src/index.ts",
+      "src": "pnpm install && pnpm build && pnpm run prod",
       "use": "@vercel/node",
       "config": {
-        "distDir": "build"
+        "includeFiles": ["build/**"],
+        "excludeFiles": ["node_modules/**"]
       }
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/build/index.js"
+      "src": "/api/(.*)",
+      "dest": "build/index.js"
     }
   ]
 }
