@@ -1,6 +1,7 @@
 {
   "name": "chatgpt-web-service",
   "version": "1.0.0",
+  "main": "src/index.ts",
   "private": false,
   "description": "ChatGPT Web Service",
   "author": "ChenZhaoYu <chenzhaoyu1994@gmail.com>",
