@@ -263,8 +263,10 @@ watch(
 						<a style="color: #c18401;opacity: 0.5;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>
 					</h6> -->
 					<h6 >
-						<a style="color:rgb(99 165 237);font-size: 12px" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">外链：OpenAI官方120刀账号 点击购买   </a>
+<!--						<a style="color:rgb(99 165 237);font-size: 12px" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">外链：OpenAI官方120刀账号 点击购买   </a>-->
+						<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9MTA%3D" target="_blank">外链：美区 AppStore账号 点击购买   </a>
 					</h6>
+
 <!--									<h6 >-->
 <!--												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>-->
 <!--										</h6>-->
