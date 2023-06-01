@@ -124,9 +124,9 @@ watch(
 <!--											<a :href="downUrl_chatcn" target="_blank"><strong> 新增OpenAI国内破解版APP，点击下载</strong> </a>-->
 <!--										</h6>-->
 
-					<h6 style="margin-bottom: 0px;color: #c18401;">
-						1Chat被DNS攻击，旧域名已失效
-					</h6>
+<!--					<h6 style="margin-bottom: 0px;color: #c18401;">-->
+<!--						1Chat被DNS攻击，旧域名已失效-->
+<!--					</h6>-->
 					<h6 style="margin-bottom: 3rem;color: #c18401;font-size: 10px">
 						<a style="color: #f2cc60;" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
 							 target="_blank">
@@ -263,7 +263,7 @@ watch(
 						<a style="color: #c18401;opacity: 0.5;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>
 					</h6> -->
 					<h6 >
-						<a style="color:rgb(99 165 237);font-size: 12px" href="https://fk.a3e.top?code=YT0xJmI9MTA%3D" target="_blank">外链：OpenAI官方120刀账号 点击购买   </a>
+						<a style="color:rgb(99 165 237);font-size: 12px" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">外链：OpenAI官方120刀账号 点击购买   </a>
 					</h6>
 <!--									<h6 >-->
 <!--												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>-->
