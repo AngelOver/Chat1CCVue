@@ -33,6 +33,7 @@ const authStore = useAuthStore()
 const chatStore = useChatStore()
 
 useCopyCode()
+let mj_1chat = 'https://mj.c3r.ink?t=' + Date.now()
 let imageUrl_wxzs = 'https://qiniuchat.littlewheat.com/other/wx/wxzs.jpg?t=' + Date.now()
 let downUrl_1chat = 'https://qiniuchat.littlewheat.com/other/app/android/1chat.apk?t=' + Date.now()
 let downUrl_chatcn = 'https://qiniuchat.littlewheat.com/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
@@ -611,12 +612,21 @@ onUnmounted(() => {
 <!--								服务器昂贵,接口昂贵,但网站免费！！如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--								每人每月捐个三元、服务就能永久免费下去！！-->
 <!--              </div>-->
+<!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--						<span>-->
+<!--						 AI绘画：MJ绘画已接入<a style="color: #c18401" :href="mj_1chat" target="_blank"><strong> 点击前往</strong> </a>-->
+<!--							&lt;!&ndash;							; 其他：已破解OpenAI海外IOS客户端<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载OpenAI国内版</strong> </a>&ndash;&gt;-->
+<!--							&lt;!&ndash;					&ndash;&gt;-->
+<!--						</span>-->
+<!--							</div>-->
 							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 						<span>
+								 AI绘画：MJ最强绘画已接入，<a style="color: #c18401" :href="mj_1chat" target="_blank"><strong> 点击前往</strong> </a>
 						 App端：新增安卓客户端，<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载</strong> </a>
 <!--							; 其他：已破解OpenAI海外IOS客户端<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载OpenAI国内版</strong> </a>-->
 <!--					-->
-						</span></div>
+						</span>
+							</div>
 
 
 <!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
