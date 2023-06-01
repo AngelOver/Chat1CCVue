@@ -611,10 +611,12 @@ onUnmounted(() => {
 <!--								服务器昂贵,接口昂贵,但网站免费！！如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--								每人每月捐个三元、服务就能永久免费下去！！-->
 <!--              </div>-->
-<!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
-<!--						<span>-->
-<!--						 App端：新增安卓客户端，<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载</strong> </a> ; 其他：已破解OpenAI海外IOS客户端<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载OpenAI国内版</strong> </a>-->
-<!--						</span></div>-->
+							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+						<span>
+						 App端：新增安卓客户端，<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载</strong> </a>
+<!--							; 其他：已破解OpenAI海外IOS客户端<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载OpenAI国内版</strong> </a>-->
+<!--					-->
+						</span></div>
 
 
 <!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
