@@ -18,7 +18,7 @@ const show = ref(false)
 let imageUrl_dy = 'https://qiniuchat.littlewheat.com/other/dy.jpg?t=' + Date.now()
 let imageUrl = 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t=' + Date.now()
 let imageUrl_wxzs = 'https://qiniuchat.littlewheat.com/other/wxzs.jpg?t=' + Date.now()
-let mj_1chat = 'https://mj.c3r.ink?t=' + Date.now()
+let mj_1chat = 'https://mj.c3r.ink'
 
 
 let downUrl_1chat = 'https://qiniuchat.littlewheat.com/other/app/android/1chat.apk?t=' + Date.now()
@@ -123,7 +123,7 @@ watch(
 						<a :href="mj_1chat" target="_blank"><strong>2023.6 新增MJ最强AI绘画 点击前往</strong> </a>
 					</h6>
 										<h6 style=";color: #c18401;font-size: 12.5px">
-											<a :href="downUrl_1chat" target="_blank"><strong> 新增App端（仅安卓）点击下载</strong> </a>
+											<a :href="downUrl_1chat" target="_blank"><strong> App端（仅安卓）点击下载</strong> </a>
 										</h6>
 <!--										<h6 style="margin-bottom:2.5rem;color: #c18401;font-size: 12.5px">-->
 <!--											<a :href="downUrl_chatcn" target="_blank"><strong> 新增OpenAI国内破解版APP，点击下载</strong> </a>-->
@@ -135,7 +135,7 @@ watch(
 					<h6 style="margin-bottom: 3rem;color: #c18401;font-size: 10px">
 						<a style="color: #f2cc60;" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
 							 target="_blank">
-							新域名见飞书文档，点击查看（可收藏）
+							新域名见飞书文档（可收藏）
 						</a>
 					</h6>
 <!--					<h6 style="margin-bottom: 0px;color: #c18401;">-->
@@ -199,12 +199,9 @@ watch(
 				<div class="p-4 " style="padding-top: 0;">
 					<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >
 						<div class="flex-1 flex-shrink-0 overflow-hidden">
-<!--							<p style="font-size: 12.5px;color: rgb(99 165 237)" >-->
-<!--								<a href="https://1.1ai.fun" target="_blank">主域名：1.1ai.fun </a>-->
-<!--							</p>-->
-<!--							<p style="font-size: 12.5px;color: rgb(99 165 237)" >-->
-<!--								<a href="https://1.ai1.fun" target="_blank">主域2：1.ai1.fun </a>-->
-<!--							</p>-->
+							<p style="font-size: 12.5px;color: rgb(99 165 237)" >
+								<a href="https://1.ai1.fun" target="_blank">备用域名：1.ai1.fun </a>
+							</p>
 							<p style="color: #c18401" >
 								不加群->已走丢
 							</p>
