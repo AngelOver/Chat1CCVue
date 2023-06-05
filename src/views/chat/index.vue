@@ -595,10 +595,10 @@ onUnmounted(() => {
             <template v-if="!dataSources.length||isFist">
               <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-                <span>1Chat 免费、无限制、免登录、最快的 ChatAI。
-									主域:<a style="color: #c18401" href="https://1.1ai.fun" target="_blank">1.1ai.fun </a>
-									备用:<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun</a>
-									临时:<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>
+                <span>1.1ai.fun 免费、无限制、免登录、最快的ChatGPT。方便体验最快最好的网站
+<!--									备用域名<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun </a>-->
+<!--									备用:<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun</a>-->
+<!--									临时:<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>-->
 <!--									。-->
 <!--									原域名 <span style="color: #c18401">1Chat.cc</span>-->
 								</span>
@@ -619,14 +619,14 @@ onUnmounted(() => {
 <!--							&lt;!&ndash;					&ndash;&gt;-->
 <!--						</span>-->
 <!--							</div>-->
-							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-						<span>
-								 AI绘画：MJ最强绘画,<a style="color: #c18401" :href="mj_1chat" target="_blank"><strong> 点击前往</strong> </a>
-						 ;App端：<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载</strong> </a>
-<!--							; 其他：已破解OpenAI海外IOS客户端<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载OpenAI国内版</strong> </a>-->
-<!--					-->
-						</span>
-							</div>
+<!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--						<span>-->
+<!--								 AI绘画：MJ最强绘画,<a style="color: #c18401" :href="mj_1chat" target="_blank"><strong> 点击前往</strong> </a>-->
+<!--						 ;App端：<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载</strong> </a>-->
+<!--&lt;!&ndash;							; 其他：已破解OpenAI海外IOS客户端<a style="color: #c18401" :href="downUrl_1chat" target="_blank"><strong> 点击下载OpenAI国内版</strong> </a>&ndash;&gt;-->
+<!--&lt;!&ndash;					&ndash;&gt;-->
+<!--						</span>-->
+<!--							</div>-->
 
 
 <!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
@@ -674,7 +674,7 @@ onUnmounted(() => {
 <!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--							</div>-->
-														<div style=";margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+														<div style="color: rgb(50 197 157);;margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 															服务器昂贵，接口昂贵，但网站免费！！！ 如果你觉得做的好，可以给我买一瓶冰阔落
 														</div>
 

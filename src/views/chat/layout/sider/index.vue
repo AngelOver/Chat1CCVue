@@ -36,6 +36,10 @@ function handleUpdateCollapsed() {
   appStore.setSiderCollapsed(!collapsed.value)
 }
 
+function toAppDown() {
+	window.location.href = downUrl_1chat
+}
+
 const getMobileClass = computed<CSSProperties>(() => {
   if (isMobile.value) {
     return {
@@ -122,9 +126,7 @@ watch(
 					<h6 style=";color: #c18401;font-size: 12.5px">
 						<a :href="mj_1chat" target="_blank"><strong>2023.6 新增MJ最强AI绘画 点击前往</strong> </a>
 					</h6>
-										<h6 style=";color: #c18401;font-size: 12.5px">
-											<a :href="downUrl_1chat" target="_blank"><strong> App端（仅安卓）点击下载</strong> </a>
-										</h6>
+
 <!--										<h6 style="margin-bottom:2.5rem;color: #c18401;font-size: 12.5px">-->
 <!--											<a :href="downUrl_chatcn" target="_blank"><strong> 新增OpenAI国内破解版APP，点击下载</strong> </a>-->
 <!--										</h6>-->
@@ -132,7 +134,7 @@ watch(
 <!--					<h6 style="margin-bottom: 0px;color: #c18401;">-->
 <!--						1Chat被DNS攻击，旧域名已失效-->
 <!--					</h6>-->
-					<h6 style="margin-bottom: 3rem;color: #c18401;font-size: 10px">
+					<h6 style="margin-bottom: 0rem;color: #c18401;font-size: 10px">
 						<a style="color: #f2cc60;" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
 							 target="_blank">
 							新域名见飞书文档（可收藏）
@@ -276,13 +278,10 @@ watch(
 					<h6 style="color: rgb(50 197 157);font-size: 13.5px">
 						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT独享账号含5刀 9.9元  </a>
 					</h6>
-<!--					<NButton block @click="show = true">-->
-<!--						OpenAI国内版下载-->
-<!--					</NButton>-->
-<!--					<NButton block @click="show = true">-->
-<!--						本站客户端下载-->
-<!--					</NButton>-->
 
+					<NButton block @click="toAppDown()">
+						安卓客户端下载
+					</NButton>
 					<NButton block @click="show = true">
 						{{ $t('store.siderButton') }}
 					</NButton>
