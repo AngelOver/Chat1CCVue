@@ -31,9 +31,9 @@ export const useAuthStore = defineStore('auth-store', {
   actions: {
     async getSession() {
       try {
-        const { data } = await fetchSession<SessionResponse>()
-        this.session = { ...data }
-        return Promise.resolve(data)
+       let sessionRes = '{"status":"Success","message":"","data":{"auth":false,"allowRegister":true,"model":"ChatGPTAPI"}}'
+        const { data } =  JSON.parse(sessionRes)
+
       }
       catch (error) {
         return Promise.reject(error)
