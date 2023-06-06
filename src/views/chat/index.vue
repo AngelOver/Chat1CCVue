@@ -634,7 +634,7 @@ onUnmounted(() => {
 <!--							</div>-->
 
 							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀)
+								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀  ε(┬┬﹏┬┬)3)
 							</div>
 							<!--                                服务器昂贵，接口昂贵，但网站免费！！！ (说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
 <!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
