@@ -595,7 +595,9 @@ onUnmounted(() => {
             <template v-if="!dataSources.length||isFist">
               <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-                <span>1.1ai.fun 免费、无限制、免登录、最快的ChatGPT。方便体验最快最好的网站
+                <span>
+									<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.1Ai.Fun </a>
+									免费、无限制、免登录的ChatGPT。最方便体验最好的网站
 <!--									备用域名<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun </a>-->
 <!--									备用:<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun</a>-->
 <!--									临时:<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>-->
@@ -627,11 +629,13 @@ onUnmounted(() => {
 <!--&lt;!&ndash;					&ndash;&gt;-->
 <!--						</span>-->
 <!--							</div>-->
-
-
 <!--							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
 <!--							</div>-->
+
+							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀)
+							</div>
 							<!--                                服务器昂贵，接口昂贵，但网站免费！！！ (说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
 <!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--									关注下抖音，网站动态与最新地址 会放抖音，见左侧-->
@@ -674,8 +678,8 @@ onUnmounted(() => {
 <!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--							</div>-->
-														<div style="color: rgb(50 197 157);;margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-															服务器昂贵，接口昂贵，但网站免费！！！ 如果你觉得做的好，可以给我买一瓶冰阔落
+														<div style=";margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+															 如果你觉得做的好，可以给我买一瓶冰阔落
 														</div>
 
 							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">

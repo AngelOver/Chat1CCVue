@@ -123,9 +123,9 @@ watch(
 <!--										<h6 style=";color: #c18401;font-size: 12.5px">-->
 <!--											<a :href="mj_1chat" target="_blank"><strong>2023.5 新增AI绘画模式</strong> </a>-->
 <!--										</h6>-->
-					<h6 style=";color: #c18401;font-size: 12.5px">
-						<a :href="mj_1chat" target="_blank"><strong>2023.6 新增MJ最强AI绘画 点击前往</strong> </a>
-					</h6>
+<!--					<h6 style=";color: #c18401;font-size: 12.5px">-->
+<!--						<a :href="mj_1chat" target="_blank"><strong>2023.6 新增MJ最强AI绘画 点击前往</strong> </a>-->
+<!--					</h6>-->
 
 <!--										<h6 style="margin-bottom:2.5rem;color: #c18401;font-size: 12.5px">-->
 <!--											<a :href="downUrl_chatcn" target="_blank"><strong> 新增OpenAI国内破解版APP，点击下载</strong> </a>-->
@@ -134,12 +134,12 @@ watch(
 <!--					<h6 style="margin-bottom: 0px;color: #c18401;">-->
 <!--						1Chat被DNS攻击，旧域名已失效-->
 <!--					</h6>-->
-					<h6 style="margin-bottom: 0rem;color: #c18401;font-size: 10px">
-						<a style="color: #f2cc60;" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
-							 target="_blank">
-							新域名见飞书文档（可收藏）
-						</a>
-					</h6>
+<!--					<h6 style="margin-bottom: 0rem;color: #c18401;font-size: 10px">-->
+<!--						<a style="color: #f2cc60;" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"-->
+<!--							 target="_blank">-->
+<!--							新域名见飞书文档（可收藏）-->
+<!--						</a>-->
+<!--					</h6>-->
 <!--					<h6 style="margin-bottom: 0px;color: #c18401;">-->
 <!--						主站域名1：<a href=" https://	1.1ai.fun" target="_blank">1.1ai.fun-->
 <!--					</a>-->
@@ -201,9 +201,11 @@ watch(
 				<div class="p-4 " style="padding-top: 0;">
 					<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >
 						<div class="flex-1 flex-shrink-0 overflow-hidden">
+
 							<p style="font-size: 12.5px;color: rgb(99 165 237)" >
 								<a href="https://1.ai1.fun" target="_blank">备用域名：1.ai1.fun </a>
 							</p>
+
 							<p style="color: #c18401" >
 								不加群->已走丢
 							</p>
@@ -213,6 +215,7 @@ watch(
 							<p>
 								q群：791303042
 							</p>
+
 						</div>
 						<div class="flex-1 flex-shrink-0 overflow-hidden " >
 <!--							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">-->
@@ -266,6 +269,10 @@ watch(
 					<!-- 	<h6 style="font-size: 12px">
 						<a style="color: #c18401;opacity: 0.5;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>
 					</h6> -->
+					<p><a style="color: #f2cc60;font-size: 12px" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
+								target="_blank">
+						MJ绘画 与 新域名见飞书文档（可收藏）
+					</a></p>
 					<h6 >
 <!--						<a style="color:rgb(99 165 237);font-size: 12px" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">外链：OpenAI官方120刀账号 点击购买   </a>-->
 						<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9MTA%3D" target="_blank">外链：美区 AppStore账号 点击购买   </a>
