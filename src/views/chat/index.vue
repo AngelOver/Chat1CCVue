@@ -745,7 +745,7 @@ onUnmounted(() => {
 <!--          </HoverButton>-->
           <HoverButton v-if="!isMobile" @click="showPrompt = true">
             <span class="text-xl text-[#4f555e] dark:text-white">
-              <IconPrompt class="w-[20px] m-auto" />
+<!--              <IconPrompt class="w-[20px] m-auto" />-->
             </span>
           </HoverButton>
 

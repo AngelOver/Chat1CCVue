@@ -4,6 +4,7 @@ import { NButton, NInput, NModal, NSpace, useMessage } from 'naive-ui'
 import { t } from '@/locales'
 import { fetchUpdateChatRoomPrompt } from '@/api'
 import { useChatStore } from '@/store'
+import { PromptStore } from '@/components/common'
 
 const props = defineProps<Props>()
 const emit = defineEmits<Emit>()
@@ -13,6 +14,8 @@ const currentChatHistory = computed(() => chatStore.getChatHistoryByCurrentActiv
 const ms = useMessage()
 const testing = ref(false)
 const title = `设定角色 [${currentChatHistory.value?.title}]`
+
+const showRole = ref(false)
 
 interface Props {
   visible: boolean
@@ -63,6 +66,12 @@ async function handleSaveChatRoomPrompt() {
       :autosize="{ minRows: 4, maxRows: 10 }" placeholder="Prompt for this room, If empty will use Settings ->  Advanced -> Role" @input="(val) => { if (currentChatHistory) currentChatHistory.prompt = val }"
     />
     <template #footer>
+			<NSpace justify="start">
+				<NButton block @click="showRole = true">
+					{{ $t('store.siderButton') }}
+				</NButton>
+			</NSpace>
+
       <NSpace justify="end">
         <NButton :loading="testing" type="success" @click="handleSaveChatRoomPrompt">
           {{ t('common.save') }}
@@ -70,4 +79,5 @@ async function handleSaveChatRoomPrompt() {
       </NSpace>
     </template>
   </NModal>
+	<PromptStore v-model:visible="showRole" />
 </template>

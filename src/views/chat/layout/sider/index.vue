@@ -6,14 +6,14 @@ import List from './List.vue'
 import Footer from './Footer.vue'
 import { useAppStore, useAuthStore, useChatStore } from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
-import { PromptStore } from '@/components/common'
+// import { PromptStore } from '@/components/common'
 
 const appStore = useAppStore()
 const authStore = useAuthStore()
 const chatStore = useChatStore()
 
 const { isMobile } = useBasicLayout()
-const show = ref(false)
+// const show = ref(false)
 
 let imageUrl_dy = 'https://qiniuchat.littlewheat.com/other/dy.jpg?t=' + Date.now()
 let imageUrl = 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t=' + Date.now()
@@ -289,9 +289,9 @@ watch(
 					<NButton block @click="toAppDown()">
 						安卓客户端下载
 					</NButton>
-					<NButton block @click="show = true">
-						{{ $t('store.siderButton') }}
-					</NButton>
+<!--					<NButton block @click="show = true">-->
+<!--						{{ $t('store.siderButton') }}-->
+<!--					</NButton>-->
 				</div>
       </main>
       <Footer />
@@ -300,5 +300,5 @@ watch(
   <template v-if="isMobile">
     <div v-show="!collapsed" class="fixed inset-0 z-40 bg-black/40" @click="handleUpdateCollapsed" />
   </template>
-  <PromptStore v-model:visible="show" />
+<!--  <PromptStore v-model:visible="show" />-->
 </template>
