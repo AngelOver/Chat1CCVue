@@ -596,7 +596,7 @@ onUnmounted(() => {
               <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
                 <span>
-									<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.1Ai.Fun </a>
+									<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.11Chat.cc </a>
 									免费、无限制、免登录的ChatGPT。最方便体验最好的网站
 <!--									备用域名<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun </a>-->
 <!--									备用:<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun</a>-->
@@ -633,7 +633,7 @@ onUnmounted(() => {
 <!--								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
 <!--							</div>-->
 
-							<div style="color: rgb(50 197 157);margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+							<div style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀  ε(┬┬﹏┬┬)3)
 							</div>
 							<!--                                服务器昂贵，接口昂贵，但网站免费！！！ (说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
@@ -678,11 +678,11 @@ onUnmounted(() => {
 <!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--							</div>-->
-														<div style=";margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+														<div style=";margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 															 如果你觉得做的好，可以给我买一瓶冰阔落
 														</div>
 
-							<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+							<div style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 								每人每月捐个三元、服务就能永久免费下去！！
 							</div>
 <!--									<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
@@ -690,7 +690,7 @@ onUnmounted(() => {
 <!--									</div>-->
 
 											<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-																<img  style="max-width: 14rem" :src="imageUrl_wxzs" />
+																<img  style="max-width: 14.5rem" :src="imageUrl_wxzs" />
 															</div>
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 15rem" :src="imageUrl_wxzs" />	<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->
@@ -745,7 +745,7 @@ onUnmounted(() => {
 <!--          </HoverButton>-->
           <HoverButton v-if="!isMobile" @click="showPrompt = true">
             <span class="text-xl text-[#4f555e] dark:text-white">
-<!--              <IconPrompt class="w-[20px] m-auto" />-->
+              <IconPrompt class="w-[20px] m-auto" />
             </span>
           </HoverButton>
 
