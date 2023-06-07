@@ -597,7 +597,7 @@ onUnmounted(() => {
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
                 <span>
 									<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.11Chat.cc </a>
-									免费、无限制、免登录的ChatGPT。最方便体验最好的网站
+									免费、无限制、免登录的ChatAI。最方便体验最好的网站
 <!--									备用域名<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun </a>-->
 <!--									备用:<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun</a>-->
 <!--									临时:<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>-->
