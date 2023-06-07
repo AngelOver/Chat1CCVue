@@ -202,8 +202,8 @@ watch(
 					<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >
 						<div class="flex-1 flex-shrink-0 overflow-hidden">
 
-							<p style="font-size: 12.5px;color: rgb(99 165 237)" >
-								<a href="https://1.ai1.fun" target="_blank">备用域名：0.0Chat.cc </a>
+							<p style="font-size: 8px;color: rgb(99 165 237)" >
+								<a href="https://0.0Chat.cc" target="_blank">备用域：0.0Chat.cc </a>
 							</p>
 
 							<p style="color: #c18401" >
