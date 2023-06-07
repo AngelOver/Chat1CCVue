@@ -7,11 +7,11 @@ export function useChat() {
     return chatStore.getChatByUuidAndIndex(uuid, index)
   }
 
-  const addChat = (uuid: number, chat: Chat.Chat) => {
+  const addChat = async (uuid: number, chat: Chat.Chat) => {
     chatStore.addChatByUuid(uuid, chat)
   }
 
-  const updateChat = (uuid: number, index: number, chat: Chat.Chat) => {
+  const updateChat = async (uuid: number, index: number, chat: Chat.Chat) => {
     chatStore.updateChatByUuid(uuid, index, chat)
   }
 
