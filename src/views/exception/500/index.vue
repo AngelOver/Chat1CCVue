@@ -18,7 +18,7 @@ function goHome() {
           500
         </h2>
         <p class="text-base text-center text-slate-500 dark:text-slate-500">
-          Server error
+          Server error,请前往 	<a style="color: #c18401" href="https://1.11chat.cc" target="_blank">1.11Chat.cc </a> 导航页，进去其他镜像站
         </p>
         <div class="flex items-center justify-center text-center">
           <Icon500 class="w-[300px]" />
