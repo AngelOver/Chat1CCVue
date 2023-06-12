@@ -285,7 +285,7 @@ function handleSubmit() {
 						 loading: true,
 					 },
 				 )
-				 if (textNum%15==0) {
+				 if (textNum%3==0) {
 					 // 执行函数1（假设名称为 handleLineBreak）
 					 scrollToBottomIfAtBottom()
 				 }
