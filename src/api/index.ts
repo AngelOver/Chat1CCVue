@@ -34,7 +34,7 @@ export function fetchChatAPIProcess<T = any>(
 ) {
   const settingStore = useSettingStore()
   const authStore = useAuthStore()
-
+	let dataP
   let data: Record<string, any> = {
     roomId: params.roomId,
     uuid: params.uuid,
@@ -51,14 +51,60 @@ export function fetchChatAPIProcess<T = any>(
       temperature: settingStore.temperature,
       top_p: settingStore.top_p,
     }
+		//开始接口转换
+		//
+
+
+		dataP = {
+			"model": {
+				"id": "gpt-3.5-turbo",
+				"name": "GPT-3.5",
+				"maxLength": 12000,
+				"tokenLimit": 4000
+			},
+			"messages": [
+				{
+					"role": "assistant",
+					"content": "你好！有什么我可以帮助你解决的问题吗？"
+				},
+				{
+					"role": "user",
+					"content": "讲个故事吧"
+				}
+			],
+			"prompt": params.prompt,
+			"temperature": 0.8
+		}
+
+
   }
 
-  return post<T>({
-    url: '/chat-process',
-    data,
-    signal: params.signal,
-    onDownloadProgress: params.onDownloadProgress,
-  })
+
+	return post<T>({
+		url: 'https://t4.c11r.cc/api/chat',
+		data: dataP,
+		headers: {
+			'Accept': '*/*',
+			'Content-Type': 'application/json',
+			'Origin': 'https://t4.c11r.cc',
+			'Referer': 'https://t4.c11r.cc/zh',
+		},
+		signal: params.signal,
+		onDownloadProgress: params.onDownloadProgress,
+		// headers: {
+		// 	referer: 'https://3.a1r.cc',
+		// },
+	})
+
+  // return post<T>({
+  //   url: '/chat-process',
+  //   data,
+  //   signal: params.signal,
+  //   onDownloadProgress: params.onDownloadProgress,
+	// 	// headers: {
+	// 	// 	referer: 'https://3.a1r.cc',
+	// 	// },
+  // })
 }
 
 export function fetchSession<T>() {

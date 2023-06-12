@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import type { Ref } from 'vue'
+import { get, post } from '@/utils/request'
 import { computed, defineAsyncComponent, nextTick, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
@@ -14,11 +15,14 @@ import { useUsingContext } from './hooks/useUsingContext'
 import HeaderComponent from './components/Header/index.vue'
 import { HoverButton, SvgIcon } from '@/components/common'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
-import { useAuthStore, useChatStore, usePromptStore } from '@/store'
+import { useAuthStore, useChatStore, usePromptStore,useSettingStore } from '@/store'
+
 import { fetchChatAPIProcess } from '@/api'
 import { t } from '@/locales'
 import { debounce } from '@/utils/functions/debounce'
 import IconPrompt from '@/icons/Prompt.vue'
+import {getChat, getChats} from "../../../service/src/storage/mongo";
+import {isNotEmptyString} from "../../../service/src/utils/is";
 const Prompt = defineAsyncComponent(() => import('@/components/common/Setting/Prompt.vue'))
 
 let controller = new AbortController()
@@ -31,6 +35,9 @@ const ms = useMessage()
 const authStore = useAuthStore()
 
 const chatStore = useChatStore()
+const settingStore = useSettingStore()
+
+
 
 useCopyCode()
 let mj_1chat = 'https://mj.c3r.ink'
@@ -53,6 +60,8 @@ const firstLoading = ref<boolean>(false)
 const loading = ref<boolean>(false)
 const inputRef = ref<Ref | null>(null)
 const showPrompt = ref(false)
+
+const currentChatHistory = computed(() => chatStore.getChatHistoryByCurrentActive)
 
 let showDraw =  ref<boolean>(false)
 
@@ -84,169 +93,263 @@ function handleSubmit() {
   onConversation()
 }
 
-async function onConversation() {
-  let message = prompt.value
-	let draw = showDraw.value
+ async function onConversation() {
 
-  if (loading.value)
-    return
+	 let msgNum = 3;
+	 let message = prompt.value
+	 let draw = showDraw.value
 
-  if (!message || message.trim() === '')
-    return
 
-  controller = new AbortController()
+	 let currPrompt	 =  settingStore.systemMessage;
+// 得到历史记录数组（类型为 Chat.ChatData[]）
+	 let chatHistory = chatStore.getChatByUuid(null);
+	 console.log(currentChatHistory)
+	 console.log(currentChatHistory.value.prompt)
 
-  const chatUuid = Date.now()
-  addChat(
-    +uuid,
-    {
-      uuid: chatUuid,
-      dateTime: new Date().toLocaleString(),
-      text: message,
-      inversion: true,
-      error: false,
-      conversationOptions: null,
-      requestOptions: { prompt: message, options: null },
-    },
-  )
-  scrollToBottom()
+	 if(currentChatHistory){
+		 currPrompt = currentChatHistory.value.prompt||settingStore.systemMessage;
+	 }
 
-  loading.value = true
-  prompt.value = ''
 
-  let options: Chat.ConversationRequest = {}
-  const lastContext = conversationList.value[conversationList.value.length - 1]?.conversationOptions
 
-  if (lastContext && usingContext.value)
-    options = { ...lastContext }
+// 将 ChatStore 中的记录转换成普通数组
+	 let chatArray = Array.from(chatHistory);
+	 console.log(chatArray)
+// 取最后 3 个元素，并提取 role 和 text 属性，用 JSON 格式存储到 result 数组
+	 let messageArr = [];
 
-  addChat(
-    +uuid,
-    {
-      uuid: chatUuid,
-      dateTime: new Date().toLocaleString(),
-      text: '',
-      loading: true,
-      inversion: false,
-      error: false,
-      conversationOptions: null,
-      requestOptions: { prompt: message, options: { ...options } },
-    },
-  )
-  scrollToBottom()
+	 if(usingContext.value){
+		 if (chatArray.length >= msgNum) {
+			 messageArr = chatArray.slice(-msgNum).map(item => ({ role: item.role || 'user', content: item.text }));
+		 } else {
+			 messageArr = chatArray.map(item => ({ role: item.role, content: item.text }));
+		 }
+	 }
 
-  try {
-    let lastText = ''
-    const fetchChatAPIOnce = async () => {
-      await fetchChatAPIProcess<Chat.ConversationResponse>({
-        roomId: +uuid,
-        uuid: chatUuid,
-        prompt: message,
-				draw: draw,
-        options,
-        signal: controller.signal,
-        onDownloadProgress: ({ event }) => {
-          const xhr = event.target
-          const { responseText } = xhr
-          // Always process the final line
-          const lastIndex = responseText.lastIndexOf('\n', responseText.length - 2)
-          let chunk = responseText
-          if (lastIndex !== -1)
-            chunk = responseText.substring(lastIndex)
-          try {
-            const data = JSON.parse(chunk)
-            const usage = (data.detail && data.detail.usage)
-              ? {
-                  completion_tokens: data.detail.usage.completion_tokens || null,
-                  prompt_tokens: data.detail.usage.prompt_tokens || null,
-                  total_tokens: data.detail.usage.total_tokens || null,
-                  estimated: data.detail.usage.estimated || null,
-                }
-              : undefined
-            updateChat(
-              +uuid,
-              dataSources.value.length - 1,
-              {
-                dateTime: new Date().toLocaleString(),
-                text: lastText + (data.text ?? ''),
-                inversion: false,
-                error: false,
-                loading: true,
-                conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
-                requestOptions: { prompt: message, options: { ...options } },
-                usage,
-              },
-            )
 
-            if (openLongReply && data.detail && data.detail.choices.length > 0 && data.detail.choices[0].finish_reason === 'length') {
-              options.parentMessageId = data.id
-              lastText = data.text
-              message = ''
-              return fetchChatAPIOnce()
-            }
 
-            scrollToBottomIfAtBottom()
-          }
-          catch (error) {
-            //
-          }
-        },
-      })
-      updateChatSome(+uuid, dataSources.value.length - 1, { loading: false })
-    }
+	 messageArr.push({role: 'user', content: message});
+	 console.log(messageArr);
 
-    await fetchChatAPIOnce()
-		scrollToBottomIfAtBottom()
-  }
-  catch (error: any) {
-    const errorMessage = error?.message ?? t('common.wrong')
 
-    if (error.message === 'canceled') {
-      updateChatSome(
-        +uuid,
-        dataSources.value.length - 1,
-        {
-          loading: false,
-        },
-      )
-      scrollToBottomIfAtBottom()
-      return
-    }
 
-    const currentChat = getChatByUuidAndIndex(+uuid, dataSources.value.length - 1)
 
-    if (currentChat?.text && currentChat.text !== '') {
-      updateChatSome(
-        +uuid,
-        dataSources.value.length - 1,
-        {
-          text: `${currentChat.text}\n[${errorMessage}]`,
-          error: false,
-          loading: false,
-        },
-      )
-      return
-    }
+	 if (loading.value)
+		 return
 
-    updateChat(
-      +uuid,
-      dataSources.value.length - 1,
-      {
-        dateTime: new Date().toLocaleString(),
-        text: errorMessage,
-        inversion: false,
-        error: true,
-        loading: false,
-        conversationOptions: null,
-        requestOptions: { prompt: message, options: { ...options } },
-      },
-    )
-    scrollToBottomIfAtBottom()
-  }
-  finally {
-    loading.value = false
-  }
-}
+	 if (!message || message.trim() === '')
+		 return
+
+	 controller = new AbortController()
+
+	 const chatUuid = Date.now()
+	 addChat(
+		 +uuid,
+		 {
+			 uuid: chatUuid,
+			 dateTime: new Date().toLocaleString(),
+			 text: message,
+			 role: 'user',
+			 inversion: true,
+			 error: false,
+			 conversationOptions: null,
+			 requestOptions: {prompt: message, options: null},
+		 },
+	 )
+	 scrollToBottom()
+
+	 loading.value = true
+	 prompt.value = ''
+
+	 let options: Chat.ConversationRequest = {}
+	 const lastContext = conversationList.value[conversationList.value.length - 1]?.conversationOptions
+
+	 if (lastContext && usingContext.value)
+		 options = {...lastContext}
+
+
+
+	 addChat(
+		 +uuid,
+		 {
+			 uuid: chatUuid,
+			 dateTime: new Date().toLocaleString(),
+			 text: '',
+			 role: 'assistant',
+			 loading: true,
+			 inversion: false,
+			 error: false,
+			 conversationOptions: null,
+			 requestOptions: {prompt: message, options: {...options}},
+		 },
+	 )
+
+
+	 scrollToBottom()
+
+	 let dataP = {
+		 "model": {
+			 "id": "gpt-3.5-turbo",
+			 "name": "GPT-3.5",
+			 "maxLength": 12000,
+			 "tokenLimit": 4000
+		 },
+		 "messages": messageArr,
+		 "prompt": 	 currPrompt,
+		 "temperature": settingStore.temperature
+	 }
+	 const currentTime = new Date().toLocaleString();
+	 try {
+		 let lastText = ''
+
+		 // let responsePromise = fetch('https://t4.c11r.cc/api/chat', {
+			//  method: 'POST',
+			//  headers: {
+			// 	 'Accept': '*/*',
+			// 	 'Content-Type': 'application/json',
+			// 	 'Origin': 'https://t4.c11r.cc',
+			// 	 'Referer': 'https://t4.c11r.cc/zh',
+			//  },
+			//  body: JSON.stringify(dataP)
+		 // });
+		 //
+		 // // for await (const chunk of responsePromise) {
+			// //  lastText += new TextDecoder("utf-8").decode(chunk);
+			// //  console.log(currentText);
+		 // // }
+		 //
+		 // for await (const chunk of responsePromise as any) {
+			//  lastText += new TextDecoder("utf-8").decode(chunk)
+			//  console.log(lastText)
+		 // }
+		 async function fetchResponse() {
+			 let response = await fetch('https://t4.c11r.cc/api/chat', {
+				 method: 'POST',
+				 headers: {
+					 'Accept': '*/*',
+					 'Content-Type': 'application/json',
+					 'Origin': 'https://t4.c11r.cc',
+					 'Referer': 'https://t4.c11r.cc/zh',
+				 },
+				 body: JSON.stringify(dataP)
+			 });
+
+			 const reader = response.body.getReader();
+			 const stream = new ReadableStream({
+				 start(controller) {
+					 function read() {
+						 reader.read().then(({ done, value }) => {
+							 if (done) {
+								 controller.close();
+								 return;
+							 }
+							 controller.enqueue(value);
+							 read();
+						 });
+					 }
+					 read();
+				 }
+			 });
+			 const readableStreamDefaultReader = stream.getReader();
+
+			 const textDecoder = new TextDecoder("utf-8");
+			 let currentText = ''
+			 let textNum = 0
+			 while (true) {
+				 const { done, value } = await readableStreamDefaultReader.read();
+				 if (done){
+
+					 updateChatSome(
+						 +uuid,
+						 dataSources.value.length - 1,
+						 {
+							 role: 'assistant',
+							 loading: false,
+						 },
+					 )
+					 scrollToBottomIfAtBottom()
+					 break
+				 }
+				 textNum++
+				 currentText += textDecoder.decode(value);
+
+				 updateChat(
+					 +uuid,
+					 dataSources.value.length - 1,
+					 {
+						 dateTime: currentTime,
+						 text: currentText,
+						 role: 'assistant',
+						 inversion: false,
+						 error: false,
+						 loading: true,
+					 },
+				 )
+				 if (textNum%15==0) {
+					 // 执行函数1（假设名称为 handleLineBreak）
+					 scrollToBottomIfAtBottom()
+				 }
+
+
+
+			 }
+		 }
+
+		 fetchResponse().catch(error => console.error('Error:', error));
+
+
+		 scrollToBottomIfAtBottom()
+	 } catch (error: any) {
+		 const errorMessage = error?.message ?? t('common.wrong')
+
+		 if (error.message === 'canceled') {
+			 updateChatSome(
+				 +uuid,
+				 dataSources.value.length - 1,
+				 {
+					 loading: false,
+					 role: 'assistant',
+				 },
+			 )
+			 scrollToBottomIfAtBottom()
+			 return
+		 }
+
+		 const currentChat = getChatByUuidAndIndex(+uuid, dataSources.value.length - 1)
+
+		 if (currentChat?.text && currentChat.text !== '') {
+			 updateChatSome(
+				 +uuid,
+				 dataSources.value.length - 1,
+				 {
+					 text: `${currentChat.text}\n[${errorMessage}]`,
+					 role: 'assistant',
+					 error: false,
+					 loading: false,
+				 },
+			 )
+			 return
+		 }
+
+		 updateChat(
+			 +uuid,
+			 dataSources.value.length - 1,
+			 {
+				 dateTime: new Date().toLocaleString(),
+				 text: errorMessage,
+				 role: 'assistant',
+				 inversion: false,
+				 error: true,
+				 loading: false,
+				 conversationOptions: null,
+				 requestOptions: {prompt: message, options: {...options}},
+			 },
+		 )
+		 scrollToBottomIfAtBottom()
+	 } finally {
+		 loading.value = false
+	 }
+ }
 
 async function onRegenerate(index: number) {
   if (loading.value)

@@ -4,6 +4,7 @@ declare namespace Chat {
     uuid?: number
     dateTime: string
     text: string
+		role: String
     inversion?: boolean
     error?: boolean
     loading?: boolean
