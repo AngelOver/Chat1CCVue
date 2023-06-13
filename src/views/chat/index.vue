@@ -786,7 +786,7 @@ onUnmounted(() => {
 <!--														</div>-->
 
 							<div style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								每人每月捐个三元、服务就能永久免费下去！！
+								每人每月捐个三元、服务就能永久免费下去！！如果你觉得做的好，可以给我买一瓶冰阔落
 							</div>
 <!--									<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--											每人每月捐个三元、服务就能永久免费下去！！		<a style="" :href="imageUrl_wxzs" target="_blank">点击->赞助 </a>-->
