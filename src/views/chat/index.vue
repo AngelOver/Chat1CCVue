@@ -700,12 +700,12 @@ onUnmounted(() => {
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
                 <span>
 									<a style="color: #c18401" href="https://0.0chat.cc" target="_blank">1.11Chat.cc </a>
-									免费、无限制、免登录的ChatAI。最方便体验最好的网站
+									免费、无限制、免登录的ChatAI。最方便体验最好的网站。
 <!--									备用域名<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun </a>-->
 <!--									备用:<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun</a>-->
 <!--									临时:<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>-->
 <!--									。-->
-<!--									原域名 <span style="color: #c18401">1Chat.cc</span>-->
+									备用域名: 		<a style="color: #c18401" href="https://0.0chat.cc" target="_blank">0.0Chat.cc </a>
 								</span>
 
 							</div>
@@ -793,7 +793,7 @@ onUnmounted(() => {
 <!--									</div>-->
 
 											<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-																<img  style="max-width: 13rem" :src="imageUrl_wxzs" />
+																<img  style="max-width: 10rem" :src="imageUrl_wxzs" />
 															</div>
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 15rem" :src="imageUrl_wxzs" />	<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->
