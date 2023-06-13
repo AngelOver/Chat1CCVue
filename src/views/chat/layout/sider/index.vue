@@ -200,27 +200,27 @@ watch(
 				</div>
 				<div class="p-4 " style="padding-top: 0;">
 					<dev class="flex items-center justify-between  " style="padding-bottom: 0.3rem" >
-						<div class="flex-1 flex-shrink-0 overflow-hidden">
+<!--						<div class="flex-1 flex-shrink-0 overflow-hidden">-->
 
-							<p style="font-size: 8px;color: rgb(99 165 237)" >
-								<a href="https://0.0Chat.cc" target="_blank">备用域：0.0Chat.cc </a>
-							</p>
+<!--							<p style="font-size: 8px;color: rgb(99 165 237)" >-->
+<!--								<a href="https://0.0Chat.cc" target="_blank">备用域：0.0Chat.cc </a>-->
+<!--							</p>-->
 
-							<p style="color: #c18401" >
-								不加群->已走丢
-							</p>
-							<p>
-								v群：---------->
-							</p>
-							<p>
-								q群：791303042
-							</p>
+<!--							<p style="color: #c18401" >-->
+<!--								不加群->已走丢-->
+<!--							</p>-->
+<!--							<p>-->
+<!--								v群：&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--							</p>-->
+<!--							<p>-->
+<!--								q群：791303042-->
+<!--							</p>-->
 
-						</div>
-						<div class="flex-1 flex-shrink-0 overflow-hidden " >
-<!--							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">-->
-							<img  style="max-width: 95%; margin-left: 5%;" :src="imageUrl" />
-						</div>
+<!--						</div>-->
+<!--						<div class="flex-1 flex-shrink-0 overflow-hidden " >-->
+<!--&lt;!&ndash;							<img   :src=" 'https://qiniuchat.littlewheat.com/other/chatgpt_wx.jpg?t='+{{Date.now()}} ">&ndash;&gt;-->
+<!--							<img  style="max-width: 95%; margin-left: 5%;" :src="imageUrl" />-->
+<!--						</div>-->
 					</dev>
 
 <!--								<div class="p-4 " style="padding-top: 0;">-->
@@ -266,24 +266,31 @@ watch(
 <!--					<h6 style="font-size: 12px">-->
 <!--						<a style=";opacity: 0.7;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>-->
 <!--					</h6>-->
+					<h6 style="font-size: 12px">
+						<a href="https://0.0Chat.cc" target="_blank">备用域：0.0Chat.cc （ 不加群 = 走丢）  </a>
+					</h6>
+					<p><a style="color: #f2cc60;font-size: 12px" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
+								target="_blank">
+						MJ绘画 与 全域名见飞书文档（可收藏）
+					</a></p>
+				 	<h6 style="font-size: 12px">
+	<a style="" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f" target="_blank">Q群：791303042  V群：加 onebai123 </a>
+</h6>
 					<!-- 	<h6 style="font-size: 12px">
 						<a style="color: #c18401;opacity: 0.5;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>
 					</h6> -->
-					<p><a style="color: #f2cc60;font-size: 12px" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
-								target="_blank">
-						MJ绘画 与 新域名见飞书文档（可收藏）
-					</a></p>
-					<h6 >
-<!--						<a style="color:rgb(99 165 237);font-size: 12px" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">外链：OpenAI官方120刀账号 点击购买   </a>-->
-						<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9MTA%3D" target="_blank">外链：美区 AppStore账号 点击购买   </a>
-					</h6>
+
+<!--					<h6 >-->
+<!--&lt;!&ndash;						<a style="color:rgb(99 165 237);font-size: 12px" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">外链：OpenAI官方120刀账号 点击购买   </a>&ndash;&gt;-->
+<!--						<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9MTA%3D" target="_blank">外链：美区 AppStore账号 点击购买   </a>-->
+<!--					</h6>-->
 
 <!--									<h6 >-->
 <!--												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>-->
 <!--										</h6>-->
 
 					<h6 style="color: rgb(50 197 157);font-size: 12.5px">
-						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：OpenAl官方Chat账号含5刀 9.9元  </a>
+						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT官方独享账号5刀 9.9元  </a>
 					</h6>
 
 					<NButton block @click="toAppDown()">

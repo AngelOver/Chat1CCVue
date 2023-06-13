@@ -736,9 +736,9 @@ onUnmounted(() => {
 <!--								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
 <!--							</div>-->
 
-							<div style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀  ε(┬┬﹏┬┬)3)
-							</div>
+<!--							<div style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--								服务器昂贵，接口昂贵，但网站免费！！！(说个数据：每日消耗OpenAI余额60刀  ε(┬┬﹏┬┬)3)-->
+<!--							</div>-->
 							<!--                                服务器昂贵，接口昂贵，但网站免费！！！ (说个数据：每日消耗OpenAI余额60刀，早起日常 ε(┬┬﹏┬┬)3 -快哭了)-->
 <!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--									关注下抖音，网站动态与最新地址 会放抖音，见左侧-->
@@ -781,9 +781,9 @@ onUnmounted(() => {
 <!--							<div style="margin-bottom: 0px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--							</div>-->
-														<div style=";margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-															 如果你觉得做的好，可以给我买一瓶冰阔落
-														</div>
+<!--														<div style=";margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--															 如果你觉得做的好，可以给我买一瓶冰阔落-->
+<!--														</div>-->
 
 							<div style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 								每人每月捐个三元、服务就能永久免费下去！！
@@ -793,7 +793,7 @@ onUnmounted(() => {
 <!--									</div>-->
 
 											<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-																<img  style="max-width: 13.5rem" :src="imageUrl_wxzs" />
+																<img  style="max-width: 13rem" :src="imageUrl_wxzs" />
 															</div>
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 15rem" :src="imageUrl_wxzs" />	<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->
