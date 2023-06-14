@@ -47,7 +47,7 @@ let downUrl_chatcn = 'https://qiniuchat.littlewheat.com/other/app/android/ChatGP
 
 const { isMobile } = useBasicLayout()
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
-const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom, scrollToBottomIfAtBottomOnly,scrollTo } = useScroll()
+const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom, scrollTo } = useScroll()
 const { usingContext, toggleUsingContext } = useUsingContext()
 
 const { uuid } = route.params as { uuid: string }
@@ -69,18 +69,6 @@ let loadingms: MessageReactive
 let allmsg: MessageReactive
 let prevScrollTop: number
 let isFist =ref<boolean>(true)
-
-const msgNow = ref({
-	uuid: 98552,
-	dateTime: new Date().toLocaleString(),
-	text: 'AI思考中',
-	role: 'user',
-	inversion: false,
-	error: false,
-	loading: true,
-	conversationOptions: null,
-	requestOptions: {prompt: 'AI思考中2', options: null},
-})
 
 if(usingContext.value){
 	chatStore.setUsingContext(!usingContext.value)
@@ -179,26 +167,25 @@ function handleSubmit() {
 	 if (lastContext && usingContext.value)
 		 options = {...lastContext}
 
-	 //
-	 //
-	 // addChat(
-		//  +uuid,
-		//  {
-		// 	 uuid: chatUuid,
-		// 	 dateTime: new Date().toLocaleString(),
-		// 	 text: '',
-		// 	 role: 'assistant',
-		// 	 loading: true,
-		// 	 inversion: false,
-		// 	 error: false,
-		// 	 conversationOptions: null,
-		// 	 requestOptions: {prompt: message, options: {...options}},
-		//  },
-	 // )
 
-	 msgNow.value.text=""
+
+	 addChat(
+		 +uuid,
+		 {
+			 uuid: chatUuid,
+			 dateTime: new Date().toLocaleString(),
+			 text: '',
+			 role: 'assistant',
+			 loading: true,
+			 inversion: false,
+			 error: false,
+			 conversationOptions: null,
+			 requestOptions: {prompt: message, options: {...options}},
+		 },
+	 )
+
+
 	 scrollToBottom()
-
 
 	 let dataP = {
 		 "model": {
@@ -270,59 +257,37 @@ function handleSubmit() {
 			 let textNum = 0
 			 while (true) {
 				 const { done, value } = await readableStreamDefaultReader.read();
-				 if (done||!loading.value){
+				 if (done){
 
-					 // updateChat(
-					 //  +uuid,
-					 //  dataSources.value.length - 1,
-					 //  {
-					 // 	 dateTime: currentTime,
-					 // 	 text: currentText,
-					 // 	 role: 'assistant',
-					 // 	 inversion: false,
-					 // 	 error: false,
-					 // 	 loading: true,
-					 //  },
-					 // )
-
-					 addChat(
+					 updateChatSome(
 						 +uuid,
+						 dataSources.value.length - 1,
 						 {
-							 uuid: chatUuid,
-							 dateTime: currentTime,
-							 text: currentText,
 							 role: 'assistant',
 							 loading: false,
-							 inversion: false,
-							 error: false,
-							 conversationOptions: null,
-							 requestOptions: {prompt: message, options: {...options}},
 						 },
 					 )
-					 loading.value = false
 					 scrollToBottomIfAtBottom()
 					 break
 				 }
 				 textNum++
 				 currentText += textDecoder.decode(value);
 
-				 // updateChat(
-					//  +uuid,
-					//  dataSources.value.length - 1,
-					//  {
-					// 	 dateTime: currentTime,
-					// 	 text: currentText,
-					// 	 role: 'assistant',
-					// 	 inversion: false,
-					// 	 error: false,
-					// 	 loading: true,
-					//  },
-				 // )
-
-				 msgNow.value.text = currentText
+				 updateChat(
+					 +uuid,
+					 dataSources.value.length - 1,
+					 {
+						 dateTime: currentTime,
+						 text: currentText,
+						 role: 'assistant',
+						 inversion: false,
+						 error: false,
+						 loading: true,
+					 },
+				 )
 				 if (textNum%10==0) {
 					 // 执行函数1（假设名称为 handleLineBreak）
-					 scrollToBottomIfAtBottomOnly()
+					 scrollToBottomIfAtBottom()
 				 }
 
 
@@ -338,7 +303,7 @@ function handleSubmit() {
 		 const errorMessage = error?.message ?? t('common.wrong')
 
 		 if (error.message === 'canceled') {
-			 addChat(
+			 updateChatSome(
 				 +uuid,
 				 dataSources.value.length - 1,
 				 {
@@ -353,7 +318,7 @@ function handleSubmit() {
 		 const currentChat = getChatByUuidAndIndex(+uuid, dataSources.value.length - 1)
 
 		 if (currentChat?.text && currentChat.text !== '') {
-			 addChat(
+			 updateChatSome(
 				 +uuid,
 				 dataSources.value.length - 1,
 				 {
@@ -366,7 +331,7 @@ function handleSubmit() {
 			 return
 		 }
 
-		 addChat(
+		 updateChat(
 			 +uuid,
 			 dataSources.value.length - 1,
 			 {
@@ -382,9 +347,7 @@ function handleSubmit() {
 		 )
 		 scrollToBottomIfAtBottom()
 	 } finally {
-		 // console.log('finally')
-		 // msgNow.value.start = false
-		 // loading.value = false
+		 loading.value = false
 	 }
  }
 
@@ -732,7 +695,7 @@ onUnmounted(() => {
           :class="[isMobile ? 'p-2' : 'p-4']"
         >
           <NSpin :show="firstLoading">
-            <template v-if="!dataSources.length">
+            <template v-if="!dataSources.length||isFist">
               <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
                 <span>
@@ -856,19 +819,6 @@ onUnmounted(() => {
                   @regenerate="onRegenerate(index)"
                   @delete="handleDelete(index)"
                 />
-
-								<Message
-									v-if="loading"
-									:key="msgNow.uuid"
-									:date-time="msgNow.dateTime"
-									:text="msgNow.text"
-									:inversion="msgNow.inversion"
-									:usage="msgNow && msgNow.usage || undefined"
-									:error="msgNow.error"
-									:loading="msgNow.loading"
-								/>
-
-
                 <div class="sticky bottom-0 left-0 flex justify-center">
                   <NButton v-if="loading" type="warning" @click="handleStop">
                     <template #icon>
