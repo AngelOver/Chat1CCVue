@@ -32,6 +32,15 @@ export function useScroll(): ScrollReturn {
       scrollRef.value.scrollTop = 0
   }
 
+	const scrollToBottomIfAtBottomOnly = async () => {
+		if (scrollRef.value) {
+			const threshold = 100 // 阈值，表示滚动条到底部的距离阈值
+			const distanceToBottom = scrollRef.value.scrollHeight - scrollRef.value.scrollTop - scrollRef.value.clientHeight
+			if (distanceToBottom <= threshold)
+				scrollRef.value.scrollTop = scrollRef.value.scrollHeight
+		}
+	}
+
   const scrollToBottomIfAtBottom = async () => {
     await nextTick()
     if (scrollRef.value) {
@@ -42,11 +51,13 @@ export function useScroll(): ScrollReturn {
     }
   }
 
+
   return {
     scrollRef,
     scrollTo,
     scrollToBottom,
     scrollToTop,
+		scrollToBottomIfAtBottomOnly,
     scrollToBottomIfAtBottom,
   }
 }
