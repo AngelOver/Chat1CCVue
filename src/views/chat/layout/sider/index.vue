@@ -290,7 +290,7 @@ watch(
 <!--										</h6>-->
 
 					<h6 style="color: rgb(50 197 157);font-size: 12.5px">
-						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT官方独享账号5刀 9.9元  </a>
+						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT官方独享账号 购买  </a>
 					</h6>
 
 					<NButton block @click="toAppDown()">
