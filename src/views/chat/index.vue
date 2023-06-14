@@ -331,40 +331,10 @@ function handleSubmit() {
 
 		 scrollToBottomIfAtBottom()
 	 } catch (error: any) {
+		 console.log(error)
 		 const errorMessage = error?.message ?? t('common.wrong')
-
-		 if (error.message === 'canceled') {
-			 addChat(
-				 +uuid,
-				 dataSources.value.length - 1,
-				 {
-					 loading: false,
-					 role: 'assistant',
-				 },
-			 )
-			 scrollToBottomIfAtBottom()
-			 return
-		 }
-
-		 const currentChat = getChatByUuidAndIndex(+uuid, dataSources.value.length - 1)
-
-		 if (currentChat?.text && currentChat.text !== '') {
-			 addChat(
-				 +uuid,
-				 dataSources.value.length - 1,
-				 {
-					 text: `${currentChat.text}\n[${errorMessage}]`,
-					 role: 'assistant',
-					 error: false,
-					 loading: false,
-				 },
-			 )
-			 return
-		 }
-
 		 addChat(
 			 +uuid,
-			 dataSources.value.length - 1,
 			 {
 				 dateTime: new Date().toLocaleString(),
 				 text: errorMessage,
