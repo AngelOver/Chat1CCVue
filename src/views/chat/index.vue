@@ -77,6 +77,7 @@ const msgNow = ref({
 	role: 'user',
 	inversion: false,
 	error: false,
+	start: false,
 	loading: true,
 	conversationOptions: null,
 	requestOptions: {prompt: 'AI思考中2', options: null},
@@ -146,7 +147,7 @@ function handleSubmit() {
 
 
 
-	 if (loading.value)
+	 if (loading.value|| msgNow.value.start)
 		 return
 
 	 if (!message || message.trim() === '')
@@ -197,6 +198,7 @@ function handleSubmit() {
 	 // )
 
 	 msgNow.value.text=""
+	 msgNow.value.start=true
 	 scrollToBottom()
 
 
@@ -270,7 +272,7 @@ function handleSubmit() {
 			 let textNum = 0
 			 while (true) {
 				 const { done, value } = await readableStreamDefaultReader.read();
-				 if (done||!loading.value){
+				 if (done){
 
 					 // updateChat(
 					 //  +uuid,
@@ -284,7 +286,7 @@ function handleSubmit() {
 					 // 	 loading: true,
 					 //  },
 					 // )
-
+					 msgNow.value.start=false
 					 addChat(
 						 +uuid,
 						 {
@@ -299,7 +301,6 @@ function handleSubmit() {
 							 requestOptions: {prompt: message, options: {...options}},
 						 },
 					 )
-					 loading.value = false
 					 scrollToBottomIfAtBottom()
 					 break
 				 }
@@ -382,6 +383,7 @@ function handleSubmit() {
 		 )
 		 scrollToBottomIfAtBottom()
 	 } finally {
+		 loading.value = false
 		 // console.log('finally')
 		 // msgNow.value.start = false
 		 // loading.value = false
@@ -858,7 +860,7 @@ onUnmounted(() => {
                 />
 
 								<Message
-									v-if="loading"
+									v-if="msgNow.start"
 									:key="msgNow.uuid"
 									:date-time="msgNow.dateTime"
 									:text="msgNow.text"
