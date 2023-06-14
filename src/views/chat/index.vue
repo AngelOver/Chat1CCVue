@@ -123,8 +123,11 @@ function handleSubmit() {
 		 currPrompt = currentChatHistory.value.prompt||settingStore.systemMessage;
 	 }
 
+
+
 // 将 ChatStore 中的记录转换成普通数组
 	 let chatArray = Array.from(chatHistory);
+	 console.log(chatArray)
 // 取最后 3 个元素，并提取 role 和 text 属性，用 JSON 格式存储到 result 数组
 	 let messageArr = [];
 
@@ -137,7 +140,9 @@ function handleSubmit() {
 	 }
 
 
+
 	 messageArr.push({role: 'user', content: message});
+	 console.log(messageArr);
 
 
 
@@ -300,7 +305,7 @@ function handleSubmit() {
 					 break
 				 }
 				 textNum++
-					currentText += textDecoder.decode(value);
+				 currentText += textDecoder.decode(value);
 
 				 // updateChat(
 					//  +uuid,
@@ -315,12 +320,12 @@ function handleSubmit() {
 					//  },
 				 // )
 
-					msgNow.value.text = currentText
-
+				 msgNow.value.text = currentText
 				 if (textNum%10==0) {
 					 // 执行函数1（假设名称为 handleLineBreak）
 					 scrollToBottomIfAtBottomOnly()
 				 }
+
 
 
 			 }
