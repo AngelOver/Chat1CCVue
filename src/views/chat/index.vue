@@ -325,10 +325,7 @@ function handleSubmit() {
 
 			 }
 		 }
-
-		 fetchResponse().catch(error => console.error('Error:', error));
-
-
+		 fetchResponse()
 		 scrollToBottomIfAtBottom()
 	 } catch (error: any) {
 		 console.log(error)
