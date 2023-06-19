@@ -111,7 +111,7 @@ function handleSubmit() {
 	 let msgNum = 3;
 	 let message = prompt.value
 	 let draw = showDraw.value
-
+	 let drawFlag = false
 
 	 let currPrompt	 =  settingStore.systemMessage;
 // 得到历史记录数组（类型为 Chat.ChatData[]）
@@ -136,11 +136,14 @@ function handleSubmit() {
 		 }
 	 }
 
+	 if(draw||message.startsWith("画")) {
+		 if (message.startsWith("画")) {
+			 message = message.substring(1)
+		 }
+		 drawFlag = true;
+	 }
 
 	 messageArr.push({role: 'user', content: message});
-
-
-
 
 	 if (loading.value|| msgNow.value.start)
 		 return
@@ -206,7 +209,8 @@ function handleSubmit() {
 		 },
 		 "messages": messageArr,
 		 "prompt": 	 currPrompt,
-		 "temperature": settingStore.temperature
+		 "temperature": settingStore.temperature,
+		 "generateImage": drawFlag,
 	 }
 	 const currentTime = new Date().toLocaleString();
 	 try {
