@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { NAvatar, NButton } from 'naive-ui'
 import { useAuthStore, useUserStore } from '@/store'
-import defaultAvatar from '@/assets/avatar.jpg'
+// import defaultAvatar from '@/assets/avatar.jpg'
 import { isString } from '@/utils/is'
 import Permission from '@/views/chat/layout/Permission.vue'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
@@ -16,6 +16,9 @@ if (!!authStore.session?.auth && !authStore.token)
   needPermission.value = isMobile.value
 
 const userInfo = computed(() => userStore.userInfo)
+
+let defaultQNAvatar = "https://qiniuchat.littlewheat.com/other/avatar.jpg"
+
 </script>
 
 <template>
@@ -25,12 +28,12 @@ const userInfo = computed(() => userStore.userInfo)
         <NAvatar
           size="large"
           round
-          :src="userInfo.avatar"
-          :fallback-src="defaultAvatar"
+          :src="userInfo.avatar ? userInfo.avatar : defaultQNAvatar"
+          :fallback-src="defaultQNAvatar"
         />
       </template>
       <template v-else>
-        <NAvatar size="large" round :src="defaultAvatar" />
+        <NAvatar size="large" round :src="defaultQNAvatar" />
       </template>
     </div>
     <div class="flex-1 min-w-0 ml-2">
