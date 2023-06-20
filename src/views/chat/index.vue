@@ -37,6 +37,11 @@ const authStore = useAuthStore()
 const chatStore = useChatStore()
 const settingStore = useSettingStore()
 
+const vipMsgNum = ref(settingStore.msgNum ?? 3)
+
+const vipFlag = ref(settingStore.vipFlag ?? false)
+
+
 
 useCopyCode()
 let mj_1chat = 'https://mj.c3r.ink'
@@ -86,6 +91,7 @@ if(usingContext.value){
 	chatStore.setUsingContext(!usingContext.value)
 }
 
+
 // 添加PromptStore
 const promptStore = usePromptStore()
 
@@ -106,17 +112,16 @@ function handleSubmit() {
 }
 
  async function onConversation() {
-
-	 let msgNum = 3;
+	 let msgNum = vipMsgNum.value
+	 if(msgNum == -1){
+		 msgNum = 50
+	 }
 	 let message = prompt.value
 	 let draw = showDraw.value
 	 let drawFlag = false
-
 	 let currPrompt	 =  settingStore.systemMessage;
 // 得到历史记录数组（类型为 Chat.ChatData[]）
 	 let chatHistory = chatStore.getChatByUuid(null);
-	 console.log(currentChatHistory)
-	 console.log(currentChatHistory.value.prompt)
 
 	 if(currentChatHistory){
 		 currPrompt = currentChatHistory.value.prompt||settingStore.systemMessage;
@@ -319,13 +324,10 @@ function handleSubmit() {
 				 // )
 
 					msgNow.value.text = currentText
-
 				 if (textNum%10==0) {
 					 // 执行函数1（假设名称为 handleLineBreak）
 					 scrollToBottomIfAtBottomOnly()
 				 }
-
-
 			 }
 		 }
 		 fetchResponse()
