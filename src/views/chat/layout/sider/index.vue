@@ -4,13 +4,15 @@ import { computed, ref, watch } from 'vue'
 import { NButton, NLayoutSider } from 'naive-ui'
 import List from './List.vue'
 import Footer from './Footer.vue'
-import { useAppStore, useAuthStore, useChatStore } from '@/store'
+import {useAppStore, useAuthStore, useChatStore, useSettingStore} from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 // import { PromptStore } from '@/components/common'
 
 const appStore = useAppStore()
 const authStore = useAuthStore()
 const chatStore = useChatStore()
+const settingStore = useSettingStore()
+const vipFlag = ref(settingStore.vipFlag ?? false)
 
 const { isMobile } = useBasicLayout()
 // const show = ref(false)
@@ -266,14 +268,14 @@ watch(
 <!--					<h6 style="font-size: 12px">-->
 <!--						<a style=";opacity: 0.7;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>-->
 <!--					</h6>-->
-					<h6 style="font-size: 12px">
+					<h6 v-if="!vipFlag" style="font-size: 12px">
 						<a href="https://0.0Chat.cc" target="_blank">备用域：0.0Chat.cc （ 不加群 = 走丢）  </a>
 					</h6>
-					<p><a style="color: #f2cc60;font-size: 12px" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
+					<p v-if="!vipFlag" ><a style="color: #f2cc60;font-size: 12px" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
 								target="_blank">
 						MJ绘画 与 全域名见飞书文档（可收藏）
 					</a></p>
-				 	<h6 style="font-size: 12px">
+				 	<h6 v-if="!vipFlag" style="font-size: 12px">
 	<a style="" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f" target="_blank">Q群：791303042  V群：加 onebai123 </a>
 </h6>
 					<!-- 	<h6 style="font-size: 12px">
@@ -289,7 +291,7 @@ watch(
 <!--												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>-->
 <!--										</h6>-->
 
-					<h6 style="color: rgb(50 197 157);font-size: 12.5px">
+					<h6 v-if="!vipFlag" style="color: rgb(50 197 157);font-size: 12.5px">
 						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT官方独享账号 购买  </a>
 					</h6>
 

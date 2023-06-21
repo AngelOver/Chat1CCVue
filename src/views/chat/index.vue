@@ -87,8 +87,11 @@ const msgNow = ref({
 	requestOptions: {prompt: 'AI思考中2', options: null},
 })
 
-if(usingContext.value){
-	chatStore.setUsingContext(!usingContext.value)
+if(vipFlag.value){
+	chatStore.setUsingContext(true)
+	//isFist.value = false
+}else if(usingContext.value){
+	chatStore.setUsingContext(false)
 }
 
 
@@ -124,7 +127,9 @@ function handleSubmit() {
 	 let chatHistory = chatStore.getChatByUuid(null);
 
 	 if(currentChatHistory){
-		 currPrompt = currentChatHistory.value.prompt||settingStore.systemMessage;
+		 if(currentChatHistory.value){
+			 currPrompt = currentChatHistory.value.prompt||settingStore.systemMessage;
+		 }
 	 }
 
 // 将 ChatStore 中的记录转换成普通数组
@@ -704,7 +709,7 @@ onUnmounted(() => {
             <template v-if="!dataSources.length||isFist">
               <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
                 <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-                <span>
+                <span v-if="!vipFlag">
 									<a style="color: #c18401" href="https://0.0chat.cc" target="_blank">1.11Chat.cc </a>
 									免费、无限制、免登录的ChatAI。最方便体验最好的网站。
 <!--									备用域名<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun </a>-->
@@ -712,6 +717,16 @@ onUnmounted(() => {
 <!--									临时:<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>-->
 <!--									。-->
 									备用域名: 		<a style="color: #c18401" href="https://0.0chat.cc" target="_blank">0.0Chat.cc </a>
+								</span>
+
+								<span v-else="!vipFlag">
+									<a style="color: #c18401" href="https://0.0chat.cc" target="_blank">1.11Chat.cc </a>
+									Vip通道---->无限制、免登录的智能助手。最方便体验最好的网站
+									<!--									备用域名<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun </a>-->
+									<!--									备用:<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun</a>-->
+									<!--									临时:<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>-->
+									<!--									。-->
+
 								</span>
 
 							</div>
@@ -791,14 +806,14 @@ onUnmounted(() => {
 <!--															 如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--														</div>-->
 
-							<div style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+							<div v-if="!vipFlag" style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 								每人每月捐个三元、服务就能永久免费下去！！如果你觉得我做的好，可以给我买一瓶冰阔落
 							</div>
 <!--									<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--											每人每月捐个三元、服务就能永久免费下去！！		<a style="" :href="imageUrl_wxzs" target="_blank">点击->赞助 </a>-->
 <!--									</div>-->
 
-											<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+											<div v-if="!vipFlag"  style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 																<img  style="max-width: 9rem" :src="imageUrl_wxzs" />
 															</div>
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
