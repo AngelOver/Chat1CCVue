@@ -42,6 +42,10 @@ function toAppDown() {
 	window.location.href = downUrl_1chat
 }
 
+function toBing() {
+	window.open("https://bing.c3g.ink?ref=1.11chat.cc")
+}
+
 const getMobileClass = computed<CSSProperties>(() => {
   if (isMobile.value) {
     return {
@@ -294,7 +298,9 @@ watch(
 					<h6 v-if="!vipFlag" style="color: rgb(50 197 157);font-size: 12.5px">
 						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT官方独享账号 购买  </a>
 					</h6>
-
+					<NButton block @click="toBing()">
+						必应GPT4.0体验
+					</NButton>
 					<NButton block @click="toAppDown()">
 						安卓客户端下载
 					</NButton>
