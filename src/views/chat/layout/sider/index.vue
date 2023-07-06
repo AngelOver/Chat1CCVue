@@ -43,7 +43,7 @@ function toAppDown() {
 }
 
 function toBing() {
-	window.open("https://bing.c3g.ink?ref=1.11chat.cc")
+	window.open("https://bing2.c3g.ink?ref=1.11chat.cc")
 }
 
 const getMobileClass = computed<CSSProperties>(() => {
