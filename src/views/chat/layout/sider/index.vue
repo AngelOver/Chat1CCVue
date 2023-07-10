@@ -223,7 +223,7 @@ watch(
 <!--								v群：&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
 <!--							</p>-->
 <!--							<p>-->
-<!--								q群：791303042-->
+<!--								q群：186244429-->
 <!--							</p>-->
 
 <!--						</div>-->
@@ -246,7 +246,7 @@ watch(
 <!--												<a :href="imageUrl_wxzs" target="_blank">v群：点击加群  </a>-->
 <!--											</p>-->
 <!--											<p>-->
-<!--												q群：791303042-->
+<!--												q群：186244429-->
 <!--											</p>-->
 <!--										</div>-->
 <!--										<div class="flex-1 flex-shrink-0 overflow-hidden " >-->
@@ -284,7 +284,7 @@ watch(
 						MJ绘画 与 全域名见飞书文档（可收藏）
 					</a></p>
 				 	<h6 v-if="!vipFlag" style="font-size: 12px">
-	<a style="" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f" target="_blank">Q群：791303042  V群：加 onebai123 </a>
+	<a style="" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f" target="_blank">Q群：186244429  V群：加 onebai123 </a>
 </h6>
 					<!-- 	<h6 style="font-size: 12px">
 						<a style="color: #c18401;opacity: 0.5;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>
