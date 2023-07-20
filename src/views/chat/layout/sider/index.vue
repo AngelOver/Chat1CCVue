@@ -299,9 +299,9 @@ watch(
 <!--												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>-->
 <!--										</h6>-->
 
-					<h6 v-if="!vipFlag" style="color: rgb(50 197 157);font-size: 12.5px">
-						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT官方独享账号 购买  </a>
-					</h6>
+<!--					<h6 v-if="!vipFlag" style="color: rgb(50 197 157);font-size: 12.5px">-->
+<!--						<a href="https://fk.a3e.top?code=YT0xJmI9Mg%3D%3D" target="_blank">外链：ChatGPT官方独享账号 购买  </a>-->
+<!--					</h6>-->
 					<NButton block @click="toMj()">
 						AI绘画-Midjourney
 					</NButton>

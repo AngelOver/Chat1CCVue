@@ -716,8 +716,12 @@ onUnmounted(() => {
 <!--									备用:<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun</a>-->
 <!--									临时:<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>-->
 <!--									。-->
-									备用域名: 		<a style="color: #c18401" href="https://0.0chat.cc" target="_blank">0.0Chat.cc </a>
+									请收藏网址: 		<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>
 								</span>
+
+
+
+
 
 								<span v-else="!vipFlag">
 									<a style="color: #c18401" href="https://0.0chat.cc" target="_blank">1.11Chat.cc </a>
@@ -730,6 +734,10 @@ onUnmounted(() => {
 								</span>
 
 							</div>
+
+
+
+
 
 <!--								永久免费用于学习和测试,底下输入框输入就能直接用～，点左下角地球图标可关闭搜索模式，关闭后可极速响应-->
 <!--								收藏当前页面即可永不迷路，点击左下角捐赠按钮可一直看到最新存活 国内备案不封链接：https://chat.jinshutuan.com/（稳定但有严格内容审查，若要分享到国内或微信分享请用此链接）-->
@@ -806,9 +814,18 @@ onUnmounted(() => {
 <!--															 如果你觉得做的好，可以给我买一瓶冰阔落-->
 <!--														</div>-->
 
+<!--							<div v-if="!vipFlag" style="color:  rgb(50 197 157);margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--									<span v-if="!vipFlag">-->
+<!--										<a style="color: #f2cc60;font-size: 15px" href="https://vip.11chat.cc" target="_blank">-->
+<!--											请收藏网址:  chat.aibeke.cn ,电脑端体验更佳 ,电脑端体验更佳-->
+<!--										 </a>-->
+<!--								</span>-->
+<!--							</div>-->
+
 							<div v-if="!vipFlag" style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 								每人每月捐个三元、服务就能永久免费下去！！如果你觉得我做的好，可以给我买一瓶冰阔落
 							</div>
+
 <!--									<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--											每人每月捐个三元、服务就能永久免费下去！！		<a style="" :href="imageUrl_wxzs" target="_blank">点击->赞助 </a>-->
 <!--									</div>-->
@@ -816,6 +833,17 @@ onUnmounted(() => {
 											<div v-if="!vipFlag"  style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 																<img  style="max-width: 9rem" :src="imageUrl_wxzs" />
 															</div>
+<!--							<div v-if="!vipFlag" style="color:  rgb(50 197 157);margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+
+
+							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+									<span v-if="!vipFlag">
+										<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
+											点击进入VIP通道：  回复快、支持追问、更长答案 和 支持AI写作、思维导图等
+										 </a>
+								</span>
+							</div>
+
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 15rem" :src="imageUrl_wxzs" />	<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->
 <!--							</div>-->

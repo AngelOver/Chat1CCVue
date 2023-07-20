@@ -29,7 +29,7 @@ export default {
     login: '登录',
     notLoggedIn: '登录->同步数据',
     logOut: '退出登录',
-    unauthorizedTips: '欢迎使用ChatGPT！如果您还没有注册，请点击“注册”按钮创建一个新账户',
+    unauthorizedTips: '欢迎使用ChatGPT！如果您还没有注册，请点击“注册”按钮创建一个新账户 \n 2023.07.20 本站注册功能已关闭，仅VIP通道 可云端存储数据 \n 旧用户依然可登录 ',
     email: '邮箱',
     password: '密码',
     passwordConfirm: '确认密码',

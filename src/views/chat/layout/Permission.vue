@@ -217,6 +217,21 @@ async function handleResetPassword() {
 					<h4 class="text-base text-center text-slate-500 dark:text-slate-500">
 						{{ $t('common.unauthorizedTips') }}
 					</h4>
+
+					<h4 class="text-base text-center text-slate-500 dark:text-slate-500">
+						---2023.07.20---
+					</h4>
+					<h4 class="text-base text-center text-slate-500 dark:text-slate-500">
+						由于数据存储成本高，本站关闭注册
+					</h4>
+					<h4 class="text-base text-center text-slate-500 dark:text-slate-500">
+						云端存储数据 仅VIP通道支持
+					</h4>
+					<h4 class="text-base text-center text-slate-500 dark:text-slate-500">
+
+					</h4>
+
+
 					<Icon403 class="w-[200px] m-auto" />
         </header>
 
