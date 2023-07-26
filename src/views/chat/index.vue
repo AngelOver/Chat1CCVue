@@ -835,11 +835,10 @@ onUnmounted(() => {
 															</div>
 <!--							<div v-if="!vipFlag" style="color:  rgb(50 197 157);margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 
-
 							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 									<span v-if="!vipFlag">
 										<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
-											点击进入VIP通道：  回复快、支持追问、更长答案 和 支持AI写作、思维导图等
+											点击进入VIP通道： 稳定、 回复快、支持追问、更长答案 和 更强功能等
 										 </a>
 								</span>
 							</div>
@@ -851,8 +850,7 @@ onUnmounted(() => {
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 10rem" :src="imageUrl_wxzs" />	<img style="max-width: 10rem" :src="imageUrl_wxzs" />-->
 <!--							</div>-->
-
-
+							
             </template>
             <template v-else>
               <div>
