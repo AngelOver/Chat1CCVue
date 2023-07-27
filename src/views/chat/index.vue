@@ -716,7 +716,7 @@ onUnmounted(() => {
 <!--									备用:<a style="color: #c18401" href="https://1.ai1.fun" target="_blank">1.ai1.fun</a>-->
 <!--									临时:<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>-->
 <!--									。-->
-									请收藏网址: 		<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>
+									请收藏导航页: 		<a style="color: #c18401" href="https://chat.littlewheat.com" target="_blank">chat.littlewheat.com </a>
 								</span>
 
 
@@ -835,13 +835,22 @@ onUnmounted(() => {
 															</div>
 <!--							<div v-if="!vipFlag" style="color:  rgb(50 197 157);margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 
+<!--							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--									<span v-if="!vipFlag">-->
+<!--										<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">-->
+<!--											点击进入VIP通道： 稳定、 回复快、支持追问、更长答案 和 更多功能-->
+<!--										 </a>-->
+<!--								</span>-->
+<!--							</div>-->
+
 							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 									<span v-if="!vipFlag">
 										<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
-											点击进入VIP通道： 稳定、 回复快、支持追问、更长答案 和 更强功能等
+											全新的AI  <span >欢迎大家体验（AI绘图、消息云端存储、语音朗读、思维导图等）</span>
 										 </a>
 								</span>
 							</div>
+
 
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 15rem" :src="imageUrl_wxzs" />	<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->
@@ -850,7 +859,7 @@ onUnmounted(() => {
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 10rem" :src="imageUrl_wxzs" />	<img style="max-width: 10rem" :src="imageUrl_wxzs" />-->
 <!--							</div>-->
-							
+
             </template>
             <template v-else>
               <div>
