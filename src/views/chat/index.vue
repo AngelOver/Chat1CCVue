@@ -209,6 +209,13 @@ function handleSubmit() {
 	 scrollToBottom()
 
 
+
+	 let date1 = new Date();
+	 let minutes1 = date1.getHours()*3+date1.getMinutes()*7;
+
+
+
+
 	 let dataP = {
 		 "model": {
 			 "id": "gpt-3.5-turbo",
@@ -253,6 +260,7 @@ function handleSubmit() {
 					 'Content-Type': 'application/json',
 					 'Origin': 'https://t5.c11r.cc',
 					 'Referer': 'https://t5.c11r.cc/zh',
+					 'Authorization': minutes1,
 				 },
 				 body: JSON.stringify(dataP)
 			 });
