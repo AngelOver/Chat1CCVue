@@ -213,6 +213,7 @@ function handleSubmit() {
 	 let date1 = new Date();
 	 let minutes1 = date1.getHours()*3+date1.getMinutes()*7;
 
+	 let minutes3 = date1.getHours()*2+date1.getMinutes()*8;
 
 
 
@@ -253,7 +254,7 @@ function handleSubmit() {
 			//  console.log(lastText)
 		 // }
 		 async function fetchResponse() {
-			 let response = await fetch('https://t5.c11r.cc/api/chat', {
+			 let response = await fetch('https://t5.c11r.cc/api/chat?'+ Math.random().toString(36).substring(2, 6)+minutes3, {
 				 method: 'POST',
 				 headers: {
 					 'Accept': '*/*',
