@@ -225,13 +225,13 @@ function handleSubmit() {
 	 try {
 		 let lastText = ''
 
-		 // let responsePromise = fetch('https://t4.c11r.cc/api/chat', {
+		 // let responsePromise = fetch('https://t5.c11r.cc/api/chat', {
 			//  method: 'POST',
 			//  headers: {
 			// 	 'Accept': '*/*',
 			// 	 'Content-Type': 'application/json',
-			// 	 'Origin': 'https://t4.c11r.cc',
-			// 	 'Referer': 'https://t4.c11r.cc/zh',
+			// 	 'Origin': 'https://t5.c11r.cc',
+			// 	 'Referer': 'https://t5.c11r.cc/zh',
 			//  },
 			//  body: JSON.stringify(dataP)
 		 // });
@@ -246,13 +246,13 @@ function handleSubmit() {
 			//  console.log(lastText)
 		 // }
 		 async function fetchResponse() {
-			 let response = await fetch('https://t4.c11r.cc/api/chat', {
+			 let response = await fetch('https://t5.c11r.cc/api/chat', {
 				 method: 'POST',
 				 headers: {
 					 'Accept': '*/*',
 					 'Content-Type': 'application/json',
-					 'Origin': 'https://t4.c11r.cc',
-					 'Referer': 'https://t4.c11r.cc/zh',
+					 'Origin': 'https://t5.c11r.cc',
+					 'Referer': 'https://t5.c11r.cc/zh',
 				 },
 				 body: JSON.stringify(dataP)
 			 });
