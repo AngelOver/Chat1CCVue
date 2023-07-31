@@ -44,8 +44,9 @@ const vipFlag = ref(settingStore.vipFlag ?? false)
 
 
 useCopyCode()
+let dateT =  new Date().toDateString();
 let mj_1chat = 'https://mj.c3r.ink'
-let imageUrl_wxzs = 'https://qiniuchat.littlewheat.com/other/wx/wxzs.jpg?t=' + new Date().toDateString()
+let imageUrl_wxzs = 'https://qiniuchat.littlewheat.com/other/wx/wxzs.jpg'
 let downUrl_1chat = 'https://qiniuchat.littlewheat.com/other/app/android/1chat.apk?t=' + Date.now()
 let downUrl_chatcn = 'https://qiniuchat.littlewheat.com/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
 
@@ -233,13 +234,13 @@ function handleSubmit() {
 	 try {
 		 let lastText = ''
 
-		 // let responsePromise = fetch('https://t5.c11r.cc/api/chat', {
+		 // let responsePromise = fetch('https://chatapi6.xn--4kq568ayhallt48a.cn/api/chat', {
 			//  method: 'POST',
 			//  headers: {
 			// 	 'Accept': '*/*',
 			// 	 'Content-Type': 'application/json',
-			// 	 'Origin': 'https://t5.c11r.cc',
-			// 	 'Referer': 'https://t5.c11r.cc/zh',
+			// 	 'Origin': 'https://chatapi6.xn--4kq568ayhallt48a.cn',
+			// 	 'Referer': 'https://chatapi6.xn--4kq568ayhallt48a.cn/zh',
 			//  },
 			//  body: JSON.stringify(dataP)
 		 // });
@@ -254,13 +255,13 @@ function handleSubmit() {
 			//  console.log(lastText)
 		 // }
 		 async function fetchResponse() {
-			 let response = await fetch('https://t5.c11r.cc/api/chat?'+ Math.random().toString(36).substring(2, 6)+minutes3, {
+			 let response = await fetch('https://chatapi6.xn--4kq568ayhallt48a.cn/api/chat?'+ Math.random().toString(36).substring(2, 6)+minutes3, {
 				 method: 'POST',
 				 headers: {
 					 'Accept': '*/*',
 					 'Content-Type': 'application/json',
-					 'Origin': 'https://t5.c11r.cc',
-					 'Referer': 'https://t5.c11r.cc/zh',
+					 'Origin': 'https://chatapi6.xn--4kq568ayhallt48a.cn',
+					 'Referer': 'https://chatapi6.xn--4kq568ayhallt48a.cn/zh',
 					 'Authorization': minutes1,
 				 },
 				 body: JSON.stringify(dataP)
