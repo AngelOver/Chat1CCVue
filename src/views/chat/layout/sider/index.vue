@@ -46,6 +46,10 @@ function toBing() {
 	window.open("https://bing2.c3g.ink?ref=1.11chat.cc")
 }
 
+function toVIP() {
+	window.open("https://vip.11chat.cc?ref=1.11chat.cc")
+}
+
 function toMj() {
 	window.open("https://mj2.c3g.ink?ref=1.11chat.cc")
 }
@@ -310,6 +314,9 @@ watch(
 					</NButton>
 					<NButton block @click="toAppDown()">
 						安卓客户端下载
+					</NButton>
+					<NButton block @click="toVIP()">
+						plus版-vip-会员通道
 					</NButton>
 <!--					<NButton block @click="show = true">-->
 <!--						{{ $t('store.siderButton') }}-->
