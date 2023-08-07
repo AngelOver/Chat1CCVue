@@ -14,25 +14,25 @@ async function handleLogout() {
 </script>
 
 <template>
-  <footer style="padding-bottom: 0" class="flex items-center justify-between min-w-0 p-4 overflow-hidden border-t dark:border-neutral-800">
-    <div class="flex-1 flex-shrink-0 overflow-hidden">
-      <UserAvatar />
-    </div>
-    <HoverButton v-if="!!authStore.token" :tooltip="$t('common.logOut')" @click="handleLogout">
-      <span class="text-xl text-[#4f555e] dark:text-white">
-        <SvgIcon icon="uil:exit" />
-      </span>
-    </HoverButton>
+<!--  <footer style="padding-bottom: 0" class="flex items-center justify-between min-w-0 p-4 overflow-hidden border-t dark:border-neutral-800">-->
+<!--    <div class="flex-1 flex-shrink-0 overflow-hidden">-->
+<!--      <UserAvatar />-->
+<!--    </div>-->
+<!--    <HoverButton v-if="!!authStore.token" :tooltip="$t('common.logOut')" @click="handleLogout">-->
+<!--      <span class="text-xl text-[#4f555e] dark:text-white">-->
+<!--        <SvgIcon icon="uil:exit" />-->
+<!--      </span>-->
+<!--    </HoverButton>-->
 
-    <HoverButton v-if="!!authStore.token" :tooltip="$t('setting.setting')" @click="show = true">
-      <span class="text-xl text-[#4f555e] dark:text-white">
-        <SvgIcon icon="ri:settings-4-line" />
-      </span>
-    </HoverButton>
-    <Setting v-if="show" v-model:visible="show" />
+<!--    <HoverButton v-if="!!authStore.token" :tooltip="$t('setting.setting')" @click="show = true">-->
+<!--      <span class="text-xl text-[#4f555e] dark:text-white">-->
+<!--        <SvgIcon icon="ri:settings-4-line" />-->
+<!--      </span>-->
+<!--    </HoverButton>-->
+<!--    <Setting v-if="show" v-model:visible="show" />-->
 
-  </footer>
-	<div style="text-align: center;color: #6e7681;font-size: xx-small" >
-		<a href="https://beian.miit.gov.cn/" target="_blank">&nbsp; </a>
-</div>
+<!--  </footer>-->
+<!--	<div style="text-align: center;color: #6e7681;font-size: xx-small" >-->
+<!--		<a href="https://beian.miit.gov.cn/" target="_blank">&nbsp; </a>-->
+<!--</div>-->
 </template>
