@@ -71,14 +71,14 @@ export const useChatStore = defineStore('chat-store', {
         const chatIndex = this.chat.findIndex(item => item.uuid === h.uuid)
         if (chatIndex <= -1 || this.chat[chatIndex].data.length <= 0 || lastId !== undefined) {
           callbackForStartRequest && callbackForStartRequest()
-          const chatData = (await fetchGetChatHistory(h.uuid, lastId)).data
-          if (chatData.length <= 0)
-            hisroty.all = true
-
-          if (chatIndex <= -1)
-            this.chat.unshift({ uuid: h.uuid, data: chatData })
-          else
-            this.chat[chatIndex].data.unshift(...chatData)
+          // const chatData = (await fetchGetChatHistory(h.uuid, lastId)).data
+          // if (chatData.length <= 0)
+          //   hisroty.all = true
+					//
+          // if (chatIndex <= -1)
+          //   this.chat.unshift({ uuid: h.uuid, data: chatData })
+          // else
+          //   this.chat[chatIndex].data.unshift(...chatData)
         }
       }
       finally {
@@ -96,7 +96,7 @@ export const useChatStore = defineStore('chat-store', {
     },
 
     async addHistory(history: Chat.History, chatData: Chat.Chat[] = []) {
-      await fetchCreateChatRoom(history.title, history.uuid)
+     // await fetchCreateChatRoom(history.title, history.uuid)
       this.history.unshift(history)
       this.chat.unshift({ uuid: history.uuid, data: chatData })
       this.active = history.uuid
@@ -108,13 +108,13 @@ export const useChatStore = defineStore('chat-store', {
       if (index !== -1) {
         this.history[index] = { ...this.history[index], ...edit }
         this.recordState()
-        if (!edit.isEdit)
-          fetchRenameChatRoom(this.history[index].title, this.history[index].uuid)
+        //if (!edit.isEdit)
+          //fetchRenameChatRoom(this.history[index].title, this.history[index].uuid)
       }
     },
 
     async deleteHistory(index: number) {
-      await fetchDeleteChatRoom(this.history[index].uuid)
+      // await fetchDeleteChatRoom(this.history[index].uuid)
       this.history.splice(index, 1)
       this.chat.splice(index, 1)
 
@@ -166,7 +166,7 @@ export const useChatStore = defineStore('chat-store', {
       if (!uuid || uuid === 0) {
         if (this.history.length === 0) {
           const uuid = Date.now()
-          fetchCreateChatRoom(chat.text, uuid)
+          //fetchCreateChatRoom(chat.text, uuid)
           this.history.push({ uuid, title: chat.text, isEdit: false })
           this.chat.push({ uuid, data: [chat] })
           this.active = uuid
@@ -176,7 +176,7 @@ export const useChatStore = defineStore('chat-store', {
           this.chat[0].data.push(chat)
           if (this.history[0].title === 'New Chat') {
             this.history[0].title = chat.text
-            fetchRenameChatRoom(chat.text, this.history[0].uuid)
+            //fetchRenameChatRoom(chat.text, this.history[0].uuid)
           }
           this.recordState()
         }
@@ -187,7 +187,7 @@ export const useChatStore = defineStore('chat-store', {
         this.chat[index].data.push(chat)
         if (this.history[index].title === 'New Chat') {
           this.history[index].title = chat.text
-          fetchRenameChatRoom(chat.text, this.history[index].uuid)
+          //fetchRenameChatRoom(chat.text, this.history[index].uuid)
         }
         this.recordState()
       }
@@ -250,7 +250,7 @@ export const useChatStore = defineStore('chat-store', {
     clearChatByUuid(uuid: number) {
       if (!uuid || uuid === 0) {
         if (this.chat.length) {
-          fetchClearChat(this.chat[0].uuid)
+          //fetchClearChat(this.chat[0].uuid)
           this.chat[0].data = []
           this.recordState()
         }
@@ -259,7 +259,7 @@ export const useChatStore = defineStore('chat-store', {
 
       const index = this.chat.findIndex(item => item.uuid === uuid)
       if (index !== -1) {
-        fetchClearChat(uuid)
+				//fetchClearChat(uuid)
         this.chat[index].data = []
         this.recordState()
       }

@@ -6,6 +6,7 @@ import List from './List.vue'
 import Footer from './Footer.vue'
 import {useAppStore, useAuthStore, useChatStore, useSettingStore} from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
+import {onMounted} from "vue/dist/vue";
 // import { PromptStore } from '@/components/common'
 
 const appStore = useAppStore()
@@ -13,6 +14,8 @@ const authStore = useAuthStore()
 const chatStore = useChatStore()
 const settingStore = useSettingStore()
 const vipFlag = ref(settingStore.vipFlag ?? false)
+
+const vipFlag2 = ref(false)
 
 const { isMobile } = useBasicLayout()
 // const show = ref(false)
@@ -83,6 +86,17 @@ watch(
     flush: 'post',
   },
 )
+
+setTimeout(() => {
+	vipFlag.value = true
+}, 180000)
+
+setTimeout(() => {
+	vipFlag2.value = true
+}, 18000)
+
+
+
 </script>
 
 <template>
@@ -283,10 +297,15 @@ watch(
 					<h6 v-if="!vipFlag" style="font-size: 12px">
 						<a href="https://0.0Chat.cc" target="_blank">备用域：0.0Chat.cc （ 不加群 = 走丢）  </a>
 					</h6>
-					<p v-if="!vipFlag" ><a style="color: #f2cc60;font-size: 12px" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
+					<p v-if="!vipFlag&&!vipFlag2" ><a style="color: #f2cc60;font-size: 12px" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
 								target="_blank">
 						MJ绘画 与 全域名见飞书文档（可收藏）
 					</a></p>
+
+					<h6 v-if="vipFlag" style="font-size: 12px;">
+						<a href="https://0.0Chat.cc" target="_blank">备用域：0.0Chat.cc |Q群：186244429 </a>
+					</h6>
+
 				 	<h6 v-if="!vipFlag" style="font-size: 12px">
 	<a style="" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f" target="_blank">Q群：186244429  V群：加 onebai123 </a>
 </h6>
@@ -303,18 +322,18 @@ watch(
 <!--												<a style="color:rgb(99 165 237)" href="https://fk.a3e.top?code=YT0xJmI9OQ%3D%3D" target="_blank">外链：滴滴优惠券2张（20元无门槛+5折） 8.8元 点击购买 </a>-->
 <!--										</h6>-->
 					<h6 v-if="!vipFlag" style="color: rgb(50 197 157);font-size: 12.5px">
-						<a href="https://fk.a3e.top?code=YT0yJmI9OA%3D%3D" target="_blank">外链：220g大流量卡+送12月腾讯会员  </a>
+						<a href="https://fk.a3e.top?code=YT0yJmI9OA%3D%3D" target="_blank">外链：220G大流量卡+送12月腾讯会员  </a>
 					</h6>
-					<h6 v-if="!vipFlag" style="color: rgb(50 197 157);font-size: 12.5px">
+					<h6 v-if="!vipFlag||true" style="color: rgb(50 197 157);font-size: 12.5px">
 						<a href="https://fk.a3e.top?code=YT0yJmI9Mg%3D%3D" target="_blank">外链：OpenAI官方Chat独享账号 购买  </a>
 					</h6>
 					<NButton block @click="toMj()">
 						AI绘画-Midjourney
 					</NButton>
-					<NButton block @click="toBing()">
+					<NButton v-if="!vipFlag&&!vipFlag2"  block @click="toBing()">
 						必应聊天4.0前往
 					</NButton>
-					<NButton block @click="toAppDown()">
+					<NButton v-if="!vipFlag&&!vipFlag2"  block @click="toAppDown()">
 						安卓客户端下载
 					</NButton>
 					<NButton block @click="toVIP()">
