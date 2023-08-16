@@ -856,7 +856,7 @@ onUnmounted(() => {
 							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 									<span v-if="!vipFlag">
 										<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
-											全新的AI  <span >欢迎大家体验（AI绘图、消息云端存储、语音朗读、无敏感审核等）</span>
+											全新的AI  <span >欢迎大家体验（AI绘图、消息云端存储、无敏感审核等）</span>
 										 </a>
 								</span>
 							</div>
