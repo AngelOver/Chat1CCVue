@@ -855,8 +855,18 @@ onUnmounted(() => {
 
 							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 									<span v-if="!vipFlag">
+
+											<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
+										4.0免费卡，仅限2023-08-22/23 <span ></span>
+										 </a>
+								</span>
+							</div>
+
+							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
+									<span v-if="!vipFlag">
+
 										<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
-										专业通道：全新的AI  <span >欢迎大家体验（AI绘图、消息云端存储、无敏感审核等）</span>
+										专业通道：欢迎大家体验 <span >(AI绘图、消息云端存储、无敏感审核）</span>
 										 </a>
 								</span>
 							</div>
