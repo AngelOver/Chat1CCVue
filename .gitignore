@@ -31,3 +31,4 @@ coverage
 # Environment variables files
 
 /docker-compose/nginx/html
+docker-compose/test.text
