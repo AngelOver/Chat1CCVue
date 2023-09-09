@@ -857,7 +857,7 @@ onUnmounted(() => {
 									<span v-if="!vipFlag">
 
 											<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
-										4.0免费卡，仅限2023-08-22/23 <span ></span>
+										4.0免费卡，仅限2023-09-12/16 <span ></span>
 										 </a>
 								</span>
 							</div>
