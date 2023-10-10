@@ -297,10 +297,10 @@ setTimeout(() => {
 					<h6 v-if="!vipFlag" style="font-size: 12px">
 						<a href="https://0.0Chat.cc" target="_blank">备用域：0.0Chat.cc （ 不加群 = 走丢）  </a>
 					</h6>
-					<p v-if="!vipFlag&&!vipFlag2" ><a style="color: #f2cc60;font-size: 12px" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"
-								target="_blank">
-						MJ绘画 与 全域名见飞书文档（可收藏）
-					</a></p>
+<!--					<p v-if="!vipFlag&&!vipFlag2" ><a style="color: #f2cc60;font-size: 12px" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f"-->
+<!--								target="_blank">-->
+<!--						MJ绘画 与 全域名见飞书文档（可收藏）-->
+<!--					</a></p>-->
 
 					<h6 v-if="vipFlag" style="font-size: 12px;">
 						<a href="https://0.0Chat.cc" target="_blank">备用域：0.0Chat.cc |Q群：186244429 </a>
@@ -324,9 +324,9 @@ setTimeout(() => {
 <!--					<h6 v-if="!vipFlag||true" style="color: rgb(50 197 157);font-size: 12.5px">-->
 <!--						<a href="https://page.uuhfl.com/card/pop?accountId=19318&pageIid=2070" target="_blank">大流量卡：19元95G/月+1年腾讯会员  </a>-->
 <!--					</h6>-->
-					<h6 v-if="!vipFlag||true" style="color: rgb(50 197 157);font-size: 12.5px">
-						<a href="https://fk.a3e.top?code=YT0yJmI9Mg%3D%3D" target="_blank">外链：OpenAI官方Chat独享账号 购买  </a>
-					</h6>
+<!--					<h6 v-if="!vipFlag||true" style="color: rgb(50 197 157);font-size: 12.5px">-->
+<!--						<a href="https://fk.a3e.top?code=YT0yJmI9Mg%3D%3D" target="_blank">外链：OpenAI官方Chat独享账号 购买  </a>-->
+<!--					</h6>-->
 <!--					<NButton block @click="toMj()">-->
 <!--						AI绘画-Midjourney-->
 <!--					</NButton>-->
@@ -337,7 +337,7 @@ setTimeout(() => {
 						安卓客户端下载
 					</NButton>
 					<NButton block @click="toVIP()">
-						Plus版-VIP-会员通道
+						Plus版-VIP通道
 					</NButton>
 <!--					<NButton block @click="show = true">-->
 <!--						{{ $t('store.siderButton') }}-->

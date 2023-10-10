@@ -14,7 +14,7 @@ export interface SettingsState {
 
 export function defaultSetting(): SettingsState {
   return {
-    systemMessage: 'You are ChatGPT, a large language model trained by OpenAI. Follow the user\'s instructions carefully. Respond using markdown.',
+    systemMessage: '我是一台基于深度学习和自然语言处理技术的AI机器人，旨在为用户提供高效、精准、个性化的智能服务',
     temperature: 0.8,
     top_p: 1,
 		msgNum: 3,

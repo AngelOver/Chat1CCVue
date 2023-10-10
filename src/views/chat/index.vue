@@ -46,7 +46,7 @@ const vipFlag = ref(settingStore.vipFlag ?? false)
 useCopyCode()
 let dateT =  new Date().toDateString();
 let mj_1chat = 'https://mj.c3r.ink'
-let imageUrl_wxzs = 'https://qiniuchat.littlewheat.com/other/wx/wxzs.jpg'
+let imageUrl_wxzs = 'https://qiniuchat.littlewheat.com/other/wx/wxzs.jpg?1'
 let downUrl_1chat = 'https://qiniuchat.littlewheat.com/other/app/android/1chat.apk?t=' + Date.now()
 let downUrl_chatcn = 'https://qiniuchat.littlewheat.com/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
 
@@ -255,6 +255,8 @@ function handleSubmit() {
 			//  console.log(lastText)
 		 // }
 		 async function fetchResponse() {
+			 try {
+
 			 let response = await fetch('https://chatapi6.xn--4kq568ayhallt48a.cn/api/chat?'+ Math.random().toString(36).substring(2, 6)+minutes3, {
 				 method: 'POST',
 				 headers: {
@@ -283,6 +285,7 @@ function handleSubmit() {
 					 read();
 				 }
 			 });
+
 			 const readableStreamDefaultReader = stream.getReader();
 
 			 const textDecoder = new TextDecoder("utf-8");
@@ -343,6 +346,10 @@ function handleSubmit() {
 					 // 执行函数1（假设名称为 handleLineBreak）
 					 scrollToBottomIfAtBottomOnly()
 				 }
+			 }
+			 } catch (error: any) {
+				 console.log(error);
+				 loading.value = false;
 			 }
 		 }
 		 fetchResponse()
@@ -832,17 +839,17 @@ onUnmounted(() => {
 <!--								</span>-->
 <!--							</div>-->
 
-							<div v-if="!vipFlag" style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-								每人每月捐个三元、服务就能永久免费下去！！如果你觉得我做的好，可以给我买一瓶冰阔落
-							</div>
+<!--							<div v-if="!vipFlag" style="color: rgb(50 197 157);margin: 1px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--								每人每月捐个三元、服务就能永久免费下去！！如果你觉得我做的好，可以给我买一瓶冰阔落-->
+<!--							</div>-->
 
 <!--									<div style="color: rgb(50 197 157);" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--											每人每月捐个三元、服务就能永久免费下去！！		<a style="" :href="imageUrl_wxzs" target="_blank">点击->赞助 </a>-->
 <!--									</div>-->
 
-											<div v-if="!vipFlag"  style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-																<img  style="max-width: 9rem" :src="imageUrl_wxzs" />
-															</div>
+<!--											<div v-if="!vipFlag"  style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--																<img  style="max-width: 9rem" :src="imageUrl_wxzs" />-->
+<!--															</div>-->
 <!--							<div v-if="!vipFlag" style="color:  rgb(50 197 157);margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 
 <!--							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
@@ -853,24 +860,24 @@ onUnmounted(() => {
 <!--								</span>-->
 <!--							</div>-->
 
-							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
-									<span v-if="!vipFlag">
 
-											<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
-										4.0免费卡，仅限2023-09-12/16 <span ></span>
-										 </a>
-								</span>
-							</div>
 
 							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">
 									<span v-if="!vipFlag">
-
-										<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
-										专业通道：欢迎大家体验 <span >(AI绘图、消息云端存储、无敏感审核）</span>
+									✅
+										<a style="text-decoration:underline;color: #c27d19;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
+										点击进入VIP通道：4.0无限制、稳定、更快、联网、<span >(AI绘图、多角色、去敏感审核）</span>
 										 </a>
 								</span>
 							</div>
+<!--							<div v-if="!vipFlag" style="color:  #c18401;margin: 20px" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
+<!--									<span v-if="!vipFlag">-->
 
+<!--											<a style="color: #c18401;font-size: 15px" href="https://vip.11chat.cc" target="_blank">-->
+<!--										4.0免费卡，仅限2023-09-12/16 <span ></span>-->
+<!--										 </a>-->
+<!--								</span>-->
+<!--							</div>-->
 
 <!--							<div style="" class="flex items-center justify-center mt-4 text-center text-neutral-300">-->
 <!--								<img  style="max-width: 15rem" :src="imageUrl_wxzs" />	<img style="max-width: 15rem" :src="imageUrl_wxzs" />-->
