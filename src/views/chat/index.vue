@@ -47,7 +47,7 @@ useCopyCode()
 let dateT =  new Date().toDateString();
 let mj_1chat = 'https://mj.c3r.ink'
 let imageUrl_wxzs = 'https://qiniuchat.littlewheat.com/other/wx/wxzs.jpg?1'
-let downUrl_1chat = 'https://qiniuchat.littlewheat.com/other/app/android/1chat.apk?t=' + Date.now()
+let downUrl_1chat = 'https://app.1ai.ink?t=' + Date.now()
 let downUrl_chatcn = 'https://qiniuchat.littlewheat.com/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
 
 const { isMobile } = useBasicLayout()

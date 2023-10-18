@@ -26,7 +26,7 @@ let imageUrl_wxzs = 'https://qiniuchat.littlewheat.com/other/wxzs.jpg?t=' + Date
 let mj_1chat = 'https://mj.c3r.ink'
 
 
-let downUrl_1chat = 'https://qiniuchat.littlewheat.com/other/app/android/1chat.apk?t=' + Date.now()
+let downUrl_1chat = 'https://app.1ai.ink?t=' + Date.now()
 let downUrl_chatcn = 'https://qiniuchat.littlewheat.com/other/app/android/ChatGPT%E5%9B%BD%E5%86%85%E7%89%88.apk?t=' + Date.now()
 
 const collapsed = computed(() => appStore.siderCollapsed)
@@ -334,11 +334,12 @@ setTimeout(() => {
 <!--						必应聊天4.0前往-->
 <!--					</NButton>-->
 					<NButton v-if="!vipFlag||true"  block @click="toAppDown()">
-						安卓客户端下载
+						客户端下载（PC、安卓）
 					</NButton>
 					<NButton block @click="toVIP()">
 						Plus版-VIP通道
 					</NButton>
+
 <!--					<NButton block @click="show = true">-->
 <!--						{{ $t('store.siderButton') }}-->
 <!--					</NButton>-->

@@ -19,7 +19,7 @@ const userInfo = computed(() => userStore.userInfo)
 
 let defaultQNAvatar = "https://qiniuchat.littlewheat.com/other/avatar.jpg"
 
-let downUrl_1chat = 'https://qiniuchat.littlewheat.com/other/app/android/1chat.apk?t=' + Date.now()
+let downUrl_1chat = 'https://app.1ai.ink?t=' + Date.now()
 
 function toAppDown() {
 	window.location.href = downUrl_1chat
