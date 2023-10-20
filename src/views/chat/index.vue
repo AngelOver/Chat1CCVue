@@ -234,13 +234,13 @@ function handleSubmit() {
 	 try {
 		 let lastText = ''
 
-		 // let responsePromise = fetch('https://chatapi6.xn--4kq568ayhallt48a.cn/api/chat', {
+		 // let responsePromise = fetch('https://chatapi6.a1r.cc/api/chat', {
 			//  method: 'POST',
 			//  headers: {
 			// 	 'Accept': '*/*',
 			// 	 'Content-Type': 'application/json',
-			// 	 'Origin': 'https://chatapi6.xn--4kq568ayhallt48a.cn',
-			// 	 'Referer': 'https://chatapi6.xn--4kq568ayhallt48a.cn/zh',
+			// 	 'Origin': 'https://chatapi6.a1r.cc',
+			// 	 'Referer': 'https://chatapi6.a1r.cc/zh',
 			//  },
 			//  body: JSON.stringify(dataP)
 		 // });
@@ -257,13 +257,13 @@ function handleSubmit() {
 		 async function fetchResponse() {
 			 try {
 
-			 let response = await fetch('https://chatapi6.xn--4kq568ayhallt48a.cn/api/chat?'+ Math.random().toString(36).substring(2, 6)+minutes3, {
+			 let response = await fetch('https://chatapi6.a1r.cc/api/chat?'+ Math.random().toString(36).substring(2, 6)+minutes3, {
 				 method: 'POST',
 				 headers: {
 					 'Accept': '*/*',
 					 'Content-Type': 'application/json',
-					 'Origin': 'https://chatapi6.xn--4kq568ayhallt48a.cn',
-					 'Referer': 'https://chatapi6.xn--4kq568ayhallt48a.cn/zh',
+					 'Origin': 'https://chatapi6.a1r.cc',
+					 'Referer': 'https://chatapi6.a1r.cc/zh',
 					 'Authorization': minutes1,
 				 },
 				 body: JSON.stringify(dataP)

@@ -81,13 +81,13 @@ export function fetchChatAPIProcess<T = any>(
 
 
 	return post<T>({
-		url: 'https://chatapi6.xn--4kq568ayhallt48a.cn/chat',
+		url: 'https://chatapi6.a1r.cc/chat',
 		data: dataP,
 		headers: {
 			'Accept': '*/*',
 			'Content-Type': 'application/json',
-			'Origin': 'https://chatapi6.xn--4kq568ayhallt48a.cn',
-			'Referer': 'https://chatapi6.xn--4kq568ayhallt48a.cn/zh',
+			'Origin': 'https://chatapi6.a1r.cc',
+			'Referer': 'https://chatapi6.a1r.cc/zh',
 		},
 		signal: params.signal,
 		onDownloadProgress: params.onDownloadProgress,
