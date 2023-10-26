@@ -88,12 +88,14 @@ const msgNow = ref({
 	requestOptions: {prompt: 'AI思考中2', options: null},
 })
 
-if(vipFlag.value){
-	chatStore.setUsingContext(true)
-	//isFist.value = false
-}else if(usingContext.value){
-	chatStore.setUsingContext(false)
-}
+//
+// if(vipFlag.value){
+// 	chatStore.setUsingContext(true)
+// 	//isFist.value = false
+// }else if(usingContext.value){
+// 	chatStore.setUsingContext(false)
+// }
+//chatStore.setUsingContext(true)
 
 
 // 添加PromptStore
