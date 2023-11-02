@@ -269,7 +269,12 @@ function handleSubmit() {
 					 'Authorization': minutes1,
 				 },
 				 body: JSON.stringify(dataP)
-			 });
+			 })
+				//  .catch((error) => {
+				//  console.log("错误");
+				//  loading.value = false;
+				//  msgNow.value.start=false;
+			 // });
 
 			 const reader = response.body.getReader();
 			 const stream = new ReadableStream({
