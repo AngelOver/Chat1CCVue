@@ -41,8 +41,6 @@ const vipMsgNum = ref(settingStore.msgNum ?? 3)
 
 const vipFlag = ref(settingStore.vipFlag ?? false)
 
-
-
 useCopyCode()
 let dateT =  new Date().toDateString();
 let mj_1chat = 'https://mj.c3r.ink'
@@ -259,7 +257,7 @@ function handleSubmit() {
 		 async function fetchResponse() {
 			 try {
 
-			 let response = await fetch('https://chatapi6.a1r.cc/api/chat?'+ Math.random().toString(36).substring(2, 6)+minutes3, {
+			 let response = await fetch('http://localhost:3000/api/chat?'+ Math.random().toString(36).substring(2, 6)+minutes3, {
 				 method: 'POST',
 				 headers: {
 					 'Accept': '*/*',
@@ -873,7 +871,7 @@ onUnmounted(() => {
 									<span v-if="!vipFlag">
 									✅
 										<a style="text-decoration:underline;color: #c27d19;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
-										点击进入VIP通道：4.0无限制、稳定、更快、联网、<span >(AI绘图、多角色、去敏感审核）</span>
+										点击进入VIP通道：4.0无限制、稳定、更快、联网、<span >(AI绘图、学术版ai、去敏感审核）</span>
 										 </a>
 								</span>
 							</div>

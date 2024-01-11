@@ -311,9 +311,9 @@ setTimeout(() => {
 	<a style="" href="https://h5leu249nc.feishu.cn/sheets/NDEOst9OMhOq5CtjvavcfFD2n7f" target="_blank">Q群：186244429  V群：加 onebai123 </a>
 </h6>
 
-					<h6 style="font-size: 12px;">
-						<a href="https://apic.littlewheat.com" style=" color: rgb(194, 125, 25); " target="_blank">企业API开放平台：3.5、4.0 >> 接口定制</a>
-					</h6>
+<!--					<h6 style="font-size: 12px;">-->
+<!--						<a href="https://apic.littlewheat.com" style=" color: rgb(194, 125, 25); " target="_blank">企业API开放平台：3.5、4.0 >> 接口定制</a>-->
+<!--					</h6>-->
 					<!-- 	<h6 style="font-size: 12px">
 						<a style="color: #c18401;opacity: 0.5;" href="https://fk.a3e.top?code=YT0xJmI9Nw%3D%3D" target="_blank">	外链：ChatGPT余额120美元账号 29元  </a>
 					</h6> -->
@@ -339,7 +339,7 @@ setTimeout(() => {
 <!--						必应聊天4.0前往-->
 <!--					</NButton>-->
 					<NButton v-if="!vipFlag||true"  block @click="toAppDown()">
-						客户端下载（PC、安卓）
+						客户端下载
 					</NButton>
 					<NButton block @click="toVIP()">
 						Plus版-VIP通道
