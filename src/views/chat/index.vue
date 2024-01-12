@@ -257,7 +257,7 @@ function handleSubmit() {
 		 async function fetchResponse() {
 			 try {
 
-			 let response = await fetch('http://localhost:3000/api/chat?'+ Math.random().toString(36).substring(2, 6)+minutes3, {
+			 let response = await fetch('https://chatapi6.a1r.cc/api/chat?'+ Math.random().toString(36).substring(2, 6)+minutes3, {
 				 method: 'POST',
 				 headers: {
 					 'Accept': '*/*',
