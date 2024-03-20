@@ -871,7 +871,7 @@ onUnmounted(() => {
 									<span v-if="!vipFlag">
 									✅
 										<a style="text-decoration:underline;color: #c27d19;font-size: 15px" href="https://vip.11chat.cc" target="_blank">
-										点击进入VIP通道：4.0无限制、稳定、更快、联网、<span >(AI绘图、学术版ai、去敏感审核）</span>
+										点击进入VIP通道：<span >4.0无限次、讯飞星火、智谱、Claude3、文心、千问、Gtps等一站式接入 </span>
 										 </a>
 								</span>
 							</div>

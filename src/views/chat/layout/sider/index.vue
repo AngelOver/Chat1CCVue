@@ -342,7 +342,7 @@ setTimeout(() => {
 						客户端下载
 					</NButton>
 					<NButton block @click="toVIP()">
-						Plus版-VIP通道
+						专业版-VIP通道
 					</NButton>
 
 <!--					<NButton block @click="show = true">-->
